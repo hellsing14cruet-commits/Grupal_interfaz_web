@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingeniería Económica - Interés Simple | Grupo 10</title>
+    <style>
+        /* Paletas de Colores de los 3 Temas de Personalización */
+        :root {
+            --bg-principal: #f8fafc;
+            --bg-tarjeta: #ffffff;
+            --texto-primario: #0f172a;
+            --texto-secundario: #475569;
+            --color-acento: #2563eb;
+            --color-acento-hover: #1d4ed8;
+            --borde: #e2e8f0;
+            --bg-resultado: #f1f5f9;
+        }
+
+        [data-theme="oscuro"] {
+            --bg-principal: #0f172a;
+            --bg-tarjeta: #1e293b;
+            --texto-primario: #f8fafc;
+            --texto-secundario: #94a3b8;
+            --color-acento: #38bdf8;
+            --color-acento-hover: #0ea5e9;
+            --borde: #334155;
+            --bg-resultado: #0f172a;
+        }
+
+        [data-theme="esmeralda"] {
+            --bg-principal: #f0fdf4;
+            --bg-tarjeta: #ffffff;
+            --texto-primario: #14532d;
+            --texto-secundario: #166534;
+            --color-acento: #16a34a;
+            --color-acento-hover: #15803d;
+            --borde: #dcfce7;
+            --bg-resultado: #f0fdf4;
+        }
+
+        /* Estilos Generales Estructurados */
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-principal);
+            color: var(--texto-primario);
+            margin: 0;
+            padding: 0;
+            transition: all 0.3s ease;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--bg-tarjeta);
+            border-bottom: 1px solid var(--borde);
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo-grupo h1 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-grupo p {
+            margin: 0;
+            font-size: 14px;
+            color: var(--texto-secundario);
+        }
+
+        /* Controles de Temas */
+        .selector-tema {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-tema {
+            padding: 8px 14px;
+            border: 1px solid var(--borde);
+            background-color: var(--bg-tarjeta);
+            color: var(--texto-primario);
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .btn-tema:hover {
+            border-color: var(--color-acento);
+        }
+
+        .btn-tema.activo {
+            background-color: var(--color-acento);
+            color: white;
+            border-color: var(--color-acento);
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* Sección de Bienvenida Hero */
+        .seccion-hero {
+            background-color: var(--bg-tarjeta);
+            border: 1px solid var(--borde);
+            padding: 40px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+        }
+
+        /* Módulos de Contenido Curriculares */
+        .cuadrícula-contenido {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .cuadrícula-contenido { grid-template-columns: 1fr; }
+        }
+
+        .tarjeta-modulo {
+            background-color: var(--bg-tarjeta);
+            border: 1px solid var(--borde);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+        }
+
+        .tarjeta-modulo h2 {
+            margin-top: 0;
+            font-size: 20px;
+            border-left: 4px solid var(--color-acento);
+            padding-left: 10px;
+        }
+
+        .formula-box {
+            background-color: var(--bg-resultado);
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+            font-size: 18px;
+            text-align: center;
+            margin: 15px 0;
+        }
+
+        /* Formulario del Laboratorio de Cálculos */
+        .control-grupo {
+            margin-bottom: 15px;
+        }
+
+        .control-grupo label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: var(--texto-secundario);
+        }
+
+        .control-grupo input, .control-grupo select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--borde);
+            border-radius: 8px;
+            background-color: var(--bg-principal);
+            color: var(--texto-primario);
+            font-size: 15px;
+            box-sizing: border-box;
+        }
+
+        .control-grupo input:focus {
+            outline: 2px solid var(--color-acento);
+        }
+
+        .btn-calcular {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--color-acento);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn-calcular:hover {
+            background-color: var(--color-acento-hover);
+        }
+
+        .salida-resultado {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: var(--bg-resultado);
+            border-radius: 8px;
+            border-left: 4px solid var(--color-acento);
+        }
+
+        /* Botonera de Ejercicios Guiados */
+        .contenedor-ejercicios {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .btn-ejercicio {
+            padding: 12px;
+            background-color: var(--bg-principal);
+            border: 1px solid var(--borde);
+            color: var(--texto-primario);
+            border-radius: 8px;
+            text-align: left;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .btn-ejercicio:hover {
+            border-color: var(--color-acento);
+            background-color: var(--bg-tarjeta);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Cabecera de Navegación y Personalización -->
+    <header>
+        <div class="logo-grupo">
+            <h1>Economía Digital 7SC</h1>
+            <p>Diseñado por Grupo 10 • Curso 6sB</p>
+        </div>
+        <div class="selector-tema">
+            <button class="btn-tema activo" onclick="cambiarTema('claro', this)">☀️ Claro</button>
+            <button class="btn-tema" onclick="cambiarTema('oscuro', this)">🌙 Oscuro</button>
+            <button class="btn-tema" onclick="cambiarTema('esmeralda', this)">🌿 Esmeralda</button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Panel de Bienvenida Hero -->
+        <section class="seccion-hero">
+            <h2 style="margin-top:0; font-size: 28px;">¡Bienvenidos a nuestra Plataforma Interactiva!</h2>
+            <p>El **Grupo 10** les presenta un espacio interactivo optimizado para comprender a fondo los fundamentos teóricos del **Interés Simple**. Explora los conceptos oficiales provistos por la cátedra, pon a prueba tus conocimientos modificando los valores del simulador en tiempo real y analiza casos prácticos instantáneamente.</p>
+        </section>
+
+        <!-- Cuadrícula Principal Módulos Teóricos y Prácticos -->
+        <div class="cuadrícula-contenido">
+            
+            <!-- Bloque 1: Reseñas y Marco Conceptual Oficial -->
+            <div class="tarjeta-modulo">
+                <h2>Conceptos Básicos e Introducción</h2>
+                <p>El **Interés Simple** es el régimen financiero donde el capital que genera dicho interés permanece **constante** a lo largo del tiempo que dura la operación. Los intereses generados en periodos anteriores no se acumulan al capital base.</p>
+                
+                <p>La cantidad total del interés depende directamente de tres factores críticos:</p>
+                <ul>
+                    <li><strong>Capital (C):</strong> Cantidad inicial que se da en préstamo o inversión.</li>
+                    <li><strong>Plazo (n):</strong> Duración de la operación monetaria.</li>
+                    <li><strong>Tasa de Interés (i):</strong> Porcentaje por unidad de tiempo pactado.</li>
+                </ul>
+
+                <p>Fórmula estructural de cálculo:</p>
+                <div class="formula-box">I = C × i × n</div>
+                <p style="font-size: 13px; color: var(--texto-secundario);">*Regla fundamental: La tasa de interés y el plazo deben estar siempre expresados en la misma unidad de tiempo.</p>
+            </div>
+
+            <!-- Bloque 2: Simulador Matemático Inteligente -->
+            <div class="tarjeta-modulo">
+                <h2>Laboratorio de Cálculo en Tiempo Real</h2>
+                <p>Modifica libremente cualquiera de las variables a continuación para recalcular los resultados financieros instantáneamente.</p>
+                
+                <div class="control-grupo">
+                    <label for="sim-capital">Capital Inicial ($ C):</label>
+                    <input type="number" id="sim-capital" value="1000" oninput="calcularInteresDinamico()">
+                </div>
+
+                <div class="control-grupo">
