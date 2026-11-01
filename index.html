@@ -3,258 +3,253 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ingeniería Económica Premium - Grupo 10</title>
+    <title>Ingeniería Económica - Simulador Financiero Avanzado | Grupo 10</title>
     <style>
-        /* Variables de paleta de colores de alta gama: Verdes monetarios, oros y oscuros elegantes */
         :root {
-            --bg-deep: #0b1511;
-            --bg-card: #12241c;
-            --bg-input: #1a3227;
-            --gold-primary: #d4af37;
-            --gold-hover: #f3e5ab;
+            --bg-gradient: linear-gradient(135deg, #060d0a 0%, #0d1f16 100%);
+            --bg-card: rgba(18, 38, 28, 0.45);
+            --bg-input: #0a1410;
+            --gold-glow: #f3e5ab;
+            --gold-solid: #d4af37;
             --green-money: #2ecc71;
-            --text-light: #f4f7f6;
-            --text-muted: #a3b899;
-            --borde-elegante: rgba(212, 175, 55, 0.3);
+            --text-main: #f4f7f6;
+            --text-muted: #8fa89b;
+            --border-gold: rgba(214, 175, 55, 0.25);
+            --neon-shadow: 0 0 20px rgba(46, 204, 113, 0.2);
         }
 
         body {
             font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            background-color: var(--bg-deep);
-            color: var(--text-light);
+            background: var(--bg-gradient);
+            color: var(--text-main);
             margin: 0;
             padding: 0;
-            overflow-x: hidden;
             min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
         }
 
-        /* --- PORTADA 1: BIENVENIDA (ESTILO R RICO / PATO DINERO) --- */
-        #portada-bienvenida {
+        /* --- PANTALLA 1: BIENVENIDA (CINEMÁTICA Y ELEGANTE) --- */
+        #pantalla-bienvenida {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
             text-align: center;
-            background: radial-gradient(circle at center, #163526 0%, var(--bg-deep) 70%);
-            padding: 20px;
+            padding: 40px 20px;
             box-sizing: border-box;
+            width: 100%;
+            max-width: 800px;
             transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .contenedor-avatar {
-            width: 180px;
-            height: 180px;
-            background: linear-gradient(135deg, var(--gold-primary), var(--green-money));
+        .emblema-financiero {
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, rgba(46, 204, 113, 0.2) 0%, rgba(0,0,0,0) 70%);
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            box-shadow: 0 0 40px rgba(46, 204, 113, 0.4);
-            margin-bottom: 25px;
-            position: relative;
-            border: 4px solid var(--gold-primary);
-        }
-
-        /* Iconografía creativa inspirada en el Pato de la Fortuna y Monedas */
-        .contenedor-avatar::before {
-            content: "🦆💰";
             font-size: 80px;
+            margin-bottom: 30px;
+            border: 2px solid var(--border-gold);
+            box-shadow: 0 0 30px rgba(214, 175, 55, 0.15);
+            animation: flotar 4s infinite ease-in-out;
         }
 
-        .lluvia-simbolos {
-            position: absolute;
-            font-size: 24px;
-            color: var(--gold-primary);
-            animation: flotar 3s infinite ease-in-out;
-        }
-
-        h1.titulo-portada {
-            font-size: 42px;
+        .titulo-bienvenida {
+            font-size: 46px;
             font-weight: 900;
-            color: var(--text-light);
-            margin: 0 0 10px 0;
+            letter-spacing: -1px;
+            margin: 0 0 15px 0;
             text-transform: uppercase;
-            letter-spacing: 2px;
         }
 
-        h1.titulo-portada span {
-            color: var(--gold-primary);
-            text-shadow: 0 0 10px rgba(214, 175, 55, 0.5);
+        .titulo-bienvenida span {
+            color: var(--gold-solid);
+            background: linear-gradient(to right, #ffe699, var(--gold-solid));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        .subtitulo-portada {
+        .subtitulo-bienvenida {
             font-size: 18px;
             color: var(--text-muted);
             max-width: 600px;
             margin-bottom: 40px;
-            font-style: italic;
+            line-height: 1.6;
         }
 
-        /* Botón de transición premium */
-        .btn-siguiente {
-            background: linear-gradient(135deg, var(--gold-primary) 0%, #b89326 100%);
-            color: #000;
-            font-size: 18px;
+        .btn-ingresar {
+            background: linear-gradient(135deg, var(--gold-solid) 0%, #b89326 100%);
+            color: #050a07;
+            font-size: 16px;
             font-weight: 800;
-            padding: 16px 40px;
+            padding: 18px 45px;
             border: none;
-            border-radius: 50px;
+            border-radius: 8px;
             cursor: pointer;
-            box-shadow: 0 8px 25px rgba(214, 175, 55, 0.4);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            box-shadow: 0 10px 25px rgba(214, 175, 55, 0.25);
             transition: all 0.3s ease;
+        }
+
+        .btn-ingresar:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(46, 204, 113, 0.4);
+            background: linear-gradient(135deg, var(--green-money) 0%, #27ae60 100%);
+            color: white;
+        }
+
+        /* --- PANTALLA 2: DASHBOARD INTEGRAL --- */
+        #dashboard-principal {
+            display: none;
+            opacity: 0;
+            width: 100%;
+            max-width: 1200px;
+            padding: 30px 20px;
+            box-sizing: border-box;
+            transition: opacity 0.5s ease;
+        }
+
+        .navbar-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-gold);
+            padding-bottom: 20px;
+            margin-bottom: 35px;
+        }
+
+        .navbar-brand h2 {
+            margin: 0;
+            font-size: 26px;
+            color: var(--gold-solid);
+            font-weight: 800;
+        }
+
+        .navbar-brand p {
+            margin: 5px 0 0 0;
+            color: var(--text-muted);
+            font-size: 13px;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
-        .btn-siguiente:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 12px 30px rgba(46, 204, 113, 0.6);
-            background: linear-gradient(135deg, var(--green-money) 0%, #27ae60 100%);
-            color: var(--text-light);
-        }
- /* --- PORTADA 2: CONTENIDO Y CALCULADORA (ESTILO MONOPOLY MILLONARIO) --- */
-        #panel-principal {
-            display: none; /* Se activa mediante JS */
-            opacity: 0;
-            transition: opacity 0.6s ease;
-            padding: 40px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .header-dashboard {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 2px solid var(--borde-elegante);
-            padding-bottom: 20px;
-            margin-bottom: 40px;
-        }
-
-        .header-info h2 {
-            margin: 0;
-            font-size: 28px;
-            color: var(--gold-primary);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .header-info p {
-            margin: 5px 0 0 0;
-            color: var(--text-muted);
-            font-weight: 600;
-        }
-
-        .avatar-monopoly {
-            font-size: 45px;
+        .emoticono-status {
+            font-size: 32px;
             background: var(--bg-card);
-            padding: 10px;
-            border-radius: 12px;
-            border: 1px solid var(--gold-primary);
-            box-shadow: inset 0 0 10px rgba(214, 175, 55, 0.2);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-gold);
         }
 
-        /* Cuadrícula de herramientas */
-        .grid-dashboard {
+        /* Distribución de Paneles */
+        .workspace-grid {
             display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 30px;
-            margin-bottom: 40px;
+            grid-template-columns: 1fr 1.1fr;
+            gap: 25px;
+            margin-bottom: 25px;
         }
 
         @media (max-width: 900px) {
-            .grid-dashboard { grid-template-columns: 1fr; }
+            .workspace-grid { grid-template-columns: 1fr; }
         }
 
-        .card-financiera {
+        .panel-modulo {
             background-color: var(--bg-card);
-            border: 1px solid var(--borde-elegante);
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            position: relative;
-            overflow: hidden;
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-gold);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
         }
 
-        .card-financiera::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--gold-primary), var(--green-money));
-        }
-
-        .card-financiera h3 {
+        .panel-modulo h3 {
             margin-top: 0;
-            color: var(--gold-primary);
-            font-size: 22px;
-            border-bottom: 1px dashed var(--borde-elegante);
-            padding-bottom: 10px;
+            color: var(--gold-solid);
+            font-size: 20px;
+            letter-spacing: -0.5px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding-bottom: 12px;
             margin-bottom: 20px;
         }
 
-        .formula-premium {
-            background: rgba(0, 0, 0, 0.4);
-            border: 1px solid var(--green-money);
-            padding: 20px;
-            border-radius: 12px;
+        .glosario-lista {
+            padding-left: 20px;
+            color: var(--text-muted);
+        }
+
+        .glosario-lista li {
+            margin-bottom: 12px;
+        }
+
+        .glosario-lista strong {
+            color: var(--text-main);
+        }
+
+        .visor-formula {
+            background: var(--bg-input);
+            border: 1px solid rgba(46, 204, 113, 0.3);
+            padding: 18px;
+            border-radius: 8px;
             text-align: center;
             font-family: 'Courier New', Courier, monospace;
             font-size: 24px;
             color: var(--green-money);
             font-weight: bold;
-            margin: 25px 0;
-            box-shadow: inset 0 0 15px rgba(46, 204, 113, 0.1);
+            margin: 20px 0;
+            box-shadow: inset 0 0 15px rgba(0,0,0,0.6);
         }
 
-        /* Inputs Estilizados */
-        .grupo-input {
-            margin-bottom: 20px;
+        /* Inputs de la Consola */
+        .control-grupo {
+            margin-bottom: 18px;
         }
 
-        .grupo-input label {
+        .control-grupo label {
             display: block;
-            font-size: 14px;
+            font-size: 12px;
             font-weight: 700;
-            margin-bottom: 8px;
             color: var(--text-muted);
+            margin-bottom: 8px;
             text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        .grupo-input input, .grupo-input select {
+        .control-grupo input, .control-grupo select {
             width: 100%;
-            padding: 12px 15px;
-            border: 1px solid var(--borde-elegante);
-            border-radius: 8px;
+            padding: 12px 14px;
+            border: 1px solid var(--border-gold);
+            border-radius: 6px;
             background-color: var(--bg-input);
-            color: var(--text-light);
-            font-size: 16px;
+            color: white;
+            font-size: 15px;
             font-weight: 600;
             box-sizing: border-box;
             transition: all 0.3s;
         }
 
-        .grupo-input input:focus {
+        .control-grupo input:focus {
             outline: none;
             border-color: var(--green-money);
-            box-shadow: 0 0 10px rgba(46, 204, 113, 0.3);
+            box-shadow: 0 0 10px rgba(46, 204, 113, 0.2);
         }
 
-        /* Pantallas de Resultados */
-        .pantalla-resultados {
-            background: linear-gradient(180deg, #090f0c 0%, #13241b 100%);
-            border: 2px solid var(--gold-primary);
-            border-radius: 12px;
+        /* Display de Resultados Moderno */
+        .terminal-resultados {
+            background: #050a07;
+            border: 1px solid var(--gold-solid);
+            border-radius: 8px;
             padding: 20px;
-            margin-top: 25px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            margin-top: 20px;
         }
 
-        .resultado-linea {
+        .fila-data {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -262,72 +257,84 @@
             border-bottom: 1px solid rgba(255,255,255,0.05);
         }
 
-        .resultado-linea:last-child { border: none; }
+        .fila-data:last-child { border: none; }
 
-        .resultado-valor {
-            font-size: 20px;
-            font-weight: 800;
+        .valor-computado {
+            font-size: 18px;
+            font-weight: 700;
             color: var(--green-money);
         }
 
-        .resultado-valor.total {
-            font-size: 24px;
-            color: var(--gold-primary);
-            text-shadow: 0 0 10px rgba(214, 175, 55, 0.3);
+        .valor-computado.total-destacado {
+            font-size: 22px;
+            color: var(--gold-solid);
+            text-shadow: 0 0 10px rgba(214, 175, 55, 0.2);
         }
 
-        /* Sección de Casos de Estudio */
-        .seccion-completa {
+        /* Sección de Casos Interactivos */
+        .seccion-full-width {
             grid-column: 1 / -1;
         }
 
-        .contenedor-botones-casos {
+        .contenedor-casos-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 15px;
-            margin-top: 20px;
+            margin-top: 15px;
         }
 
-        .btn-caso {
-            background-color: var(--bg-input);
-            border: 1px solid var(--borde-elegante);
-            color: var(--text-light);
+        .tarjeta-caso-btn {
+            background: var(--bg-input);
+            border: 1px solid var(--border-gold);
             padding: 20px;
-            border-radius: 12px;
+            border-radius: 8px;
             cursor: pointer;
             text-align: left;
             transition: all 0.2s ease;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
         }
 
-        .btn-caso:hover {
-            border-color: var(--gold-primary);
-            background-color: #213d30;
+        .tarjeta-caso-btn:hover {
+            border-color: var(--green-money);
             transform: translateY(-2px);
+            background: rgba(46, 204, 113, 0.05);
         }
 
-        .btn-caso h4 {
-            margin: 0;
-            color: var(--gold-primary);
+        .tarjeta-caso-btn h4 {
+            margin: 0 0 8px 0;
+            color: var(--gold-solid);
             font-size: 16px;
         }
 
-        .btn-caso p {
+        .tarjeta-caso-btn p {
             margin: 0;
             font-size: 13px;
             color: var(--text-muted);
+            line-height: 1.4;
         }
 
-        .bloque-explicacion {
-            margin-top: 25px;
+        .banner-explicacion {
+            margin-top: 20px;
             padding: 20px;
-            background-color: rgba(214, 175, 55, 0.05);
-            border-left: 4px solid var(--gold-primary);
+            background: rgba(214, 175, 55, 0.04);
+            border-left: 4px solid var(--gold-solid);
             border-radius: 4px;
             display: none;
         }
+
+        @keyframes flotar {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- INTERFAZ DE BIENVENIDA -->
+    <section id="pantalla-bienvenida">
+        <div class="emblema-financiero">🦆</div>
+        <h1 class="titulo-bienvenida">Plataforma Avanzada de <span>Ingeniería Económica</span></h1>
+        <p class="subtitulo-bienvenida">
 
         /* Animaciones */
         @keyframes flotar {
