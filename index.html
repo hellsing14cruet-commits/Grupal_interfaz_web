@@ -3,24 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ingeniería Económica Premium - Grupo 10</title>
+    <title>Ingeniería Económica - Simulador Financiero Avanzado | Grupo 10</title>
     <style>
-        /* Paleta Ejecutiva: Verdes monetarios, dorados y fondos oscuros sofisticados */
         :root {
-            --bg-deep: #0b130f;
-            --bg-card: #11221a;
-            --bg-input: #162e22;
+            --bg-gradient: linear-gradient(135deg, #060d0a 0%, #0d1f16 100%);
+            --bg-card: rgba(18, 38, 28, 0.45);
+            --bg-input: #0a1410;
             --gold-solid: #d4af37;
             --green-money: #2ecc71;
-            --text-light: #f4f7f6;
-            --text-muted: #8fa196;
+            --text-main: #f4f7f6;
+            --text-muted: #8fa89b;
             --border-gold: rgba(214, 175, 55, 0.25);
         }
 
         body {
             font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            background-color: var(--bg-deep);
-            color: var(--text-light);
+            background: var(--bg-gradient);
+            color: var(--text-main);
             margin: 0;
             padding: 0;
             min-height: 100vh;
@@ -30,122 +29,136 @@
             overflow-x: hidden;
         }
 
-        /* --- PORTADA 1: BIENVENIDA (ESTILO R RICO / PATO DINERO) --- */
-        #portada-bienvenida {
+        /* --- PORTADA 1: BIENVENIDA (ESTILO PATO DE LA FORTUNA) --- */
+        #pantalla-bienvenida {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
             text-align: center;
-            padding: 20px;
+            padding: 40px 20px;
             box-sizing: border-box;
             width: 100%;
             max-width: 800px;
-            transition: opacity 0.5s ease;
+            transition: all 0.5s ease;
         }
 
-        .avatar-pato {
-            font-size: 80px;
-            width: 150px;
-            height: 150px;
+        .emblema-financiero {
+            width: 140px;
+            height: 140px;
             background: radial-gradient(circle, rgba(46, 204, 113, 0.2) 0%, rgba(0,0,0,0) 70%);
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
+            font-size: 70px;
             margin-bottom: 25px;
-            border: 2px solid var(--gold-solid);
-            box-shadow: 0 0 30px rgba(214, 175, 55, 0.2);
-            animation: flotar 4s infinite ease-in-out;
+            border: 2px solid var(--border-gold);
+            box-shadow: 0 0 30px rgba(214, 175, 55, 0.15);
+            animation: flotarAnimacion 3s infinite ease-in-out;
         }
 
-        .titulo-portada {
+        /* Icono del Pato Dinero */
+        .emblema-financiero::before {
+            content: "🦆💰";
+        }
+
+        .titulo-bienvenida {
             font-size: 42px;
             font-weight: 900;
+            letter-spacing: -1px;
             margin: 0 0 15px 0;
             text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
-        .titulo-portada span {
+        .titulo-bienvenida span {
             color: var(--gold-solid);
-            text-shadow: 0 0 10px rgba(214, 175, 55, 0.4);
+            background: linear-gradient(to right, #ffe699, var(--gold-solid));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        .subtitulo-portada {
-            font-size: 18px;
+        .subtitulo-bienvenida {
+            font-size: 17px;
             color: var(--text-muted);
-            max-width: 600px;
+            max-width: 620px;
             margin-bottom: 40px;
             line-height: 1.6;
         }
 
-        .btn-siguiente {
+        /* El botón solicitado */
+        .btn-ingresar {
             background: linear-gradient(135deg, var(--gold-solid) 0%, #b89326 100%);
             color: #050a07;
             font-size: 16px;
             font-weight: 800;
             padding: 16px 45px;
             border: none;
-            border-radius: 8px;
+            border-radius: 50px;
             cursor: pointer;
             letter-spacing: 1px;
             text-transform: uppercase;
-            box-shadow: 0 8px 25px rgba(214, 175, 55, 0.3);
+            box-shadow: 0 10px 25px rgba(214, 175, 55, 0.25);
             transition: all 0.3s ease;
         }
 
-        .btn-siguiente:hover {
+        .btn-ingresar:hover {
             transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(46, 204, 113, 0.5);
+            box-shadow: 0 15px 30px rgba(46, 204, 113, 0.4);
             background: linear-gradient(135deg, var(--green-money) 0%, #27ae60 100%);
             color: white;
         }
 
-        /* --- PORTADA 2: DASHBOARD (ESTILO MONOPOLY MILLONARIO) --- */
+        /* --- PORTADA 2: CONTENIDO FINANCIERO CENTRAL --- */
         #dashboard-principal {
-            display: none; /* Se activa mediante JS */
+            display: none;
             opacity: 0;
             width: 100%;
-            max-width: 1150px;
-            padding: 40px 20px;
+            max-width: 1200px;
+            padding: 30px 20px;
             box-sizing: border-box;
             transition: opacity 0.5s ease;
         }
 
-        .header-dashboard {
+        .navbar-top {
             display: flex;
             justify-content: space-between;
             align-items: center;
             border-bottom: 1px solid var(--border-gold);
-            padding-bottom: 20px;
+            padding-bottom: 15px;
             margin-bottom: 35px;
         }
 
-        .header-info h2 {
+        .navbar-brand h2 {
             margin: 0;
             font-size: 26px;
             color: var(--gold-solid);
             font-weight: 800;
         }
 
-        .header-info p {
+        .navbar-brand p {
             margin: 5px 0 0 0;
             color: var(--text-muted);
             font-size: 13px;
             text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        .avatar-monopoly {
+        /* Icono del Millonario de Monopoly */
+        .emoticono-status {
             font-size: 36px;
             background: var(--bg-card);
-            padding: 10px 15px;
+            padding: 5px 15px;
             border-radius: 8px;
             border: 1px solid var(--border-gold);
         }
 
-        .grid-dashboard {
+        .emoticono-status::before {
+            content: "🎩👨‍💼";
+        }
+
+        /* Estructura en dos columnas */
+        .workspace-grid {
             display: grid;
             grid-template-columns: 1fr 1.1fr;
             gap: 25px;
@@ -153,18 +166,19 @@
         }
 
         @media (max-width: 900px) {
-            .grid-dashboard { grid-template-columns: 1fr; }
+            .workspace-grid { grid-template-columns: 1fr; }
         }
 
-        .card-financiera {
+        .panel-modulo {
             background-color: var(--bg-card);
+            backdrop-filter: blur(10px);
             border: 1px solid var(--border-gold);
             border-radius: 12px;
             padding: 25px;
             box-shadow: 0 15px 35px rgba(0,0,0,0.4);
         }
 
-        .card-financiera h3 {
+        .panel-modulo h3 {
             margin-top: 0;
             color: var(--gold-solid);
             font-size: 20px;
@@ -173,10 +187,23 @@
             margin-bottom: 20px;
         }
 
-        .formula-premium {
-            background: var(--bg-deep);
+        .glosario-lista {
+            padding-left: 20px;
+            color: var(--text-muted);
+        }
+
+        .glosario-lista li {
+            margin-bottom: 12px;
+        }
+
+        .glosario-lista strong {
+            color: var(--text-main);
+        }
+
+        .visor-formula {
+            background: var(--bg-input);
             border: 1px solid rgba(46, 204, 113, 0.3);
-            padding: 18px;
+            padding: 15px;
             border-radius: 8px;
             text-align: center;
             font-family: 'Courier New', Courier, monospace;
@@ -187,7 +214,7 @@
             box-shadow: inset 0 0 15px rgba(0,0,0,0.6);
         }
 
-        /* Controles de Entrada */
+        /* Elementos de Formulario */
         .control-grupo {
             margin-bottom: 18px;
         }
@@ -211,16 +238,10 @@
             font-size: 15px;
             font-weight: 600;
             box-sizing: border-box;
-            transition: all 0.3s;
         }
 
-        .control-grupo input:focus {
-            outline: none;
-            border-color: var(--green-money);
-        }
-
-        /* Pantallas de Resultados */
-        .pantalla-resultados {
+        /* Consola de Resultados */
+        .terminal-resultados {
             background: #050a07;
             border: 1px solid var(--gold-solid);
             border-radius: 8px;
@@ -228,7 +249,7 @@
             margin-top: 20px;
         }
 
-        .resultado-linea {
+        .fila-data {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -236,32 +257,32 @@
             border-bottom: 1px solid rgba(255,255,255,0.05);
         }
 
-        .resultado-linea:last-child { border: none; }
+        .fila-data:last-child { border: none; }
 
-        .resultado-valor {
+        .valor-computado {
             font-size: 18px;
             font-weight: 700;
             color: var(--green-money);
         }
 
-        .resultado-valor.total {
+        .valor-computado.total-destacado {
             font-size: 22px;
             color: var(--gold-solid);
         }
 
-        /* Sección de Casos Prácticos */
-        .seccion-completa {
+        /* Sección Inferior de Ejercicios */
+        .seccion-full-width {
             grid-column: 1 / -1;
         }
 
-        .contenedor-casos {
+        .contenedor-casos-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 15px;
             margin-top: 15px;
         }
 
-        .btn-caso {
+        .tarjeta-caso-btn {
             background: var(--bg-input);
             border: 1px solid var(--border-gold);
             padding: 20px;
@@ -271,25 +292,25 @@
             transition: all 0.2s ease;
         }
 
-        .btn-caso:hover {
+        .tarjeta-caso-btn:hover {
             border-color: var(--green-money);
             transform: translateY(-2px);
         }
 
-        .btn-caso h4 {
+        .tarjeta-caso-btn h4 {
             margin: 0 0 8px 0;
             color: var(--gold-solid);
             font-size: 16px;
         }
 
-        .btn-caso p {
+        .tarjeta-caso-btn p {
             margin: 0;
             font-size: 13px;
             color: var(--text-muted);
             line-height: 1.4;
         }
 
-        .bloque-explicacion {
+        .banner-explicacion {
             margin-top: 20px;
             padding: 20px;
             background: rgba(214, 175, 55, 0.04);
@@ -298,7 +319,7 @@
             display: none;
         }
 
-        @keyframes flotar {
+        @keyframes flotarAnimacion {
             0% { transform: translateY(0px); }
             50% { transform: translateY(-10px); }
             100% { transform: translateY(0px); }
@@ -308,27 +329,11 @@
 <body>
 
     <!-- PORTADA 1: BIENVENIDA -->
-    <section id="portada-bienvenida">
-        <div class="avatar-pato">🦆</div>
-        <h1 class="titulo-portada">Bienvenido al <span>Éxito Financiero</span></h1>
-        <p class="subtitulo-portada">
-            Explora la plataforma interactiva del <strong>Grupo 10 (Curso 6sB)</strong>. Un ecosistema tecnológico sofisticado de Ingeniería Económica para dominar los modelos matemáticos de Interés Simple.
+    <section id="pantalla-bienvenida">
+        <div class="emblema-financiero"></div>
+        <h1 class="titulo-bienvenida">Plataforma Avanzada de <span>Ingeniería Económica</span></h1>
+        <p class="subtitulo-bienvenida">
+            Desarrollado por los analistas del <strong>Grupo 10 • Curso 6sB</strong>. Un entorno computacional de alta fidelidad optimizado para proyectar y simular ecuaciones de valor bajo el régimen de Interés Simple.
         </p>
-        <button class="btn-siguiente" onclick="irAlDashboard()">Siguiente afortunado →</button>
-    </section>
 
-    <!-- PORTADA 2: DASHBOARD CALCULADORA -->
-    <main id="dashboard-principal">
-        <header class="header-dashboard">
-            <div class="header-info">
-                <h2>Cátedra de Ingeniería Económica</h2>
-                <p>Consola Analítica Central • Grupo 10 (6sB)</p>
-            </div>
-            <div class="avatar-monopoly">🎩</div>
-        </header>
-
-        <div class="grid-dashboard">
-            <!-- Bloque Conceptual -->
-            <div class="card-financiera">
-                <h3>Teoría del Capital Constante</h3>
 
