@@ -3,25 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ingeniería Económica - Simulador Financiero Avanzado | Grupo 10</title>
+    <title>Ingeniería Económica Premium - Grupo 10</title>
     <style>
+        /* Paleta Ejecutiva: Verdes monetarios, dorados y fondos oscuros sofisticados */
         :root {
-            --bg-gradient: linear-gradient(135deg, #060d0a 0%, #0d1f16 100%);
-            --bg-card: rgba(18, 38, 28, 0.45);
-            --bg-input: #0a1410;
-            --gold-glow: #f3e5ab;
+            --bg-deep: #0b130f;
+            --bg-card: #11221a;
+            --bg-input: #162e22;
             --gold-solid: #d4af37;
             --green-money: #2ecc71;
-            --text-main: #f4f7f6;
-            --text-muted: #8fa89b;
+            --text-light: #f4f7f6;
+            --text-muted: #8fa196;
             --border-gold: rgba(214, 175, 55, 0.25);
-            --neon-shadow: 0 0 20px rgba(46, 204, 113, 0.2);
         }
 
         body {
             font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            background: var(--bg-gradient);
-            color: var(--text-main);
+            background-color: var(--bg-deep);
+            color: var(--text-light);
             margin: 0;
             padding: 0;
             min-height: 100vh;
@@ -31,21 +30,23 @@
             overflow-x: hidden;
         }
 
-        /* --- PANTALLA 1: BIENVENIDA (CINEMÁTICA Y ELEGANTE) --- */
-        #pantalla-bienvenida {
+        /* --- PORTADA 1: BIENVENIDA (ESTILO R RICO / PATO DINERO) --- */
+        #portada-bienvenida {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            height: 100vh;
             text-align: center;
-            padding: 40px 20px;
+            padding: 20px;
             box-sizing: border-box;
             width: 100%;
             max-width: 800px;
-            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: opacity 0.5s ease;
         }
 
-        .emblema-financiero {
+        .avatar-pato {
+            font-size: 80px;
             width: 150px;
             height: 150px;
             background: radial-gradient(circle, rgba(46, 204, 113, 0.2) 0%, rgba(0,0,0,0) 70%);
@@ -53,29 +54,26 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 80px;
-            margin-bottom: 30px;
-            border: 2px solid var(--border-gold);
-            box-shadow: 0 0 30px rgba(214, 175, 55, 0.15);
+            margin-bottom: 25px;
+            border: 2px solid var(--gold-solid);
+            box-shadow: 0 0 30px rgba(214, 175, 55, 0.2);
             animation: flotar 4s infinite ease-in-out;
         }
 
-        .titulo-bienvenida {
-            font-size: 46px;
+        .titulo-portada {
+            font-size: 42px;
             font-weight: 900;
-            letter-spacing: -1px;
             margin: 0 0 15px 0;
             text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        .titulo-bienvenida span {
+        .titulo-portada span {
             color: var(--gold-solid);
-            background: linear-gradient(to right, #ffe699, var(--gold-solid));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 10px rgba(214, 175, 55, 0.4);
         }
 
-        .subtitulo-bienvenida {
+        .subtitulo-portada {
             font-size: 18px;
             color: var(--text-muted);
             max-width: 600px;
@@ -83,40 +81,40 @@
             line-height: 1.6;
         }
 
-        .btn-ingresar {
+        .btn-siguiente {
             background: linear-gradient(135deg, var(--gold-solid) 0%, #b89326 100%);
             color: #050a07;
             font-size: 16px;
             font-weight: 800;
-            padding: 18px 45px;
+            padding: 16px 45px;
             border: none;
             border-radius: 8px;
             cursor: pointer;
             letter-spacing: 1px;
             text-transform: uppercase;
-            box-shadow: 0 10px 25px rgba(214, 175, 55, 0.25);
+            box-shadow: 0 8px 25px rgba(214, 175, 55, 0.3);
             transition: all 0.3s ease;
         }
 
-        .btn-ingresar:hover {
+        .btn-siguiente:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(46, 204, 113, 0.4);
+            box-shadow: 0 12px 30px rgba(46, 204, 113, 0.5);
             background: linear-gradient(135deg, var(--green-money) 0%, #27ae60 100%);
             color: white;
         }
 
-        /* --- PANTALLA 2: DASHBOARD INTEGRAL --- */
+        /* --- PORTADA 2: DASHBOARD (ESTILO MONOPOLY MILLONARIO) --- */
         #dashboard-principal {
-            display: none;
+            display: none; /* Se activa mediante JS */
             opacity: 0;
             width: 100%;
-            max-width: 1200px;
-            padding: 30px 20px;
+            max-width: 1150px;
+            padding: 40px 20px;
             box-sizing: border-box;
             transition: opacity 0.5s ease;
         }
 
-        .navbar-top {
+        .header-dashboard {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -125,31 +123,29 @@
             margin-bottom: 35px;
         }
 
-        .navbar-brand h2 {
+        .header-info h2 {
             margin: 0;
             font-size: 26px;
             color: var(--gold-solid);
             font-weight: 800;
         }
 
-        .navbar-brand p {
+        .header-info p {
             margin: 5px 0 0 0;
             color: var(--text-muted);
             font-size: 13px;
             text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
-        .emoticono-status {
-            font-size: 32px;
+        .avatar-monopoly {
+            font-size: 36px;
             background: var(--bg-card);
             padding: 10px 15px;
             border-radius: 8px;
             border: 1px solid var(--border-gold);
         }
 
-        /* Distribución de Paneles */
-        .workspace-grid {
+        .grid-dashboard {
             display: grid;
             grid-template-columns: 1fr 1.1fr;
             gap: 25px;
@@ -157,43 +153,28 @@
         }
 
         @media (max-width: 900px) {
-            .workspace-grid { grid-template-columns: 1fr; }
+            .grid-dashboard { grid-template-columns: 1fr; }
         }
 
-        .panel-modulo {
+        .card-financiera {
             background-color: var(--bg-card);
-            backdrop-filter: blur(10px);
             border: 1px solid var(--border-gold);
             border-radius: 12px;
             padding: 25px;
             box-shadow: 0 15px 35px rgba(0,0,0,0.4);
         }
 
-        .panel-modulo h3 {
+        .card-financiera h3 {
             margin-top: 0;
             color: var(--gold-solid);
             font-size: 20px;
-            letter-spacing: -0.5px;
             border-bottom: 1px solid rgba(255,255,255,0.05);
             padding-bottom: 12px;
             margin-bottom: 20px;
         }
 
-        .glosario-lista {
-            padding-left: 20px;
-            color: var(--text-muted);
-        }
-
-        .glosario-lista li {
-            margin-bottom: 12px;
-        }
-
-        .glosario-lista strong {
-            color: var(--text-main);
-        }
-
-        .visor-formula {
-            background: var(--bg-input);
+        .formula-premium {
+            background: var(--bg-deep);
             border: 1px solid rgba(46, 204, 113, 0.3);
             padding: 18px;
             border-radius: 8px;
@@ -206,7 +187,7 @@
             box-shadow: inset 0 0 15px rgba(0,0,0,0.6);
         }
 
-        /* Inputs de la Consola */
+        /* Controles de Entrada */
         .control-grupo {
             margin-bottom: 18px;
         }
@@ -218,7 +199,6 @@
             color: var(--text-muted);
             margin-bottom: 8px;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
         }
 
         .control-grupo input, .control-grupo select {
@@ -237,11 +217,10 @@
         .control-grupo input:focus {
             outline: none;
             border-color: var(--green-money);
-            box-shadow: 0 0 10px rgba(46, 204, 113, 0.2);
         }
 
-        /* Display de Resultados Moderno */
-        .terminal-resultados {
+        /* Pantallas de Resultados */
+        .pantalla-resultados {
             background: #050a07;
             border: 1px solid var(--gold-solid);
             border-radius: 8px;
@@ -249,7 +228,7 @@
             margin-top: 20px;
         }
 
-        .fila-data {
+        .resultado-linea {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -257,33 +236,32 @@
             border-bottom: 1px solid rgba(255,255,255,0.05);
         }
 
-        .fila-data:last-child { border: none; }
+        .resultado-linea:last-child { border: none; }
 
-        .valor-computado {
+        .resultado-valor {
             font-size: 18px;
             font-weight: 700;
             color: var(--green-money);
         }
 
-        .valor-computado.total-destacado {
+        .resultado-valor.total {
             font-size: 22px;
             color: var(--gold-solid);
-            text-shadow: 0 0 10px rgba(214, 175, 55, 0.2);
         }
 
-        /* Sección de Casos Interactivos */
-        .seccion-full-width {
+        /* Sección de Casos Prácticos */
+        .seccion-completa {
             grid-column: 1 / -1;
         }
 
-        .contenedor-casos-grid {
+        .contenedor-casos {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 15px;
             margin-top: 15px;
         }
 
-        .tarjeta-caso-btn {
+        .btn-caso {
             background: var(--bg-input);
             border: 1px solid var(--border-gold);
             padding: 20px;
@@ -293,26 +271,25 @@
             transition: all 0.2s ease;
         }
 
-        .tarjeta-caso-btn:hover {
+        .btn-caso:hover {
             border-color: var(--green-money);
             transform: translateY(-2px);
-            background: rgba(46, 204, 113, 0.05);
         }
 
-        .tarjeta-caso-btn h4 {
+        .btn-caso h4 {
             margin: 0 0 8px 0;
             color: var(--gold-solid);
             font-size: 16px;
         }
 
-        .tarjeta-caso-btn p {
+        .btn-caso p {
             margin: 0;
             font-size: 13px;
             color: var(--text-muted);
             line-height: 1.4;
         }
 
-        .banner-explicacion {
+        .bloque-explicacion {
             margin-top: 20px;
             padding: 20px;
             background: rgba(214, 175, 55, 0.04);
@@ -330,11 +307,28 @@
 </head>
 <body>
 
-    <!-- INTERFAZ DE BIENVENIDA -->
-    <section id="pantalla-bienvenida">
-        <div class="emblema-financiero">🦆</div>
-        <h1 class="titulo-bienvenida">Plataforma Avanzada de <span>Ingeniería Económica</span></h1>
-        <p class="subtitulo-bienvenida">
+    <!-- PORTADA 1: BIENVENIDA -->
+    <section id="portada-bienvenida">
+        <div class="avatar-pato">🦆</div>
+        <h1 class="titulo-portada">Bienvenido al <span>Éxito Financiero</span></h1>
+        <p class="subtitulo-portada">
+            Explora la plataforma interactiva del <strong>Grupo 10 (Curso 6sB)</strong>. Un ecosistema tecnológico sofisticado de Ingeniería Económica para dominar los modelos matemáticos de Interés Simple.
+        </p>
+        <button class="btn-siguiente" onclick="irAlDashboard()">Siguiente afortunado →</button>
+    </section>
 
-        /* Animaciones */
-        @keyframes flotar {
+    <!-- PORTADA 2: DASHBOARD CALCULADORA -->
+    <main id="dashboard-principal">
+        <header class="header-dashboard">
+            <div class="header-info">
+                <h2>Cátedra de Ingeniería Económica</h2>
+                <p>Consola Analítica Central • Grupo 10 (6sB)</p>
+            </div>
+            <div class="avatar-monopoly">🎩</div>
+        </header>
+
+        <div class="grid-dashboard">
+            <!-- Bloque Conceptual -->
+            <div class="card-financiera">
+                <h3>Teoría del Capital Constante</h3>
+
