@@ -58,7 +58,6 @@
             animation: flotarAnimacion 3s infinite ease-in-out;
         }
 
-        /* Icono del Pato Dinero */
         .emblema-financiero::before {
             content: "🦆💰";
         }
@@ -86,7 +85,6 @@
             line-height: 1.6;
         }
 
-        /* El botón solicitado */
         .btn-ingresar {
             background: linear-gradient(135deg, var(--gold-solid) 0%, #b89326 100%);
             color: #050a07;
@@ -144,7 +142,6 @@
             letter-spacing: 1px;
         }
 
-        /* Icono del Millonario de Monopoly */
         .emoticono-status {
             font-size: 36px;
             background: var(--bg-card);
@@ -157,7 +154,6 @@
             content: "🎩👨‍💼";
         }
 
-        /* Estructura en dos columnas */
         .workspace-grid {
             display: grid;
             grid-template-columns: 1fr 1.1fr;
@@ -214,7 +210,6 @@
             box-shadow: inset 0 0 15px rgba(0,0,0,0.6);
         }
 
-        /* Elementos de Formulario */
         .control-grupo {
             margin-bottom: 18px;
         }
@@ -240,7 +235,6 @@
             box-sizing: border-box;
         }
 
-        /* Consola de Resultados */
         .terminal-resultados {
             background: #050a07;
             border: 1px solid var(--gold-solid);
@@ -270,7 +264,6 @@
             color: var(--gold-solid);
         }
 
-        /* Sección Inferior de Ejercicios */
         .seccion-full-width {
             grid-column: 1 / -1;
         }
@@ -290,6 +283,8 @@
             cursor: pointer;
             text-align: left;
             transition: all 0.2s ease;
+            width: 100%;
+            color: var(--text-main);
         }
 
         .tarjeta-caso-btn:hover {
@@ -335,5 +330,11 @@
         <p class="subtitulo-bienvenida">
             Desarrollado por los analistas del <strong>Grupo 10 • Curso 6sB</strong>. Un entorno computacional de alta fidelidad optimizado para proyectar y simular ecuaciones de valor bajo el régimen de Interés Simple.
         </p>
+        <button class="btn-ingresar" onclick="desplegarDashboard()">Siguiente afortunado →</button>
+    </section>
+
+    <!-- PORTADA 2: DASHBOARD PRINCIPAL -->
+    <main id="dashboard-principal">
+        <header class="navbar-top">
 
 
