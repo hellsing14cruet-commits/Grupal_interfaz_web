@@ -130,7 +130,7 @@
             box-shadow: 0 0 15px rgba(214, 175, 55, 0.2);
         }
 
-        /* PORTADA 1: BIENVENIDA */
+        /* PORTADA 1: BIENVENIDA CON NUEVO DISEÑO INSTITUCIONAL GRUPO 11 */
         #portada-bienvenida {
             display: flex;
             flex-direction: column;
@@ -146,19 +146,33 @@
             margin-bottom: 25px;
         }
 
-        .emblema-financiero {
-            width: 140px;
-            height: 140px;
-            background: radial-gradient(circle, rgba(46, 204, 113, 0.25) 0%, rgba(0,0,0,0) 75%);
+        .emblema-grupo-11 {
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, rgba(214, 175, 55, 0.25) 0%, rgba(4,9,7,0.9) 80%);
             border-radius: 50%;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            font-size: 55px;
-            font-weight: bold;
+            border: 2px solid var(--gold-primary);
+            box-shadow: 0 0 40px var(--green-glow), inset 0 0 20px rgba(214, 175, 55, 0.3);
+            padding: 10px;
+        }
+
+        .emblema-grupo-11 h3 {
             color: var(--gold-primary);
-            border: 2px solid var(--border-gold);
-            box-shadow: 0 0 40px var(--green-glow), inset 0 0 20px rgba(214, 175, 55, 0.2);
+            font-size: 24px;
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+        .emblema-grupo-11 span {
+            color: var(--green-money);
+            font-size: 11px;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-top: 4px;
         }
 
         .titulo-bienvenida {
@@ -447,12 +461,12 @@
             font-size: 13px;
         }
 
-        /* FÓRMULAS E IMÁGENES */
+        /* FÓRMULAS E IMÁGENES AMPLIADAS Y CLICKEABLES */
         .formulas-grid-scroll {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 15px;
-            max-height: 500px;
+            max-height: 450px;
             overflow-y: auto;
             padding-right: 10px;
             margin-top: 20px;
@@ -486,15 +500,22 @@
         }
 
         .imagen-formula-desplegada {
-            max-width: 100%;
+            width: 100%;
+            max-width: 900px;
             height: auto;
-            border-radius: 8px;
-            border: 1px solid var(--gold-primary);
-            box-shadow: 0 0 20px rgba(0,0,0,0.8);
+            border-radius: 10px;
+            border: 2px solid var(--gold-primary);
+            box-shadow: 0 10px 35px rgba(0,0,0,0.9);
             margin-top: 15px;
+            cursor: zoom-in;
+            transition: transform 0.3s ease;
         }
 
-        /* TEORÍA */
+        .imagen-formula-desplegada:hover {
+            transform: scale(1.01);
+        }
+
+        /* TEORÍA ENRIQUECIDA */
         .temas-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -553,8 +574,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(8px);
+            background: rgba(0, 0, 0, 0.88);
+            backdrop-filter: blur(10px);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -573,10 +594,10 @@
             background: #091710;
             border: 1px solid var(--gold-primary);
             border-radius: 16px;
-            padding: 35px;
-            max-width: 750px;
+            padding: 40px;
+            max-width: 850px;
             width: 90%;
-            max-height: 85vh;
+            max-height: 88vh;
             overflow-y: auto;
             position: relative;
         }
@@ -588,7 +609,7 @@
             background: transparent;
             border: none;
             color: var(--text-muted);
-            font-size: 26px;
+            font-size: 28px;
             cursor: pointer;
         }
 
@@ -596,27 +617,40 @@
 
         .modal-contenido h3 {
             color: var(--gold-primary);
-            font-size: 22px;
-            margin-bottom: 15px;
+            font-size: 24px;
+            margin-bottom: 18px;
             border-bottom: 1px solid var(--border-gold);
-            padding-bottom: 10px;
+            padding-bottom: 12px;
         }
 
         .modal-contenido h4 {
             color: var(--gold-light);
-            font-size: 16px;
-            margin-top: 15px;
-            margin-bottom: 8px;
+            font-size: 17px;
+            margin-top: 20px;
+            margin-bottom: 10px;
         }
 
         .modal-contenido p, .modal-contenido li {
             color: var(--text-main);
             font-size: 14px;
-            line-height: 1.7;
-            margin-bottom: 10px;
+            line-height: 1.8;
+            margin-bottom: 12px;
         }
 
-        .modal-contenido ul { padding-left: 20px; margin-bottom: 15px; }
+        .modal-contenido ul { padding-left: 22px; margin-bottom: 15px; }
+
+        /* LIGHTBOX PARA IMÁGENES EN GRANDE */
+        #lightbox-modal {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.95);
+            display: flex; justify-content: center; align-items: center;
+            z-index: 2000;
+            opacity: 0; pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        #lightbox-modal.activo { opacity: 1; pointer-events: auto; }
+        #lightbox-img { max-width: 95%; max-height: 95vh; border: 2px solid var(--gold-primary); border-radius: 8px; }
 
         .footer-derechos {
             text-align: center;
@@ -632,17 +666,20 @@
 </head>
 <body>
 
-    <!-- PORTADA 1: BIENVENIDA -->
+    <!-- PORTADA 1: BIENVENIDA CON NUEVO DISEÑO INSTITUCIONAL GRUPO 11 -->
     <section id="portada-bienvenida" class="portada-seccion visible">
         <div class="emblema-wrapper">
-            <div class="emblema-financiero">$</div>
+            <div class="emblema-grupo-11">
+                <h3>G-11</h3>
+                <span>Económica</span>
+            </div>
         </div>
         <div class="badge-grupo">UNIVERSIDAD AGRARIA DEL ECUADOR</div>
         <h1 class="titulo-bienvenida">
             Bienvenidos a la Plataforma de <br><span>Ingeniería Económica</span>
         </h1>
         <p class="subtitulo-bienvenida">
-            La Ingeniería Económica es la disciplina analítica que evalúa y mide el valor financiero del dinero en el tiempo para optimizar la toma de decisiones estratégicas en proyectos y recursos limitados.
+            La Ingeniería Económica es la disciplina analítica encargada de formular, estimar y evaluar los resultados económicos cuando se dispone de alternativas limitadas para llevar a cabo un propósito determinado.
         </p>
         <button class="btn-ingresar" onclick="navegarA('portada-simulador')">
             Siguiente afortunado →
@@ -761,7 +798,7 @@
         </div>
     </section>
 
-    <!-- PORTADA: CONOCIMIENTO LIBRE (CATÁLOGO COMPLETO DE FÓRMULAS VINCULADO) -->
+    <!-- PORTADA: CONOCIMIENTO LIBRE -->
     <section id="portada-formulas" class="portada-seccion oculto">
         <header class="navbar-top">
             <div class="navbar-brand">
@@ -778,9 +815,9 @@
         </header>
 
         <div class="panel-modulo">
-            <h3>Seleccione una Fórmula para ver la Imagen del Proceso</h3>
+            <h3>Seleccione una Fórmula para ver la Imagen Detallada</h3>
             <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 15px;">
-                Haz clic sobre cualquier tema para cargar automáticamente la imagen correspondiente desde tu repositorio en GitHub:
+                Haz clic sobre cualquier tema para cargar la imagen en gran tamaño. Puedes hacer clic sobre la imagen desplegada para verla en pantalla completa:
             </p>
 
             <div class="formulas-grid-scroll">
@@ -890,7 +927,6 @@
                 </div>
             </div>
 
-            <!-- VISOR DINÁMICO DE LA IMAGEN DE LA FÓRMULA -->
             <div id="caja-proceso-formula" class="panel-detalle-formula oculto" style="margin-top:25px; padding:20px; background:#020604; border:1px solid var(--gold-primary); border-radius:12px; text-align:center;">
                 <h4 id="titulo-proceso-formula" style="color:var(--gold-primary); margin-bottom:10px;">Seleccione una opción arriba</h4>
                 <div id="contenido-proceso-formula"></div>
@@ -898,7 +934,7 @@
         </div>
     </section>
 
-    <!-- PORTADA: INTEGRANTES (ÚNICA REFERENCIA AL GRUPO 11) -->
+    <!-- PORTADA: INTEGRANTES -->
     <section id="portada-integrantes" class="portada-seccion oculto">
         <header class="navbar-top">
             <div class="navbar-brand">
@@ -972,89 +1008,99 @@
         </header>
 
         <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 20px; text-align: center;">
-            Selecciona cada módulo temático para estudiar los conceptos parafraseados, características y el cuadro oficial de fórmulas de la cátedra:
+            Selecciona cada módulo temático para estudiar los conceptos avanzados, fundamentos analíticos y características operativas de la materia:
         </p>
 
         <div class="temas-grid">
             <div class="tarjeta-tema" onclick="abrirModal('modal-interes')">
                 <div class="icono-tema">IS</div>
-                <h4>Interés Simple</h4>
-                <p>Concepto parafraseado, características operativas y cuadro oficial de fórmulas.</p>
+                <h4>Interés Simple y Compuesto</h4>
+                <p>Estudio detallado de la acumulación del dinero, tasas nominales, efectivas y rendimiento financiero a plazos.</p>
             </div>
 
             <div class="tarjeta-tema" onclick="abrirModal('modal-descuento')">
                 <div class="icono-tema">DS</div>
-                <h4>Descuento Simple</h4>
-                <p>Definición analítica, análisis de valor nominal y rebajas aplicadas a documentos financieros.</p>
+                <h4>Descuento y Títulos Valores</h4>
+                <p>Análisis de letras de cambio, pagarés, descuento comercial y anticipación de liquidez empresarial.</p>
             </div>
 
             <div class="tarjeta-tema" onclick="abrirModal('modal-diagramas')">
-                <div class="icono-tema">DT</div>
-                <h4>Diagramas de Tiempo</h4>
-                <p>Representación cronológica de flujos de efectivo y aplicación de fechas focales equivalentes.</p>
+                <div class="icono-tema">EV</div>
+                <h4>Ecuaciones de Valor y Fechas Focales</h4>
+                <p>Sustitución de obligaciones contractuales, acuerdos de tasa y ubicación de la fecha focal de evaluación.</p>
             </div>
 
             <div class="tarjeta-tema" onclick="abrirModal('modal-amortizacion')">
                 <div class="icono-tema">AM</div>
-                <h4>Amortizaciones</h4>
-                <p>Extinción gradual de deudas bajo cuotas fijas o constantes en el tiempo.</p>
+                <h4>Amortizaciones y Depreciación</h4>
+                <p>Tablas de pagos para extinción de deudas, gradientes aritméticos, geométricos y métodos de depreciación de activos.</p>
             </div>
         </div>
     </section>
 
-    <!-- MODAL DE INTERÉS SIMPLE -->
+    <!-- MODAL TEORÍA 1: INTERÉS -->
     <div id="modal-interes" class="modal-overlay">
         <div class="modal-contenido">
             <button class="btn-cerrar-modal" onclick="cerrarModal('modal-interes')">&times;</button>
-            <h3>Interés Simple: Concepto y Fórmulas Teóricas</h3>
+            <h3>Régimen de Interés Simple y Compuesto</h3>
+            <h4>Fundamento Teórico</h4>
+            <p>El dinero posee un valor en el tiempo debido a la inflación, el riesgo y la oportunidad de inversión. El interés simple calcula el rédito siempre sobre el capital inicial, manteniendo un crecimiento lineal aritmético. Por su parte, el interés compuesto capitaliza los intereses generados en periodos previos, generando un crecimiento exponencial.</p>
+        </div>
+    </div>
+
+    <!-- MODAL TEORÍA 2: DESCUENTO -->
+    <div id="modal-descuento" class="modal-overlay">
+        <div class="modal-contenido">
+            <button class="btn-cerrar-modal" onclick="cerrarModal('modal-descuento')">&times;</button>
+            <h3>Descuento Comercial y Operaciones con Títulos</h3>
+            <h4>Fundamento Teórico</h4>
+            <p>El descuento es la operación financiera que tiene por objeto la anticipación de un capital que es vencido en el futuro. Se instrumenta mediante títulos valores como pagarés o letras de cambio.</p>
+        </div>
+    </div>
+
+    <!-- MODAL TEORÍA 3: ECUACIONES DE VALOR (INSTRUMENTOS WEB) -->
+    <div id="modal-diagramas" class="modal-overlay">
+        <div class="modal-contenido">
+            <button class="btn-cerrar-modal" onclick="cerrarModal('modal-diagramas')">&times;</button>
+            <h3>Ecuaciones de Valor y Diagramas de Tiempo</h3>
+            <h4>Concepto Fundamental</h4>
+            <p>Se las utiliza cuando es conveniente para un deudor cambiar el conjunto de sus obligaciones por otro conjunto. Para efectuar estas operaciones tanto el deudor como el acreedor deben estar de acuerdo con la tasa de interés que ha de utilizarse en la transacción y en la fecha en la que se llevará a cabo (fecha focal).</p>
             
-            <h4>¿Qué es? (Concepto Parafraseado)</h4>
-            <p>El interés simple representa el rédito generado por un capital inicial que permanece estático y constante durante toda la vigencia del contrato financiero. A diferencia del régimen compuesto, los intereses devengados en cada periodo no se acumulan al capital principal para producir nuevas ganancias.</p>
+            <h4>Instrumento Web / Gráfica Oficial de Ecuaciones de Valor</h4>
+            <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 10px;">Visualización conectada desde tu repositorio en GitHub:</p>
             
-            <h4>Características Principales</h4>
+            <div style="text-align: center; background: #020604; padding: 15px; border-radius: 10px; border: 1px solid var(--border-green);">
+                <img src="https://raw.githubusercontent.com/hellsing14cruet-commits/Intrumetos-web/main/ecuaciones_de_valor.png" alt="Instrumento Web - Ecuaciones de Valor" class="imagen-formula-desplegada" onclick="abrirLightbox(this.src)" onerror="this.onerror=null; this.src='https://via.placeholder.com/600x250?text=Instrumento+Web+Ecuaciones+de+Valor';">
+            </div>
+
+            <h4 style="margin-top: 20px;">Condiciones del Acuerdo Contractual</h4>
             <ul>
-                <li><strong>Cálculo Lineal:</strong> Los intereses se calculan siempre sobre la misma base del capital inicial, sin reinversión de intereses.</li>
-                <li><strong>Crecimiento Constante:</strong> El rédito total aumenta de manera proporcional al tiempo transcurrido de forma aritmética.</li>
-                <li><strong>Proporcionalidad Temporal:</strong> El beneficio económico guarda una relación directa y lineal con la tasa y los plazos pactados.</li>
+                <li><strong>Acuerdo de Tasa:</strong> Ambas partes establecen una misma tasa de interés de rendimiento o descuento para revaluar todas las deudas vigentes y proyectadas.</li>
+                <li><strong>Fecha Focal:</strong> Momento cronológico estratégico seleccionado para llevar todos los flujos de dinero antiguos y nuevos para igualarlos formalmente.</li>
             </ul>
         </div>
     </div>
 
-    <!-- MODAL DE DESCUENTO SIMPLE -->
-    <div id="modal-descuento" class="modal-overlay">
-        <div class="modal-contenido">
-            <button class="btn-cerrar-modal" onclick="cerrarModal('modal-descuento')">&times;</button>
-            <h3>Descuento Simple y Comercial</h3>
-            <h4>¿Qué es?</h4>
-            <p>Es la operación financiera inversa al interés simple, la cual consiste en deducir o descontar una cantidad proporcional al valor nominal de un título valor por anticipar su cobro antes de la fecha de vencimiento.</p>
-        </div>
-    </div>
-
-    <!-- MODAL DE DIAGRAMAS -->
-    <div id="modal-diagramas" class="modal-overlay">
-        <div class="modal-contenido">
-            <button class="btn-cerrar-modal" onclick="cerrarModal('modal-diagramas')">&times;</button>
-            <h3>Diagramas de Tiempo y Ecuaciones de Valor</h3>
-            <h4>¿Qué es?</h4>
-            <p>Son ejes horizontales orientados cronológicamente que permiten mapear de forma visual todos los ingresos y egresos de efectivo vinculados a un proyecto.</p>
-        </div>
-    </div>
-
-    <!-- MODAL DE AMORTIZACIÓN -->
+    <!-- MODAL TEORÍA 4: AMORTIZACIÓN -->
     <div id="modal-amortizacion" class="modal-overlay">
         <div class="modal-contenido">
             <button class="btn-cerrar-modal" onclick="cerrarModal('modal-amortizacion')">&times;</button>
-            <h3>Amortizaciones de Crédito</h3>
-            <h4>¿Qué es?</h4>
-            <p>Proceso mediante el cual se liquida una deuda y sus respectivos intereses financieros a través de pagos periódicos programados durante la vida útil del préstamo.</p>
+            <h3>Sistemas de Amortización y Depreciación de Activos</h3>
+            <h4>Amortización de Créditos</h4>
+            <p>Proceso financiero mediante el cual se liquida una deuda de manera gradual por medio de pagos periódicos que cubren tanto los intereses devengados como una porción del capital principal.</p>
         </div>
+    </div>
+
+    <!-- LIGHTBOX PARA VER IMÁGENES EN PANTALLA COMPLETA -->
+    <div id="lightbox-modal" onclick="cerrarLightbox()">
+        <img id="lightbox-img" src="" alt="Ampliación">
     </div>
 
     <footer class="footer-derechos">
         Universidad Agraria del Ecuador • Facultad de Ciencias Agrarias © 2026. Todos los derechos reservados.
     </footer>
 
-    <!-- SCRIPT DE CONTROL CON CARGA DINÁMICA DE IMÁGENES -->
+    <!-- SCRIPT DE CONTROL -->
     <script>
         function navegarA(idPortada) {
             document.querySelectorAll('.portada-seccion').forEach(p => {
@@ -1112,16 +1158,26 @@
             const contenido = document.getElementById('contenido-proceso-formula');
             
             caja.classList.remove('oculto');
-            titulo.innerHTML = tituloFormula;
+            titulo.innerHTML = tituloFormula + " (Haz clic en la imagen para ampliar)";
             
-            // Ruta directa configurada desde tu repositorio en GitHub
             const urlRaw = `https://raw.githubusercontent.com/hellsing14cruet-commits/formulasimagenes/main/${encodeURIComponent(nombreArchivo)}`;
             
             contenido.innerHTML = `
-                <img src="${urlRaw}" alt="${tituloFormula}" class="imagen-formula-desplegada" onerror="this.onerror=null; this.src='https://via.placeholder.com/600x200?text=Imagen+en+proceso+de+carga';">
+                <img src="${urlRaw}" alt="${tituloFormula}" class="imagen-formula-desplegada" onclick="abrirLightbox('${urlRaw}')" onerror="this.onerror=null; this.src='https://via.placeholder.com/600x200?text=Imagen+en+proceso+de+carga';">
             `;
             
             caja.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        function abrirLightbox(url) {
+            const lb = document.getElementById('lightbox-modal');
+            const img = document.getElementById('lightbox-img');
+            img.src = url;
+            lb.classList.add('activo');
+        }
+
+        function cerrarLightbox() {
+            document.getElementById('lightbox-modal').classList.remove('activo');
         }
 
         function abrirModal(id) { document.getElementById(id).classList.add('activo'); }
