@@ -220,7 +220,7 @@
             color: #ffffff;
         }
 
-        /* MÓDULOS Y GRID */
+        /* GRID Y PANELES */
         .workspace-grid {
             display: grid;
             grid-template-columns: 1fr 1.1fr;
@@ -387,7 +387,7 @@
             color: #000;
         }
 
-        /* INTEGRANTES Y ESCUDO */
+        /* INTEGRANTES */
         .escudo-container {
             text-align: center;
             margin-bottom: 25px;
@@ -447,42 +447,54 @@
             font-size: 13px;
         }
 
-        /* FÓRMULAS */
-        .formulas-grid {
+        /* FÓRMULAS E IMÁGENES */
+        .formulas-grid-scroll {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 15px;
+            max-height: 500px;
+            overflow-y: auto;
+            padding-right: 10px;
             margin-top: 20px;
         }
 
-        .tarjeta-formula-menu {
+        .tarjeta-formula-item {
             background: var(--bg-card);
             border: 1px solid var(--border-gold);
-            border-radius: 14px;
-            padding: 22px;
-            text-align: center;
+            border-radius: 10px;
+            padding: 15px;
             cursor: pointer;
             transition: all 0.3s ease;
         }
 
-        .tarjeta-formula-menu:hover {
+        .tarjeta-formula-item:hover {
             border-color: var(--green-money);
             background: var(--bg-card-hover);
-            transform: translateY(-4px);
+            transform: translateY(-2px);
         }
 
-        .tarjeta-formula-menu h4 {
-            color: var(--gold-light);
-            font-size: 16px;
-            margin-bottom: 8px;
+        .tarjeta-formula-item h5 {
+            color: var(--gold-primary);
+            font-size: 14px;
+            margin-bottom: 4px;
         }
 
-        .tarjeta-formula-menu p {
+        .tarjeta-formula-item span {
             color: var(--text-muted);
-            font-size: 12px;
+            font-size: 11px;
+            display: block;
         }
 
-        /* TEORÍA Y MÓDULOS */
+        .imagen-formula-desplegada {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid var(--gold-primary);
+            box-shadow: 0 0 20px rgba(0,0,0,0.8);
+            margin-top: 15px;
+        }
+
+        /* TEORÍA */
         .temas-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -532,23 +544,6 @@
             color: var(--text-muted);
             font-size: 13px;
             line-height: 1.5;
-        }
-
-        .contenedor-formulas-teoricas {
-            background: #020604;
-            border: 1px solid var(--border-green);
-            border-radius: 12px;
-            padding: 20px;
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .imagen-formulas-teoricas {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            border: 1px solid var(--border-gold);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.8);
         }
 
         /* MODALES */
@@ -738,7 +733,6 @@
             </div>
         </div>
 
-        <!-- EJERCICIOS PRÁCTICOS DE DIAPOSITIVAS RESTAURADOS -->
         <div class="panel-modulo">
             <h3>Ejercicios Prácticos de Diapositivas (Semana 1 - 3)</h3>
             <p style="color: var(--text-muted); font-size: 13px;">
@@ -767,12 +761,12 @@
         </div>
     </section>
 
-    <!-- PORTADA: FÓRMULAS (CONOCIMIENTO LIBRE) -->
+    <!-- PORTADA: CONOCIMIENTO LIBRE (CATÁLOGO COMPLETO DE FÓRMULAS VINCULADO) -->
     <section id="portada-formulas" class="portada-seccion oculto">
         <header class="navbar-top">
             <div class="navbar-brand">
                 <h2>Conocimiento Libre - Ingeniería Económica</h2>
-                <p>Compendio de Ecuaciones y Procesos de Cálculo</p>
+                <p>Compendio Visual de Ecuaciones y Procesos de Cálculo</p>
             </div>
             <div class="nav-links">
                 <button class="btn-nav" onclick="navegarA('portada-bienvenida')">Inicio</button>
@@ -784,31 +778,122 @@
         </header>
 
         <div class="panel-modulo">
-            <h3>Seleccione una Fórmula para ver su Proceso</h3>
-            <div class="formulas-grid">
-                <div class="tarjeta-formula-menu" onclick="mostrarProcesoFormula('interes')">
-                    <h4>Interés Simple</h4>
-                    <p>Ver diagrama y ecuaciones analíticas</p>
+            <h3>Seleccione una Fórmula para ver la Imagen del Proceso</h3>
+            <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 15px;">
+                Haz clic sobre cualquier tema para cargar automáticamente la imagen correspondiente desde tu repositorio en GitHub:
+            </p>
+
+            <div class="formulas-grid-scroll">
+                <div class="tarjeta-formula-item" onclick="cargarImagenFormula('pagina 61.PNG', 'Enésimo término de las progresiones aritméticas')">
+                    <h5>Enésimo término progresión aritmética</h5>
+                    <span>Página 61</span>
                 </div>
-                <div class="tarjeta-formula-menu" onclick="mostrarProcesoFormula('monto')">
-                    <h4>Monto Acumulado</h4>
-                    <p>Ver ecuaciones y desarrollo</p>
+                <div class="tarjeta-formula-item" onclick="cargarImagenFormula('pagina 63.PNG', 'Suma de los primeros términos de una serie aritmética')">
+                    <h5>Suma serie aritmética</h5>
+                    <span>Página 63</span>
                 </div>
-                <div class="tarjeta-formula-menu" onclick="mostrarProcesoFormula('descuento')">
-                    <h4>Descuento Comercial</h4>
-                    <p>Ver esquema y valor líquido</p>
+                <div class="tarjeta-formula-item" onclick="cargarImagenFormula('pagina 69.PNG', 'Enésimo término de las progresiones geométricas')">
+                    <h5>Enésimo término progresión geométrica</h5>
+                    <span>Página 69</span>
                 </div>
-                <div class="tarjeta-formula-menu" onclick="mostrarProcesoFormula('amortizacion')">
-                    <h4>Amortización Constante</h4>
-                    <p>Ver procesos de crédito</p>
+                <div class="tarjeta-formula-item" onclick="cargarImagenFormula('pagina 71.PNG', 'Suma de los primeros n términos de una serie geométrica')">
+                    <h5>Suma serie geométrica</h5>
+                    <span>Página 71</span>
+                </div>
+                <div class="tarjeta-formula-item" onclick="cargarImagenFormula('pagina 95.PNG', 'Intereses simples y relaciones del capital')">
+                    <h5>Intereses</h5>
+                    <span>Página 95</span>
+                </div>
+                <div class="tarjeta-formula-item" onclick="cargarImagenFormula('pagina 96.PNG', 'Fórmula del interés simple y monto acumulado')">
+                    <h5>Fórmula del interés simple</h5>
+                    <span>Página 96</span>
+                </div>
+                <div class="tarjeta-formula-item" onclick="cargarImagenFormula('pagina 111.PNG', 'Valor comercial de un documento con descuento simple')">
+                    <h5>Valor comercial con descuento simple</h5>
+                    <span>Página 111</span>
+                </div>
+                <div class="tarjeta-formula-item" onclick="cargarImagenFormula('pagina 131.PNG', 'Amortización de un crédito con interés simple')">
+                    <h5>Amortización crédito interés simple</h5>
+                    <span>Página 131</span>
+                </div>
+                <div class="tarjeta-formula-item" onclick="cargarImagenFormula('pagina 133.PNG', 'Tasa de interés global total')">
+                    <h5>Tasa de interés global total</h5>
+                    <span>Página 133</span>
+                </div>
+                <div class="tarjeta-formula-item" onclick="cargarImagenFormula('pagina 134.PNG', 'Saldo insoluto en operaciones de crédito con interés simple')">
+                    <h5>Saldo insoluto crédito interés simple</h5>
+                    <span>Página 134</span>
+                </div>
+                <div class="tarjeta-formula-item" onclick="cargarImagenFormula('pagina 168.PNG', 'Fórmula del interés compuesto')">
+                    <h5>Fórmula del interés compuesto</h5>
+                    <span>Página 168</span>
+                </div>
+                <div class="tarjeta-formula-item" onclick="cargarImagenFormula('pagina 178.PNG', 'Tasa de interés efectiva')">
+                    <h5>Tasa de interés efectiva</h5>
+                    <span>Página 178</span>
+                </div>
+                <div class="tarjeta-formula-item" onclick="cargarImagenFormula('pagina 230.PNG', 'Monto acumulado en una anualidad anticipada')">
+                    <h5>Monto acumulado anualidad anticipada</h5>
+                    <span>Página 230</span>
+                </div>
+                <div class="tarjeta-formula-item" onclick="cargarImagenFormula('pagina 240.PNG', 'Valor presente de una anualidad ordinaria')">
+                    <h5>Valor presente anualidad ordinaria</h5>
+                    <span>Página 240</span>
+                </div>
+                <div class="tarjeta-formula-item" onclick="cargarImagenFormula('pagina 249.PNG', 'Valor presente de una anualidad anticipada')">
+                    <h5>Valor presente anualidad anticipada</h5>
+                    <span>Página 249</span>
+                </div>
+                <div class="tarjeta-formula-item" onclick="cargarImagenFormula('pagina 314.PNG', 'Amortización constante de un crédito')">
+                    <h5>Amortización constante de crédito</h5>
+                    <span>Página 314</span>
+                </div>
+                <div class="tarjeta-formula-item" onclick="cargarImagenFormula('pagina 317.PNG', 'Intereses generados en la amortización constante')">
+                    <h5>Intereses amortización constante</h5>
+                    <span>Página 317</span>
+                </div>
+                <div class="tarjeta-formula-item" onclick="cargarImagenFormula('pagina 323.PNG', 'Amortización de renta variable aritméticamente, gradiente')">
+                    <h5>Amortización gradiente aritmético</h5>
+                    <span>Página 323</span>
+                </div>
+                <div class="tarjeta-formula-item" onclick="cargarImagenFormula('pagina 328.PNG', 'Amortización de renta variable geométricamente')">
+                    <h5>Amortización gradiente geométrico</h5>
+                    <span>Página 328</span>
+                </div>
+                <div class="tarjeta-formula-item" onclick="cargarImagenFormula('pagina 371.PNG', 'Monto acumulado en fondo de renta variable')">
+                    <h5>Monto fondo renta variable</h5>
+                    <span>Página 371</span>
+                </div>
+                <div class="tarjeta-formula-item" onclick="cargarImagenFormula('pagina 376.PNG', 'Monto de fondo renta variable geométricamente')">
+                    <h5>Monto fondo renta geométrica</h5>
+                    <span>Página 376</span>
+                </div>
+                <div class="tarjeta-formula-item" onclick="cargarImagenFormula('pagina 402.PNG', 'Depreciación anual en método línea recta')">
+                    <h5>Depreciación línea recta</h5>
+                    <span>Página 402</span>
+                </div>
+                <div class="tarjeta-formula-item" onclick="cargarImagenFormula('pagina 407.PNG', 'Valor de rescate de un activo con inflación')">
+                    <h5>Valor rescate con inflación</h5>
+                    <span>Página 407</span>
+                </div>
+                <div class="tarjeta-formula-item" onclick="cargarImagenFormula('pagina 422.PNG', 'Valor contable que se deprecia con suma de dígitos')">
+                    <h5>Valor contable suma de dígitos</h5>
+                    <span>Página 422</span>
+                </div>
+                <div class="tarjeta-formula-item" onclick="cargarImagenFormula('pagina 430.PNG', 'Valor en libros que se deprecia con tasa fija')">
+                    <h5>Valor en libros tasa fija</h5>
+                    <span>Página 430</span>
+                </div>
+                <div class="tarjeta-formula-item" onclick="cargarImagenFormula('pagina 441.PNG', 'Depreciación con método de fondo de amortización')">
+                    <h5>Depreciación fondo amortización</h5>
+                    <span>Página 441</span>
                 </div>
             </div>
 
-            <div id="caja-proceso-formula" class="panel-detalle-formula oculto" style="margin-top:25px; padding:20px; background:#020604; border:1px solid var(--gold-primary); border-radius:12px;">
+            <!-- VISOR DINÁMICO DE LA IMAGEN DE LA FÓRMULA -->
+            <div id="caja-proceso-formula" class="panel-detalle-formula oculto" style="margin-top:25px; padding:20px; background:#020604; border:1px solid var(--gold-primary); border-radius:12px; text-align:center;">
                 <h4 id="titulo-proceso-formula" style="color:var(--gold-primary); margin-bottom:10px;">Seleccione una opción arriba</h4>
-                <div id="contenido-proceso-formula" style="color:var(--text-main); font-size:14px; line-height:1.6;">
-                    <!-- AQUÍ PUEDES COLOCAR TUS ETIQUETAS <img> CON LAS RUTAS DE TUS IMÁGENES DE FÓRMULAS -->
-                </div>
+                <div id="contenido-proceso-formula"></div>
             </div>
         </div>
     </section>
@@ -830,7 +915,6 @@
         </header>
 
         <div class="panel-modulo" style="text-align: center; padding: 40px 20px;">
-            <!-- ESCUDO DE LA UNIVERSIDAD AGRARIA DEL ECUADOR -->
             <div class="escudo-container">
                 <img src="https://raw.githubusercontent.com/hellsing14cruet-commits/webimagenes/main/UAE%20logo.jpg" alt="Logo Universidad Agraria del Ecuador" class="escudo-institucional" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/e/ec/Logo_de_la_Universidad_Agraria_del_Ecuador.png'">
                 <p style="color: var(--gold-light); font-weight: bold; font-size: 14px; margin-top: 5px;">UNIVERSIDAD AGRARIA DEL ECUADOR</p>
@@ -933,16 +1017,6 @@
                 <li><strong>Crecimiento Constante:</strong> El rédito total aumenta de manera proporcional al tiempo transcurrido de forma aritmética.</li>
                 <li><strong>Proporcionalidad Temporal:</strong> El beneficio económico guarda una relación directa y lineal con la tasa y los plazos pactados.</li>
             </ul>
-
-            <h4>Cuadro Oficial de Fórmulas Teóricas</h4>
-            <p>Ecuaciones analíticas principales obtenidas de las diapositivas de la cátedra:</p>
-            
-            <div class="contenedor-formulas-teoricas">
-                <img src="https://raw.githubusercontent.com/hellsing14cruet-commits/webimagenes/main/formulas_interes_simple.png" alt="Cuadro de Fórmulas de Interés Simple" class="imagen-formulas-teoricas" onerror="this.src='https://i.ibb.co/3s6Kz9P/formulas-interes-simple.png'">
-            </div>
-
-            <h4 style="margin-top: 20px;">Ejemplo Práctico</h4>
-            <p>Si calculamos el 10% de interés simple sobre un capital de $10,000 dólares, el rendimiento obtenido al cabo del periodo establecido es exactamente de $1,000 dólares.</p>
         </div>
     </div>
 
@@ -952,12 +1026,7 @@
             <button class="btn-cerrar-modal" onclick="cerrarModal('modal-descuento')">&times;</button>
             <h3>Descuento Simple y Comercial</h3>
             <h4>¿Qué es?</h4>
-            <p>Es la operación financiera inversa al interés simple, la cual consiste en deducir o descontar una cantidad proporcional al valor nominal de un título valor (como un pagaré o letra de cambio) por anticipar su cobro antes de la fecha de vencimiento.</p>
-            <h4>Características</h4>
-            <ul>
-                <li>Permite liquidez inmediata al tenedor del documento.</li>
-                <li>Se calcula mediante la tasa de descuento comercial y el plazo restante.</li>
-            </ul>
+            <p>Es la operación financiera inversa al interés simple, la cual consiste en deducir o descontar una cantidad proporcional al valor nominal de un título valor por anticipar su cobro antes de la fecha de vencimiento.</p>
         </div>
     </div>
 
@@ -967,12 +1036,7 @@
             <button class="btn-cerrar-modal" onclick="cerrarModal('modal-diagramas')">&times;</button>
             <h3>Diagramas de Tiempo y Ecuaciones de Valor</h3>
             <h4>¿Qué es?</h4>
-            <p>Son ejes horizontales orientados cronológicamente que permiten mapear de forma visual todos los ingresos (flechas hacia arriba) y egresos de efectivo (flechas hacia abajo) vinculados a un proyecto.</p>
-            <h4>Características</h4>
-            <ul>
-                <li>Facilitan la ubicación exacta de las fechas focales.</li>
-                <li>Garantizan que los flujos monetarios sean equivalentes antes de sumarlos o igualarlos.</li>
-            </ul>
+            <p>Son ejes horizontales orientados cronológicamente que permiten mapear de forma visual todos los ingresos y egresos de efectivo vinculados a un proyecto.</p>
         </div>
     </div>
 
@@ -983,20 +1047,14 @@
             <h3>Amortizaciones de Crédito</h3>
             <h4>¿Qué es?</h4>
             <p>Proceso mediante el cual se liquida una deuda y sus respectivos intereses financieros a través de pagos periódicos programados durante la vida útil del préstamo.</p>
-            <h4>Características</h4>
-            <ul>
-                <li>Reduce progresivamente el saldo insoluto de la obligación.</li>
-                <li>Permite estructurar tablas de amortización con cuotas fijas o variables.</li>
-            </ul>
         </div>
     </div>
 
-    <!-- FOOTER LIMPIO SIN REPETICIÓN DE GRUPO -->
     <footer class="footer-derechos">
         Universidad Agraria del Ecuador • Facultad de Ciencias Agrarias © 2026. Todos los derechos reservados.
     </footer>
 
-    <!-- SCRIPT DE CONTROL -->
+    <!-- SCRIPT DE CONTROL CON CARGA DINÁMICA DE IMÁGENES -->
     <script>
         function navegarA(idPortada) {
             document.querySelectorAll('.portada-seccion').forEach(p => {
@@ -1048,25 +1106,22 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        function mostrarProcesoFormula(tipo) {
+        function cargarImagenFormula(nombreArchivo, tituloFormula) {
             const caja = document.getElementById('caja-proceso-formula');
             const titulo = document.getElementById('titulo-proceso-formula');
             const contenido = document.getElementById('contenido-proceso-formula');
+            
             caja.classList.remove('oculto');
-
-            if (tipo === 'interes') {
-                titulo.innerHTML = "Proceso: Interés Simple";
-                contenido.innerHTML = `<p>Aquí puedes insertar tu etiqueta de imagen:</p><p><code>&lt;img src="https://raw.githubusercontent.com/hellsing14cruet-commits/webimagenes/main/tu_imagen.png" alt="Fórmula" style="max-width:100%;"&gt;</code></p>`;
-            } else if (tipo === 'monto') {
-                titulo.innerHTML = "Proceso: Monto Acumulado";
-                contenido.innerHTML = `<p>Aquí puedes insertar tu etiqueta de imagen para el Monto.</p>`;
-            } else if (tipo === 'descuento') {
-                titulo.innerHTML = "Proceso: Descuento Comercial";
-                contenido.innerHTML = `<p>Aquí puedes insertar tu etiqueta de imagen para el Descuento.</p>`;
-            } else if (tipo === 'amortizacion') {
-                titulo.innerHTML = "Proceso: Amortización Constante";
-                contenido.innerHTML = `<p>Aquí puedes insertar tu etiqueta de imagen para la Amortización.</p>`;
-            }
+            titulo.innerHTML = tituloFormula;
+            
+            // Ruta directa configurada desde tu repositorio en GitHub
+            const urlRaw = `https://raw.githubusercontent.com/hellsing14cruet-commits/formulasimagenes/main/${encodeURIComponent(nombreArchivo)}`;
+            
+            contenido.innerHTML = `
+                <img src="${urlRaw}" alt="${tituloFormula}" class="imagen-formula-desplegada" onerror="this.onerror=null; this.src='https://via.placeholder.com/600x200?text=Imagen+en+proceso+de+carga';">
+            `;
+            
+            caja.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
 
         function abrirModal(id) { document.getElementById(id).classList.add('activo'); }
