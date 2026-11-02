@@ -178,9 +178,9 @@
         }
 
         .subtitulo-bienvenida {
-            font-size: 16px;
+            font-size: 15px;
             color: var(--text-muted);
-            max-width: 680px;
+            max-width: 720px;
             margin-bottom: 35px;
             line-height: 1.6;
         }
@@ -336,6 +336,57 @@
             font-weight: bold;
         }
 
+        .contenedor-ejercicios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .tarjeta-ejercicio {
+            background: var(--bg-card);
+            border: 1px solid var(--border-gold);
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .tarjeta-ejercicio:hover {
+            border-color: var(--green-money);
+            transform: translateY(-3px);
+        }
+
+        .tarjeta-ejercicio h4 {
+            color: var(--gold-primary);
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .tarjeta-ejercicio p {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .btn-cargar-caso {
+            background: rgba(46, 204, 113, 0.15);
+            border: 1px solid var(--green-money);
+            color: var(--green-money);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            width: 100%;
+        }
+
+        .btn-cargar-caso:hover {
+            background: var(--green-money);
+            color: #000;
+        }
+
         /* INTEGRANTES Y ESCUDO */
         .escudo-container {
             text-align: center;
@@ -396,6 +447,41 @@
             font-size: 13px;
         }
 
+        /* FÓRMULAS */
+        .formulas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .tarjeta-formula-menu {
+            background: var(--bg-card);
+            border: 1px solid var(--border-gold);
+            border-radius: 14px;
+            padding: 22px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .tarjeta-formula-menu:hover {
+            border-color: var(--green-money);
+            background: var(--bg-card-hover);
+            transform: translateY(-4px);
+        }
+
+        .tarjeta-formula-menu h4 {
+            color: var(--gold-light);
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .tarjeta-formula-menu p {
+            color: var(--text-muted);
+            font-size: 12px;
+        }
+
         /* TEORÍA Y MÓDULOS */
         .temas-grid {
             display: grid;
@@ -448,7 +534,6 @@
             line-height: 1.5;
         }
 
-        /* CONTENEDOR DE FÓRMULAS TEÓRICAS */
         .contenedor-formulas-teoricas {
             background: #020604;
             border: 1px solid var(--border-green);
@@ -559,10 +644,10 @@
         </div>
         <div class="badge-grupo">UNIVERSIDAD AGRARIA DEL ECUADOR • COMPUTACIÓN EN LÍNEA 6S</div>
         <h1 class="titulo-bienvenida">
-            Plataforma Avanzada de <br><span>Ingeniería Económica</span>
+            Bienvenidos a la Plataforma de <br><span>Ingeniería Económica</span>
         </h1>
         <p class="subtitulo-bienvenida">
-            Entorno computacional desarrollado por los analistas del Grupo 11 para proyectar y simular ecuaciones de valor bajo el régimen de Interés Simple y finanzas corporativas.
+            La Ingeniería Económica es la disciplina analítica que evalúa y mide el valor financiero del dinero en el tiempo para optimizar la toma de decisiones estratégicas en proyectos tecnológicos y de inversión.
         </p>
         <button class="btn-ingresar" onclick="navegarA('portada-simulador')">
             Siguiente afortunado →
@@ -652,6 +737,34 @@
                 </div>
             </div>
         </div>
+
+        <!-- EJERCICIOS PRÁCTICOS DE DIAPOSITIVAS RESTAURADOS -->
+        <div class="panel-modulo">
+            <h3>Ejercicios Prácticos de Diapositivas (Semana 1 - 3)</h3>
+            <p style="color: var(--text-muted); font-size: 13px;">
+                Carga de manera instantánea los datos de los ejercicios resueltos en clases para comprobar los resultados analíticos.
+            </p>
+
+            <div class="contenedor-ejercicios-grid">
+                <div class="tarjeta-ejercicio">
+                    <h4>Préstamo Comercial (8 Meses)</h4>
+                    <p>Capital: $1,000. Tasa: 12% anual. Plazo: 8 meses. Evalúa el interés generado y el monto acumulado.</p>
+                    <button class="btn-cargar-caso" onclick="cargarCaso(1000, 12, 8, 'meses')">Cargar Caso $1,000 (8 Meses)</button>
+                </div>
+
+                <div class="tarjeta-ejercicio">
+                    <h4>Inversión de Capital ($2,400)</h4>
+                    <p>Inversión de $2,400 al 9% anual simple durante 5 meses. Calcula la ganancia y el monto al vencimiento.</p>
+                    <button class="btn-cargar-caso" onclick="cargarCaso(2400, 9, 5, 'meses')">Cargar Caso $2,400 (5 Meses)</button>
+                </div>
+
+                <div class="tarjeta-ejercicio">
+                    <h4>Cálculo con Días Exactos ($40,000)</h4>
+                    <p>Capital de $40,000 en 1 año, 7 meses y 21 días (equivalente a 591 días comerciales) al 24% anual.</p>
+                    <button class="btn-cargar-caso" onclick="cargarCaso(40000, 24, 591, 'dias')">Cargar Caso $40,000 (591 Días)</button>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- PORTADA: FÓRMULAS -->
@@ -674,20 +787,28 @@
             <h3>Seleccione una Fórmula para ver su Proceso</h3>
             <div class="formulas-grid">
                 <div class="tarjeta-formula-menu" onclick="mostrarProcesoFormula('interes')">
-                    <h4>Interés Ganado (I)</h4>
+                    <h4>Interés Simple (I)</h4>
                     <p>I = C * i * n</p>
                 </div>
                 <div class="tarjeta-formula-menu" onclick="mostrarProcesoFormula('monto')">
-                    <h4>Monto Futuro (M)</h4>
-                    <p>M = C(1 + i * n) = C + I</p>
+                    <h4>Monto Acumulado (M)</h4>
+                    <p>M = C(1 + i * n)</p>
                 </div>
                 <div class="tarjeta-formula-menu" onclick="mostrarProcesoFormula('descuento')">
                     <h4>Descuento Comercial (D)</h4>
-                    <p>D = F * d * n y P = F(1 - d * n)</p>
+                    <p>D = F * d * n</p>
+                </div>
+                <div class="tarjeta-formula-menu" onclick="mostrarProcesoFormula('amortizacion')">
+                    <h4>Amortización Constante</h4>
+                    <p>R = (C / 2n) * ((n + 1)i + 2)</p>
+                </div>
+                <div class="tarjeta-formula-menu" onclick="mostrarProcesoFormula('tasas')">
+                    <h4>Tasa de Interés Global</h4>
+                    <p>g = (n + 1)(i / 2)</p>
                 </div>
                 <div class="tarjeta-formula-menu" onclick="mostrarProcesoFormula('despejes')">
                     <h4>Despeje de Variables (C, i, n)</h4>
-                    <p>Ecuaciones derivadas para hallar capital, tasa y plazo.</p>
+                    <p>Ecuaciones derivadas de cálculo</p>
                 </div>
             </div>
 
@@ -698,7 +819,7 @@
         </div>
     </section>
 
-    <!-- PORTADA: INTEGRANTES (CON ESCUDO OFICIAL DE LA AUE) -->
+    <!-- PORTADA: INTEGRANTES -->
     <section id="portada-integrantes" class="portada-seccion oculto">
         <header class="navbar-top">
             <div class="navbar-brand">
@@ -723,7 +844,7 @@
 
             <h3 style="justify-content: center; border: none; font-size: 24px; margin-bottom: 10px;">Nómina Oficial de Integrantes</h3>
             <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto 30px auto; font-size: 14px;">
-                Estudiantes colaboradores del Grupo 11 asignados para el desarrollo e implementación del simulador de Ingeniería Económica.
+                Estudiantes colaboradores asignados para el desarrollo e implementación del simulador de Ingeniería Económica.
             </p>
 
             <div class="integrantes-grid">
@@ -756,7 +877,7 @@
         </div>
     </section>
 
-    <!-- PORTADA: TEORÍA Y CARACTERÍSTICAS -->
+    <!-- PORTADA: TEORÍA -->
     <section id="portada-teoria" class="portada-seccion oculto">
         <header class="navbar-top">
             <div class="navbar-brand">
@@ -780,7 +901,7 @@
             <div class="tarjeta-tema" onclick="abrirModal('modal-interes')">
                 <div class="icono-tema">IS</div>
                 <h4>Interés Simple</h4>
-                <p>Concepto parafraseado, características operativas y cuadro oficial de fórmulas de las diapositivas.</p>
+                <p>Concepto parafraseado, características operativas y cuadro oficial de fórmulas.</p>
             </div>
 
             <div class="tarjeta-tema" onclick="abrirModal('modal-descuento')">
@@ -803,7 +924,7 @@
         </div>
     </section>
 
-    <!-- MODAL DE INTERÉS SIMPLE CON FÓRMULAS TEÓRICAS -->
+    <!-- MODAL DE INTERÉS SIMPLE -->
     <div id="modal-interes" class="modal-overlay">
         <div class="modal-contenido">
             <button class="btn-cerrar-modal" onclick="cerrarModal('modal-interes')">&times;</button>
@@ -876,7 +997,7 @@
         </div>
     </div>
 
-    <!-- FOOTER -->
+    <!-- FOOTER LIMPIO SIN REPETICIÓN EXCESIVA -->
     <footer class="footer-derechos">
         Universidad Agraria del Ecuador • Facultad de Ciencias Agrarias • Computación en Línea 6S © 2026 Grupo 11. Todos los derechos reservados.
     </footer>
@@ -924,6 +1045,15 @@
             document.getElementById('out-monto').innerText = `$${montoFinal.toFixed(2)}`;
         }
 
+        function cargarCaso(capital, tasa, plazo, base) {
+            document.getElementById('val-capital').value = capital;
+            document.getElementById('val-tasa').value = tasa;
+            document.getElementById('val-plazo').value = plazo;
+            document.getElementById('val-base').value = base;
+            ejecutarMotorCalculo();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
         function mostrarProcesoFormula(tipo) {
             const caja = document.getElementById('caja-proceso-formula');
             const titulo = document.getElementById('titulo-proceso-formula');
@@ -935,13 +1065,19 @@
                 contenido.innerHTML = `<p><strong>Fórmula:</strong> I = C * i * n</p><p>Permite calcular la ganancia devengada sobre el capital inicial sin reinversión de intereses.</p>`;
             } else if (tipo === 'monto') {
                 titulo.innerHTML = "Proceso de Cálculo: Monto Acumulado (M)";
-                contenido.innerHTML = `<p><strong>Fórmula:</strong> M = C(1 + i * n) = C + I</p><p>Suma total del capital y los réditos al vencimiento.</p>`;
+                contenido.innerHTML = `<p><strong>Fórmula:</strong> M = C(1 + i * n)</p><p>Suma total del capital y los réditos al vencimiento de la operación.</p>`;
             } else if (tipo === 'descuento') {
                 titulo.innerHTML = "Proceso de Cálculo: Descuento Comercial (D)";
-                contenido.innerHTML = `<p><strong>Fórmula:</strong> D = F * d * n</p><p>Deducción sobre el valor nominal de un pagaré antes de su vencimiento.</p>`;
+                contenido.innerHTML = `<p><strong>Fórmula:</strong> D = F * d * n</p><p>Deducción aplicada sobre el valor nominal de un título por anticipar su cobro.</p>`;
+            } else if (tipo === 'amortizacion') {
+                titulo.innerHTML = "Proceso de Cálculo: Amortización Constante";
+                contenido.innerHTML = `<p><strong>Fórmula:</strong> R = (C / 2n) * ((n + 1)i + 2)</p><p>Permite extinguir gradualmente una deuda bajo condiciones de interés simple.</p>`;
+            } else if (tipo === 'tasas') {
+                titulo.innerHTML = "Proceso de Cálculo: Tasa de Interés Global";
+                contenido.innerHTML = `<p><strong>Fórmula:</strong> g = (n + 1)(i / 2)</p><p>Relación porcentual global de rendimiento sobre el capital prestado.</p>`;
             } else if (tipo === 'despejes') {
                 titulo.innerHTML = "Proceso de Despeje de Variables (C, i, n)";
-                contenido.innerHTML = `<p>Ecuaciones derivadas para hallar capital, tasa o plazo conociendo el interés y el monto.</p>`;
+                contenido.innerHTML = `<p>Ecuaciones derivadas para hallar capital inicial, tasa o plazo contractual conociendo el interés o monto.</p>`;
             }
         }
 
