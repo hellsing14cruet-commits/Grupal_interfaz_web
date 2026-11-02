@@ -130,7 +130,7 @@
             box-shadow: 0 0 15px rgba(214, 175, 55, 0.2);
         }
 
-        /* PORTADA 1: BIENVENIDA CON NUEVO DISEÑO INSTITUCIONAL GRUPO 11 */
+        /* PORTADA 1: BIENVENIDA CON LA IMAGEN DE GRUPO 11 */
         #portada-bienvenida {
             display: flex;
             flex-direction: column;
@@ -141,38 +141,15 @@
             margin: auto 0;
         }
 
-        .emblema-wrapper {
-            position: relative;
-            margin-bottom: 25px;
-        }
-
-        .emblema-grupo-11 {
-            width: 150px;
-            height: 150px;
-            background: radial-gradient(circle, rgba(214, 175, 55, 0.25) 0%, rgba(4,9,7,0.9) 80%);
-            border-radius: 50%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+        .portada-imagen-grupo {
+            width: 100%;
+            max-width: 420px;
+            height: auto;
+            border-radius: 14px;
             border: 2px solid var(--gold-primary);
-            box-shadow: 0 0 40px var(--green-glow), inset 0 0 20px rgba(214, 175, 55, 0.3);
-            padding: 10px;
-        }
-
-        .emblema-grupo-11 h3 {
-            color: var(--gold-primary);
-            font-size: 24px;
-            font-weight: 900;
-            letter-spacing: 1px;
-        }
-
-        .emblema-grupo-11 span {
-            color: var(--green-money);
-            font-size: 11px;
-            text-transform: uppercase;
-            font-weight: 700;
-            margin-top: 4px;
+            box-shadow: 0 0 30px var(--green-glow);
+            margin-bottom: 25px;
+            object-fit: cover;
         }
 
         .titulo-bienvenida {
@@ -666,13 +643,10 @@
 </head>
 <body>
 
-    <!-- PORTADA 1: BIENVENIDA CON NUEVO DISEÑO INSTITUCIONAL GRUPO 11 -->
+    <!-- PORTADA 1: BIENVENIDA CON IMAGEN DE GRUPO 11 -->
     <section id="portada-bienvenida" class="portada-seccion visible">
         <div class="emblema-wrapper">
-            <div class="emblema-grupo-11">
-                <h3>G-11</h3>
-                <span>Económica</span>
-            </div>
+            <img src="https://raw.githubusercontent.com/hellsing14cruet-commits/Intrumetos-web/main/Grupo%2011%20economica.jpg" alt="Grupo 11 Ingeniería Económica" class="portada-imagen-grupo" onerror="this.src='https://via.placeholder.com/400x200?text=Grupo+11+Economica';">
         </div>
         <div class="badge-grupo">UNIVERSIDAD AGRARIA DEL ECUADOR</div>
         <h1 class="titulo-bienvenida">
@@ -1058,7 +1032,7 @@
         </div>
     </div>
 
-    <!-- MODAL TEORÍA 3: ECUACIONES DE VALOR (INSTRUMENTOS WEB) -->
+    <!-- MODAL TEORÍA 3: ECUACIONES DE VALOR (CORREGIDO CON Grafica.PNG) -->
     <div id="modal-diagramas" class="modal-overlay">
         <div class="modal-contenido">
             <button class="btn-cerrar-modal" onclick="cerrarModal('modal-diagramas')">&times;</button>
@@ -1067,10 +1041,10 @@
             <p>Se las utiliza cuando es conveniente para un deudor cambiar el conjunto de sus obligaciones por otro conjunto. Para efectuar estas operaciones tanto el deudor como el acreedor deben estar de acuerdo con la tasa de interés que ha de utilizarse en la transacción y en la fecha en la que se llevará a cabo (fecha focal).</p>
             
             <h4>Instrumento Web / Gráfica Oficial de Ecuaciones de Valor</h4>
-            <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 10px;">Visualización conectada desde tu repositorio en GitHub:</p>
+            <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 10px;">Visualización conectada desde tu repositorio en GitHub (`Grafica.PNG`):</p>
             
             <div style="text-align: center; background: #020604; padding: 15px; border-radius: 10px; border: 1px solid var(--border-green);">
-                <img src="https://raw.githubusercontent.com/hellsing14cruet-commits/Intrumetos-web/main/ecuaciones_de_valor.png" alt="Instrumento Web - Ecuaciones de Valor" class="imagen-formula-desplegada" onclick="abrirLightbox(this.src)" onerror="this.onerror=null; this.src='https://via.placeholder.com/600x250?text=Instrumento+Web+Ecuaciones+de+Valor';">
+                <img src="https://raw.githubusercontent.com/hellsing14cruet-commits/Intrumetos-web/main/Grafica.PNG" alt="Instrumento Web - Ecuaciones de Valor" class="imagen-formula-desplegada" onclick="abrirLightbox(this.src)" onerror="this.onerror=null; this.src='https://via.placeholder.com/600x250?text=Instrumento+Web+Ecuaciones+de+Valor';">
             </div>
 
             <h4 style="margin-top: 20px;">Condiciones del Acuerdo Contractual</h4>
