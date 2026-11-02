@@ -327,6 +327,79 @@
             font-weight: bold;
         }
 
+        .btn-guardar-simulacion {
+            background: linear-gradient(135deg, var(--green-money) 0%, #219653 100%);
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 800;
+            padding: 14px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-transform: uppercase;
+            width: 100%;
+            margin-top: 15px;
+            box-shadow: 0 5px 15px rgba(46, 204, 113, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .btn-guardar-simulacion:hover {
+            background: linear-gradient(135deg, #27ae60, #1e8449);
+            transform: translateY(-2px);
+        }
+
+        /* TABLA DE AMORTIZACIÓN / HISTORIAL */
+        .tabla-amortizacion-container {
+            width: 100%;
+            overflow-x: auto;
+            margin-top: 15px;
+        }
+
+        .tabla-amortizacion {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 13px;
+        }
+
+        .tabla-amortizacion th, .tabla-amortizacion td {
+            padding: 12px 14px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .tabla-amortizacion th {
+            background-color: rgba(214, 175, 55, 0.1);
+            color: var(--gold-primary);
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 1px;
+        }
+
+        .tabla-amortizacion td {
+            color: var(--text-main);
+        }
+
+        .tabla-amortizacion tr:hover {
+            background-color: rgba(255, 255, 255, 0.02);
+        }
+
+        .btn-eliminar-fila {
+            background: rgba(231, 76, 60, 0.2);
+            border: 1px solid #e74c3c;
+            color: #e74c3c;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 11px;
+            font-weight: bold;
+            transition: all 0.2s;
+        }
+
+        .btn-eliminar-fila:hover {
+            background: #e74c3c;
+            color: #fff;
+        }
+
         .contenedor-ejercicios-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -660,7 +733,7 @@
         </button>
     </section>
 
-    <!-- PORTADA 2: SIMULADOR -->
+    <!-- PORTADA 2: SIMULADOR CON TABLA DE AMORTIZACIÓN EN EL ESPACIO INFERIOR -->
     <section id="portada-simulador" class="portada-seccion oculto">
         <header class="navbar-top">
             <div class="navbar-brand">
@@ -717,6 +790,11 @@
                         <span id="out-monto" class="valor-computado total-destacado">$1080.00</span>
                     </div>
                 </div>
+
+                <!-- BOTÓN GUARDAR SOLICITADO -->
+                <button class="btn-guardar-simulacion" onclick="guardarEnTablaAmortizacion()">
+                    💾 Guardar en Tabla de Amortización
+                </button>
             </div>
 
             <div class="panel-modulo">
@@ -741,6 +819,37 @@
                 <div class="badge-dolar-container">
                     <div class="badge-dolar">$</div>
                 </div>
+            </div>
+        </div>
+
+        <!-- ESPACIO INFERIOR APROVECHADO: TABLA DE AMORTIZACIÓN / HISTORIAL CONECTADO -->
+        <div class="panel-modulo">
+            <h3>Tabla de Amortización e Historial de Operaciones Guardadas</h3>
+            <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 15px;">
+                Aquí se registran y calculan los valores guardados desde el simulador con su respectiva amortización e intereses devengados:
+            </p>
+            
+            <div class="tabla-amortizacion-container">
+                <table class="tabla-amortizacion">
+                    <thead>
+                        <tr>
+                            <th>N° Operación</th>
+                            <th>Capital Inicial ($C)</th>
+                            <th>Tasa (%i)</th>
+                            <th>Plazo ($n$)</th>
+                            <th>Interés Devengado ($I$)</th>
+                            <th>Monto Total ($M$)</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cuerpo-tabla-amortizacion">
+                        <tr>
+                            <td colspan="7" style="text-align: center; color: var(--text-muted); padding: 20px;">
+                                No hay simulaciones guardadas todavía. Haz clic en "Guardar en Tabla de Amortización".
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
 
@@ -965,7 +1074,7 @@
         </div>
     </section>
 
-    <!-- PORTADA: TEORÍA CON LAS 4 VENTANAS INDEPENDIENTES Y SUS IMÁGENES -->
+    <!-- PORTADA: TEORÍA -->
     <section id="portada-teoria" class="portada-seccion oculto">
         <header class="navbar-top">
             <div class="navbar-brand">
@@ -1077,8 +1186,10 @@
         Universidad Agraria del Ecuador • Facultad de Ciencias Agrarias © 2026. Todos los derechos reservados.
     </footer>
 
-    <!-- SCRIPT DE CONTROL -->
+    <!-- SCRIPT DE CONTROL Y AMORTIZACIÓN -->
     <script>
+        let registrosAmortizacion = [];
+
         function navegarA(idPortada) {
             document.querySelectorAll('.portada-seccion').forEach(p => {
                 p.classList.remove('visible');
@@ -1118,6 +1229,70 @@
 
             document.getElementById('out-interes').innerText = `$${interesLiquido.toFixed(2)}`;
             document.getElementById('out-monto').innerText = `$${montoFinal.toFixed(2)}`;
+        }
+
+        function guardarEnTablaAmortizacion() {
+            const capital = parseFloat(document.getElementById('val-capital').value) || 0;
+            const tasa = parseFloat(document.getElementById('val-tasa').value) || 0;
+            const plazo = parseFloat(document.getElementById('val-plazo').value) || 0;
+            const baseTemporal = document.getElementById('val-base').value;
+
+            const i = tasa / 100;
+            let n = plazo;
+            if (baseTemporal === 'meses') n = plazo / 12;
+            if (baseTemporal === 'dias') n = plazo / 360;
+
+            const interesLiquido = capital * i * n;
+            const montoFinal = capital + interesLiquido;
+
+            const nuevaOperacion = {
+                id: registrosAmortizacion.length + 1,
+                capital: capital,
+                tasa: tasa,
+                plazo: `${plazo} (${baseTemporal})`,
+                interes: interesLiquido,
+                monto: montoFinal
+            };
+
+            registrosAmortizacion.push(nuevaOperacion);
+            renderizarTablaAmortizacion();
+        }
+
+        function eliminarOperacion(id) {
+            registrosAmortizacion = registrosAmortizacion.filter(item => item.id !== id);
+            renderizarTablaAmortizacion();
+        }
+
+        function renderizarTablaAmortizacion() {
+            const cuerpoTabla = document.getElementById('cuerpo-tabla-amortizacion');
+            
+            if (registrosAmortizacion.length === 0) {
+                cuerpoTabla.innerHTML = `
+                    <tr>
+                        <td colspan="7" style="text-align: center; color: var(--text-muted); padding: 20px;">
+                            No hay simulaciones guardadas todavía. Haz clic en "Guardar en Tabla de Amortización".
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
+            cuerpoTabla.innerHTML = '';
+            registrosAmortizacion.forEach((op, index) => {
+                cuerpoTabla.innerHTML += `
+                    <tr>
+                        <td><strong>#${index + 1}</strong></td>
+                        <td>$${op.capital.toFixed(2)}</td>
+                        <td>${op.tasa}%</td>
+                        <td>${op.plazo}</td>
+                        <td style="color: var(--green-money);">+$${op.interes.toFixed(2)}</td>
+                        <td style="color: var(--gold-primary); font-weight: bold;">$${op.monto.toFixed(2)}</td>
+                        <td>
+                            <button class="btn-eliminar-fila" onclick="eliminarOperacion(${op.id})">Eliminar</button>
+                        </td>
+                    </tr>
+                `;
+            });
         }
 
         function cargarCaso(capital, tasa, plazo, base) {
