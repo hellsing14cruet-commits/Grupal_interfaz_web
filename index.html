@@ -130,7 +130,7 @@
             box-shadow: 0 0 15px rgba(214, 175, 55, 0.2);
         }
 
-        /* PORTADA 1: BIENVENIDA CON LA IMAGEN DE GRUPO 11 */
+        /* PORTADA 1: BIENVENIDA CON IMAGEN DE GRUPO 11 */
         #portada-bienvenida {
             display: flex;
             flex-direction: column;
@@ -965,7 +965,7 @@
         </div>
     </section>
 
-    <!-- PORTADA: TEORÍA -->
+    <!-- PORTADA: TEORÍA CON LAS 4 VENTANAS INDEPENDIENTES Y SUS IMÁGENES -->
     <section id="portada-teoria" class="portada-seccion oculto">
         <header class="navbar-top">
             <div class="navbar-brand">
@@ -982,86 +982,89 @@
         </header>
 
         <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 20px; text-align: center;">
-            Selecciona cada módulo temático para estudiar los conceptos avanzados, fundamentos analíticos y características operativas de la materia:
+            Selecciona cada módulo temático para estudiar los conceptos avanzados, fundamentos analíticos y sus instrumentos web oficiales:
         </p>
 
         <div class="temas-grid">
             <div class="tarjeta-tema" onclick="abrirModal('modal-interes')">
                 <div class="icono-tema">IS</div>
                 <h4>Interés Simple y Compuesto</h4>
-                <p>Estudio detallado de la acumulación del dinero, tasas nominales, efectivas y rendimiento financiero a plazos.</p>
+                <p>Estudio detallado de la acumulación del dinero, tasas nominales y rendimiento financiero.</p>
             </div>
 
             <div class="tarjeta-tema" onclick="abrirModal('modal-descuento')">
                 <div class="icono-tema">DS</div>
                 <h4>Descuento y Títulos Valores</h4>
-                <p>Análisis de letras de cambio, pagarés, descuento comercial y anticipación de liquidez empresarial.</p>
+                <p>Análisis de letras de cambio, pagarés y descuento comercial.</p>
+            </div>
+
+            <div class="tarjeta-tema" onclick="abrirModal('modal-ecuaciones')">
+                <div class="icono-tema">EV</div>
+                <h4>Ecuaciones de Valor</h4>
+                <p>Sustitución de obligaciones contractuales y acuerdos de tasa con fecha focal.</p>
             </div>
 
             <div class="tarjeta-tema" onclick="abrirModal('modal-diagramas')">
-                <div class="icono-tema">EV</div>
-                <h4>Ecuaciones de Valor y Fechas Focales</h4>
-                <p>Sustitución de obligaciones contractuales, acuerdos de tasa y ubicación de la fecha focal de evaluación.</p>
-            </div>
-
-            <div class="tarjeta-tema" onclick="abrirModal('modal-amortizacion')">
-                <div class="icono-tema">AM</div>
-                <h4>Amortizaciones y Depreciación</h4>
-                <p>Tablas de pagos para extinción de deudas, gradientes aritméticos, geométricos y métodos de depreciación de activos.</p>
+                <div class="icono-tema">DT</div>
+                <h4>Diagramas de Tiempo</h4>
+                <p>Representación gráfica de flujos de efectivo y líneas de tiempo financieras.</p>
             </div>
         </div>
     </section>
 
-    <!-- MODAL TEORÍA 1: INTERÉS -->
+    <!-- MODAL 1: INTERÉS SIMPLE -->
     <div id="modal-interes" class="modal-overlay">
         <div class="modal-contenido">
             <button class="btn-cerrar-modal" onclick="cerrarModal('modal-interes')">&times;</button>
             <h3>Régimen de Interés Simple y Compuesto</h3>
+            <h4>Instrumento Web / Imagen Oficial</h4>
+            <div style="text-align: center; background: #020604; padding: 15px; border-radius: 10px; border: 1px solid var(--border-green); margin-bottom: 15px;">
+                <img src="https://raw.githubusercontent.com/hellsing14cruet-commits/Intrumetos-web/main/Interes%20simple.PNG" alt="Interés Simple" class="imagen-formula-desplegada" onclick="abrirLightbox(this.src)" onerror="this.onerror=null; this.src='https://via.placeholder.com/600x250?text=Interes+Simple';">
+            </div>
             <h4>Fundamento Teórico</h4>
-            <p>El dinero posee un valor en el tiempo debido a la inflación, el riesgo y la oportunidad de inversión. El interés simple calcula el rédito siempre sobre el capital inicial, manteniendo un crecimiento lineal aritmético. Por su parte, el interés compuesto capitaliza los intereses generados en periodos previos, generando un crecimiento exponencial.</p>
+            <p>El dinero posee un valor en el tiempo debido a la inflación, el riesgo y la oportunidad de inversión. El interés simple calcula el rédito siempre sobre el capital inicial, manteniendo un crecimiento lineal aritmético.</p>
         </div>
     </div>
 
-    <!-- MODAL TEORÍA 2: DESCUENTO -->
+    <!-- MODAL 2: DESCUENTO SIMPLE -->
     <div id="modal-descuento" class="modal-overlay">
         <div class="modal-contenido">
             <button class="btn-cerrar-modal" onclick="cerrarModal('modal-descuento')">&times;</button>
-            <h3>Descuento Comercial y Operaciones con Títulos</h3>
+            <h3>Descuento y Títulos Valores</h3>
+            <h4>Instrumento Web / Imagen Oficial</h4>
+            <div style="text-align: center; background: #020604; padding: 15px; border-radius: 10px; border: 1px solid var(--border-green); margin-bottom: 15px;">
+                <img src="https://raw.githubusercontent.com/hellsing14cruet-commits/Intrumetos-web/main/descuento%20simple.PNG" alt="Descuento Simple" class="imagen-formula-desplegada" onclick="abrirLightbox(this.src)" onerror="this.onerror=null; this.src='https://via.placeholder.com/600x250?text=Descuento+Simple';">
+            </div>
             <h4>Fundamento Teórico</h4>
             <p>El descuento es la operación financiera que tiene por objeto la anticipación de un capital que es vencido en el futuro. Se instrumenta mediante títulos valores como pagarés o letras de cambio.</p>
         </div>
     </div>
 
-    <!-- MODAL TEORÍA 3: ECUACIONES DE VALOR (CORREGIDO CON Grafica.PNG) -->
-    <div id="modal-diagramas" class="modal-overlay">
+    <!-- MODAL 3: ECUACIONES DE VALOR -->
+    <div id="modal-ecuaciones" class="modal-overlay">
         <div class="modal-contenido">
-            <button class="btn-cerrar-modal" onclick="cerrarModal('modal-diagramas')">&times;</button>
-            <h3>Ecuaciones de Valor y Diagramas de Tiempo</h3>
-            <h4>Concepto Fundamental</h4>
-            <p>Se las utiliza cuando es conveniente para un deudor cambiar el conjunto de sus obligaciones por otro conjunto. Para efectuar estas operaciones tanto el deudor como el acreedor deben estar de acuerdo con la tasa de interés que ha de utilizarse en la transacción y en la fecha en la que se llevará a cabo (fecha focal).</p>
-            
-            <h4>Instrumento Web / Gráfica Oficial de Ecuaciones de Valor</h4>
-            <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 10px;">Visualización conectada desde tu repositorio en GitHub (`Grafica.PNG`):</p>
-            
-            <div style="text-align: center; background: #020604; padding: 15px; border-radius: 10px; border: 1px solid var(--border-green);">
-                <img src="https://raw.githubusercontent.com/hellsing14cruet-commits/Intrumetos-web/main/Grafica.PNG" alt="Instrumento Web - Ecuaciones de Valor" class="imagen-formula-desplegada" onclick="abrirLightbox(this.src)" onerror="this.onerror=null; this.src='https://via.placeholder.com/600x250?text=Instrumento+Web+Ecuaciones+de+Valor';">
+            <button class="btn-cerrar-modal" onclick="cerrarModal('modal-ecuaciones')">&times;</button>
+            <h3>Ecuaciones de Valor</h3>
+            <h4>Instrumento Web / Gráfica Oficial</h4>
+            <div style="text-align: center; background: #020604; padding: 15px; border-radius: 10px; border: 1px solid var(--border-green); margin-bottom: 15px;">
+                <img src="https://raw.githubusercontent.com/hellsing14cruet-commits/Intrumetos-web/main/Grafica.PNG" alt="Ecuaciones de Valor" class="imagen-formula-desplegada" onclick="abrirLightbox(this.src)" onerror="this.onerror=null; this.src='https://via.placeholder.com/600x250?text=Ecuaciones+de+Valor';">
             </div>
-
-            <h4 style="margin-top: 20px;">Condiciones del Acuerdo Contractual</h4>
-            <ul>
-                <li><strong>Acuerdo de Tasa:</strong> Ambas partes establecen una misma tasa de interés de rendimiento o descuento para revaluar todas las deudas vigentes y proyectadas.</li>
-                <li><strong>Fecha Focal:</strong> Momento cronológico estratégico seleccionado para llevar todos los flujos de dinero antiguos y nuevos para igualarlos formalmente.</li>
-            </ul>
+            <h4>Fundamento Teórico</h4>
+            <p>Se las utiliza cuando es conveniente para un deudor cambiar el conjunto de sus obligaciones por otro conjunto. Para efectuar estas operaciones tanto el deudor como el acreedor deben estar de acuerdo con la tasa de interés que ha de utilizarse en la transacción y en la fecha focal.</p>
         </div>
     </div>
 
-    <!-- MODAL TEORÍA 4: AMORTIZACIÓN -->
-    <div id="modal-amortizacion" class="modal-overlay">
+    <!-- MODAL 4: DIAGRAMAS DE TIEMPO -->
+    <div id="modal-diagramas" class="modal-overlay">
         <div class="modal-contenido">
-            <button class="btn-cerrar-modal" onclick="cerrarModal('modal-amortizacion')">&times;</button>
-            <h3>Sistemas de Amortización y Depreciación de Activos</h3>
-            <h4>Amortización de Créditos</h4>
-            <p>Proceso financiero mediante el cual se liquida una deuda de manera gradual por medio de pagos periódicos que cubren tanto los intereses devengados como una porción del capital principal.</p>
+            <button class="btn-cerrar-modal" onclick="cerrarModal('modal-diagramas')">&times;</button>
+            <h3>Diagramas de Tiempo</h3>
+            <h4>Instrumento Web / Imagen Oficial</h4>
+            <div style="text-align: center; background: #020604; padding: 15px; border-radius: 10px; border: 1px solid var(--border-green); margin-bottom: 15px;">
+                <img src="https://raw.githubusercontent.com/hellsing14cruet-commits/Intrumetos-web/main/diagrama%20de%20tiempo.PNG" alt="Diagrama de Tiempo" class="imagen-formula-desplegada" onclick="abrirLightbox(this.src)" onerror="this.onerror=null; this.src='https://via.placeholder.com/600x250?text=Diagrama+de+Tiempo';">
+            </div>
+            <h4>Fundamento Teórico</h4>
+            <p>Herramientas visuales utilizadas en ingeniería económica para representar los flujos de entrada y salida de efectivo a lo largo de un horizonte temporal, facilitando el planteamiento de las equivalencias financieras.</p>
         </div>
     </div>
 
