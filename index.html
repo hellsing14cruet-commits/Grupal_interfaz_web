@@ -55,7 +55,6 @@
             line-height: 160px;
             pointer-events: none;
             z-index: 0;
-            word-wrap: break-word;
         }
 
         .portada-seccion {
@@ -344,8 +343,8 @@
         }
 
         .escudo-institucional {
-            width: 110px;
-            height: 110px;
+            width: 120px;
+            height: 120px;
             object-fit: contain;
             border-radius: 50%;
             border: 2px solid var(--gold-primary);
@@ -447,6 +446,24 @@
             color: var(--text-muted);
             font-size: 13px;
             line-height: 1.5;
+        }
+
+        /* CONTENEDOR DE FÓRMULAS TEÓRICAS */
+        .contenedor-formulas-teoricas {
+            background: #020604;
+            border: 1px solid var(--border-green);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .imagen-formulas-teoricas {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid var(--border-gold);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.8);
         }
 
         /* MODALES */
@@ -681,7 +698,7 @@
         </div>
     </section>
 
-    <!-- PORTADA: INTEGRANTES (CON ESCUDO OFICIAL) -->
+    <!-- PORTADA: INTEGRANTES (CON ESCUDO OFICIAL DE LA AUE) -->
     <section id="portada-integrantes" class="portada-seccion oculto">
         <header class="navbar-top">
             <div class="navbar-brand">
@@ -700,7 +717,7 @@
         <div class="panel-modulo" style="text-align: center; padding: 40px 20px;">
             <!-- ESCUDO DE LA UNIVERSIDAD AGRARIA DEL ECUADOR -->
             <div class="escudo-container">
-                <img src="https://raw.githubusercontent.com/helsing14cruet-commits/Grupal_interfaz_web/main/escudo_uae.png" alt="Escudo Universidad Agraria del Ecuador" class="escudo-institucional" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/e/ec/Logo_de_la_Universidad_Agraria_del_Ecuador.png'">
+                <img src="https://raw.githubusercontent.com/hellsing14cruet-commits/webimagenes/main/UAE%20logo.jpg" alt="Logo Universidad Agraria del Ecuador" class="escudo-institucional" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/e/ec/Logo_de_la_Universidad_Agraria_del_Ecuador.png'">
                 <p style="color: var(--gold-light); font-weight: bold; font-size: 14px; margin-top: 5px;">UNIVERSIDAD AGRARIA DEL ECUADOR</p>
             </div>
 
@@ -756,14 +773,14 @@
         </header>
 
         <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 20px; text-align: center;">
-            Selecciona cada módulo temático para estudiar los conceptos parafraseados, características y resúmenes oficiales de la cátedra:
+            Selecciona cada módulo temático para estudiar los conceptos parafraseados, características y el cuadro oficial de fórmulas de la cátedra:
         </p>
 
         <div class="temas-grid">
             <div class="tarjeta-tema" onclick="abrirModal('modal-interes')">
                 <div class="icono-tema">IS</div>
                 <h4>Interés Simple</h4>
-                <p>Concepto parafraseado, características operativas, fórmulas y ejemplos prácticos de las diapositivas[cite: 13].</p>
+                <p>Concepto parafraseado, características operativas y cuadro oficial de fórmulas de las diapositivas.</p>
             </div>
 
             <div class="tarjeta-tema" onclick="abrirModal('modal-descuento')">
@@ -786,26 +803,35 @@
         </div>
     </section>
 
-    <!-- MODALES DE TEORÍA Y CARACTERÍSTICAS -->
+    <!-- MODAL DE INTERÉS SIMPLE CON FÓRMULAS TEÓRICAS -->
     <div id="modal-interes" class="modal-overlay">
         <div class="modal-contenido">
             <button class="btn-cerrar-modal" onclick="cerrarModal('modal-interes')">&times;</button>
-            <h3>Interés Simple: Concepto y Características</h3>
+            <h3>Interés Simple: Concepto y Fórmulas Teóricas</h3>
+            
             <h4>¿Qué es? (Concepto Parafraseado)</h4>
-            <p>El interés simple representa el rédito generado por un capital inicial que permanece estático y constante durante toda la vigencia del contrato financiero[cite: 13]. A diferencia del régimen compuesto, los intereses devengados en cada periodo no se acumulan al capital principal para producir nuevas ganancias[cite: 13].</p>
+            <p>El interés simple representa el rédito generado por un capital inicial que permanece estático y constante durante toda la vigencia del contrato financiero. A diferencia del régimen compuesto, los intereses devengados en cada periodo no se acumulan al capital principal para producir nuevas ganancias.</p>
             
             <h4>Características Principales</h4>
             <ul>
-                <li><strong>Cálculo Lineal:</strong> Los intereses se calculan siempre sobre la misma base del capital inicial, sin reinversión de intereses[cite: 13].</li>
-                <li><strong>Crecimiento Constante:</strong> El rédito total aumenta de manera proporcional al tiempo transcurrido de forma aritmética[cite: 13].</li>
-                <li><strong>Proporcionalidad Temporal:</strong> El beneficio económico guarda una relación directa y lineal con la tasa y los plazos pactados[cite: 13].</li>
+                <li><strong>Cálculo Lineal:</strong> Los intereses se calculan siempre sobre la misma base del capital inicial, sin reinversión de intereses.</li>
+                <li><strong>Crecimiento Constante:</strong> El rédito total aumenta de manera proporcional al tiempo transcurrido de forma aritmética.</li>
+                <li><strong>Proporcionalidad Temporal:</strong> El beneficio económico guarda una relación directa y lineal con la tasa y los plazos pactados.</li>
             </ul>
 
-            <h4>Ejemplo Práctico (Diapositivas Oficiales)</h4>
-            <p>Si calculamos el 10% de interés simple sobre un capital de $10,000 dólares, el rendimiento obtenido al cabo del periodo establecido es exactamente de $1,000 dólares[cite: 13].</p>
+            <h4>Cuadro Oficial de Fórmulas Teóricas</h4>
+            <p>Ecuaciones analíticas principales obtenidas de las diapositivas de la cátedra:</p>
+            
+            <div class="contenedor-formulas-teoricas">
+                <img src="https://raw.githubusercontent.com/hellsing14cruet-commits/webimagenes/main/formulas_interes_simple.png" alt="Cuadro de Fórmulas de Interés Simple" class="imagen-formulas-teoricas" onerror="this.src='https://i.ibb.co/3s6Kz9P/formulas-interes-simple.png'">
+            </div>
+
+            <h4 style="margin-top: 20px;">Ejemplo Práctico</h4>
+            <p>Si calculamos el 10% de interés simple sobre un capital de $10,000 dólares, el rendimiento obtenido al cabo del periodo establecido es exactamente de $1,000 dólares.</p>
         </div>
     </div>
 
+    <!-- MODAL DE DESCUENTO SIMPLE -->
     <div id="modal-descuento" class="modal-overlay">
         <div class="modal-contenido">
             <button class="btn-cerrar-modal" onclick="cerrarModal('modal-descuento')">&times;</button>
@@ -820,6 +846,7 @@
         </div>
     </div>
 
+    <!-- MODAL DE DIAGRAMAS -->
     <div id="modal-diagramas" class="modal-overlay">
         <div class="modal-contenido">
             <button class="btn-cerrar-modal" onclick="cerrarModal('modal-diagramas')">&times;</button>
@@ -834,6 +861,7 @@
         </div>
     </div>
 
+    <!-- MODAL DE AMORTIZACIÓN -->
     <div id="modal-amortizacion" class="modal-overlay">
         <div class="modal-contenido">
             <button class="btn-cerrar-modal" onclick="cerrarModal('modal-amortizacion')">&times;</button>
@@ -904,16 +932,16 @@
 
             if (tipo === 'interes') {
                 titulo.innerHTML = "Proceso de Cálculo: Interés Simple (I)";
-                contenido.innerHTML = `<p><strong>Fórmula:</strong> I = C * i * n[cite: 13]</p><p>Permite calcular la ganancia devengada sobre el capital inicial sin reinversión de intereses[cite: 13].</p>`;
+                contenido.innerHTML = `<p><strong>Fórmula:</strong> I = C * i * n</p><p>Permite calcular la ganancia devengada sobre el capital inicial sin reinversión de intereses.</p>`;
             } else if (tipo === 'monto') {
                 titulo.innerHTML = "Proceso de Cálculo: Monto Acumulado (M)";
-                contenido.innerHTML = `<p><strong>Fórmula:</strong> M = C(1 + i * n) = C + I[cite: 13]</p><p>Suma total del capital y los réditos al vencimiento.</p>`;
+                contenido.innerHTML = `<p><strong>Fórmula:</strong> M = C(1 + i * n) = C + I</p><p>Suma total del capital y los réditos al vencimiento.</p>`;
             } else if (tipo === 'descuento') {
                 titulo.innerHTML = "Proceso de Cálculo: Descuento Comercial (D)";
                 contenido.innerHTML = `<p><strong>Fórmula:</strong> D = F * d * n</p><p>Deducción sobre el valor nominal de un pagaré antes de su vencimiento.</p>`;
             } else if (tipo === 'despejes') {
                 titulo.innerHTML = "Proceso de Despeje de Variables (C, i, n)";
-                contenido.innerHTML = `<p>Ecuaciones derivadas para hallar capital, tasa o plazo conociendo el interés y el monto[cite: 13].</p>`;
+                contenido.innerHTML = `<p>Ecuaciones derivadas para hallar capital, tasa o plazo conociendo el interés y el monto.</p>`;
             }
         }
 
