@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ingeniería Económica - Grupo 10 | Universidad Agraria del Ecuador</title>
+    <title>Ingeniería Económica - Grupo 11 | Universidad Agraria del Ecuador</title>
     <style>
         :root {
             --bg-dark: #040907;
@@ -103,7 +103,9 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 70px;
+            font-size: 60px;
+            font-weight: bold;
+            color: var(--gold-primary);
             border: 2px solid var(--border-gold);
             box-shadow: 0 0 40px var(--green-glow), inset 0 0 20px rgba(214, 175, 55, 0.2);
             animation: flotarAnimacion 3.5s infinite ease-in-out;
@@ -345,15 +347,16 @@
             background: linear-gradient(135deg, rgba(214, 175, 55, 0.2), rgba(46, 204, 113, 0.2));
             border: 1px solid var(--gold-primary);
             color: var(--gold-light);
-            font-size: 28px;
-            width: 55px;
-            height: 55px;
+            font-size: 24px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             box-shadow: 0 0 15px rgba(214, 175, 55, 0.25);
             animation: flotarAnimacion 3s infinite ease-in-out;
+            font-weight: bold;
         }
 
         .contenedor-ejercicios-grid {
@@ -407,7 +410,7 @@
             color: #000;
         }
 
-        /* DISEÑO DE LA PORTADA DE FÓRMULAS INTERACTIVAS */
+        /* FÓRMULAS INTERACTIVAS */
         .formulas-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -460,7 +463,7 @@
             padding-bottom: 8px;
         }
 
-        /* DISEÑO DE LA PORTADA DE INTEGRANTES */
+        /* INTEGRANTES */
         .integrantes-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -492,7 +495,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 32px;
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--gold-light);
             margin: 0 auto 15px auto;
         }
 
@@ -535,7 +540,9 @@
         }
 
         .icono-tema {
-            font-size: 45px;
+            font-size: 28px;
+            font-weight: bold;
+            color: var(--gold-primary);
             margin-bottom: 15px;
             background: rgba(214, 175, 55, 0.1);
             width: 80px;
@@ -631,7 +638,6 @@
 
         .modal-contenido ul { padding-left: 20px; margin-bottom: 15px; }
 
-        /* FOOTER DE DERECHOS RESERVADOS */
         .footer-derechos {
             text-align: center;
             padding: 20px;
@@ -656,14 +662,14 @@
     <!-- PORTADA 1: BIENVENIDA -->
     <section id="portada-bienvenida" class="portada-seccion visible">
         <div class="emblema-wrapper">
-            <div class="emblema-financiero">🦆💰</div>
+            <div class="emblema-financiero">$</div>
         </div>
         <div class="badge-grupo">UNIVERSIDAD AGRARIA DEL ECUADOR • COMPUTACIÓN EN LÍNEA 6S</div>
         <h1 class="titulo-bienvenida">
-            Bienvenido a la Plataforma de <br><span>Ingeniería Económica</span>
+            Plataforma Avanzada de <br><span>Ingeniería Económica</span>
         </h1>
         <p class="subtitulo-bienvenida">
-            Entorno computacional de alta precisión desarrollado para fundamentar la toma de decisiones en proyectos tecnológicos, productivos y empresariales a través del análisis de flujos de efectivo y valor del dinero en el tiempo.
+            Entorno computacional desarrollado por los analistas del Grupo 11 para proyectar y simular ecuaciones de valor bajo el régimen de Interés Simple.
         </p>
         <button class="btn-ingresar" onclick="navegarA('portada-simulador')">
             Siguiente afortunado →
@@ -674,21 +680,21 @@
     <section id="portada-simulador" class="portada-seccion oculto">
         <header class="navbar-top">
             <div class="navbar-brand">
-                <h2>Grupo 10 - Simulador Financiero</h2>
+                <h2>Grupo 11 - Simulador Financiero</h2>
                 <p>Ingeniería Económica • Universidad Agraria del Ecuador</p>
             </div>
             <div class="nav-links">
-                <button class="btn-nav" onclick="navegarA('portada-bienvenida')">🏠 Inicio</button>
-                <button class="btn-nav" onclick="navegarA('portada-integrantes')">👥 Integrantes</button>
-                <button class="btn-nav" onclick="navegarA('portada-formulas')">📐 Fórmulas</button>
-                <button class="btn-nav activo" onclick="navegarA('portada-simulador')">📊 Simulador</button>
-                <button class="btn-nav" onclick="navegarA('portada-teoria')">📚 Teoría & Clases</button>
+                <button class="btn-nav" onclick="navegarA('portada-bienvenida')">Inicio</button>
+                <button class="btn-nav" onclick="navegarA('portada-integrantes')">Integrantes</button>
+                <button class="btn-nav" onclick="navegarA('portada-formulas')">Fórmulas</button>
+                <button class="btn-nav activo" onclick="navegarA('portada-simulador')">Simulador</button>
+                <button class="btn-nav" onclick="navegarA('portada-teoria')">Teoría</button>
             </div>
         </header>
 
         <div class="workspace-grid">
             <div class="panel-modulo">
-                <h3>🧮 Consola de Variables Dinámicas</h3>
+                <h3>Consola de Variables Dinámicas</h3>
                 <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 20px;">
                     Modifica los parámetros numéricos para simular operaciones financieras de interés simple e inversiones en tiempo real.
                 </p>
@@ -730,7 +736,7 @@
             </div>
 
             <div class="panel-modulo">
-                <h3>📈 Esquema Analítico en Tiempo Real</h3>
+                <h3>Esquema Analítico en Tiempo Real</h3>
                 <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 12px;">
                     Ecuación matemática correspondiente al régimen de tiempo seleccionado:
                 </p>
@@ -742,21 +748,20 @@
                 </p>
 
                 <div style="padding: 12px 15px; background: rgba(214, 175, 55, 0.05); border-left: 3px solid var(--gold-primary); border-radius: 6px;">
-                    <strong style="color: var(--gold-light); font-size: 13px;">📌 Principio Fundamental:</strong>
+                    <strong style="color: var(--gold-light); font-size: 13px;">Principio Fundamental:</strong>
                     <p style="color: var(--text-muted); font-size: 12px; margin-top: 4px;">
                         Una cantidad de dinero hoy no tiene el mismo valor en el futuro debido al tiempo, los costos y el rendimiento esperado.
                     </p>
                 </div>
 
-                <!-- SIGNO DE DÓLAR DEBAJO DEL PRINCIPIO FUNDAMENTAL -->
                 <div class="badge-dolar-container">
-                    <div class="badge-dolar">💲</div>
+                    <div class="badge-dolar">$</div>
                 </div>
             </div>
         </div>
 
         <div class="panel-modulo">
-            <h3>📝 Ejercicios Prácticos de Diapositivas (Semana 1 - 3)</h3>
+            <h3>Ejercicios Prácticos de Diapositivas (Semana 1 - 3)</h3>
             <p style="color: var(--text-muted); font-size: 13px;">
                 Carga de manera instantánea los datos de los ejercicios resueltos en clases para comprobar los resultados analíticos.
             </p>
@@ -783,7 +788,7 @@
         </div>
     </section>
 
-    <!-- PORTADA NUEVA: FÓRMULAS INTERACTIVAS -->
+    <!-- PORTADA: FÓRMULAS INTERACTIVAS -->
     <section id="portada-formulas" class="portada-seccion oculto">
         <header class="navbar-top">
             <div class="navbar-brand">
@@ -791,40 +796,39 @@
                 <p>Compendio de Ecuaciones y Procesos de Cálculo</p>
             </div>
             <div class="nav-links">
-                <button class="btn-nav" onclick="navegarA('portada-bienvenida')">🏠 Inicio</button>
-                <button class="btn-nav" onclick="navegarA('portada-integrantes')">👥 Integrantes</button>
-                <button class="btn-nav activo" onclick="navegarA('portada-formulas')">📐 Fórmulas</button>
-                <button class="btn-nav" onclick="navegarA('portada-simulador')">📊 Simulador</button>
-                <button class="btn-nav" onclick="navegarA('portada-teoria')">📚 Teoría & Clases</button>
+                <button class="btn-nav" onclick="navegarA('portada-bienvenida')">Inicio</button>
+                <button class="btn-nav" onclick="navegarA('portada-integrantes')">Integrantes</button>
+                <button class="btn-nav activo" onclick="navegarA('portada-formulas')">Fórmulas</button>
+                <button class="btn-nav" onclick="navegarA('portada-simulador')">Simulador</button>
+                <button class="btn-nav" onclick="navegarA('portada-teoria')">Teoría</button>
             </div>
         </header>
 
         <div class="panel-modulo">
-            <h3>📐 Seleccione una Fórmula para ver su Proceso</h3>
+            <h3>Seleccione una Fórmula para ver su Proceso</h3>
             <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 20px;">
                 Haga clic en cualquiera de las opciones analíticas para desplegar el desglose matemático correspondiente:
             </p>
 
             <div class="formulas-grid">
                 <div class="tarjeta-formula-menu" onclick="mostrarProcesoFormula('interes')">
-                    <h4>Interés Simple ($I$)</h4>
-                    <p>Cálculo de la ganancia o rédito devengado.</p>
+                    <h4>Interés Ganado (I)</h4>
+                    <p>I = C * i * n</p>
                 </div>
                 <div class="tarjeta-formula-menu" onclick="mostrarProcesoFormula('monto')">
-                    <h4>Monto Acumulado ($M$)</h4>
-                    <p>Valor futuro de la inversión o préstamo.</p>
+                    <h4>Monto Futuro (M)</h4>
+                    <p>M = C(1 + i * n) = C + I</p>
                 </div>
                 <div class="tarjeta-formula-menu" onclick="mostrarProcesoFormula('descuento')">
-                    <h4>Descuento Comercial ($D$)</h4>
-                    <p>Deducción sobre el valor nominal de un título.</p>
+                    <h4>Descuento Comercial (D)</h4>
+                    <p>D = F * d * n y P = F(1 - d * n)</p>
                 </div>
                 <div class="tarjeta-formula-menu" onclick="mostrarProcesoFormula('despejes')">
-                    <h4>Despeje de Variables ($C, i, n$)</h4>
-                    <p>Fórmulas derivadas para calcular capital, tasa y plazo.</p>
+                    <h4>Despeje de Variables (C, i, n)</h4>
+                    <p>Ecuaciones derivadas para hallar capital, tasa y plazo.</p>
                 </div>
             </div>
 
-            <!-- PANEL DINÁMICO DE PROCESO -->
             <div id="caja-proceso-formula" class="panel-detalle-formula oculto">
                 <h4 id="titulo-proceso-formula">Seleccione una fórmula arriba</h4>
                 <div id="contenido-proceso-formula" style="color: var(--text-main); font-size: 14px; line-height: 1.6;">
@@ -834,55 +838,55 @@
         </div>
     </section>
 
-    <!-- PORTADA: INTEGRANTES DEL GRUPO 10 -->
+    <!-- PORTADA: INTEGRANTES DEL GRUPO 11 -->
     <section id="portada-integrantes" class="portada-seccion oculto">
         <header class="navbar-top">
             <div class="navbar-brand">
-                <h2>Equipo de Trabajo - Grupo 10</h2>
+                <h2>Equipo de Trabajo - Grupo 11</h2>
                 <p>Carrera de Computación en Línea – 6S</p>
             </div>
             <div class="nav-links">
-                <button class="btn-nav" onclick="navegarA('portada-bienvenida')">🏠 Inicio</button>
-                <button class="btn-nav activo" onclick="navegarA('portada-integrantes')">👥 Integrantes</button>
-                <button class="btn-nav" onclick="navegarA('portada-formulas')">📐 Fórmulas</button>
-                <button class="btn-nav" onclick="navegarA('portada-simulador')">📊 Simulador</button>
-                <button class="btn-nav" onclick="navegarA('portada-teoria')">📚 Teoría & Clases</button>
+                <button class="btn-nav" onclick="navegarA('portada-bienvenida')">Inicio</button>
+                <button class="btn-nav activo" onclick="navegarA('portada-integrantes')">Integrantes</button>
+                <button class="btn-nav" onclick="navegarA('portada-formulas')">Fórmulas</button>
+                <button class="btn-nav" onclick="navegarA('portada-simulador')">Simulador</button>
+                <button class="btn-nav" onclick="navegarA('portada-teoria')">Teoría</button>
             </div>
         </header>
 
         <div class="panel-modulo" style="text-align: center; padding: 40px 20px;">
-            <h3 style="justify-content: center; border: none; font-size: 26px; margin-bottom: 10px;">🎓 Nómina Oficial de Integrantes</h3>
+            <h3 style="justify-content: center; border: none; font-size: 26px; margin-bottom: 10px;">Nómina Oficial de Integrantes</h3>
             <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto 30px auto; font-size: 14px;">
-                Estudiantes colaboradores del Grupo 10 asignados para el desarrollo e implementación del simulador de Ingeniería Económica.
+                Estudiantes colaboradores del Grupo 11 asignados para el desarrollo e implementación del simulador de Ingeniería Económica.
             </p>
 
             <div class="integrantes-grid">
                 <div class="tarjeta-integrante">
-                    <div class="avatar-integrante">👩‍💻</div>
+                    <div class="avatar-integrante">TA</div>
                     <h4>Balladares Coello Tatiana Arleth</h4>
                     <p>Universidad Agraria del Ecuador</p>
                 </div>
 
                 <div class="tarjeta-integrante">
-                    <div class="avatar-integrante">👨‍💻</div>
+                    <div class="avatar-integrante">FG</div>
                     <h4>Chilpe Reyes Fidel Gardel</h4>
                     <p>Universidad Agraria del Ecuador</p>
                 </div>
 
                 <div class="tarjeta-integrante">
-                    <div class="avatar-integrante">👨‍💻</div>
+                    <div class="avatar-integrante">CB</div>
                     <h4>Chávez Franco Carlos Bryan</h4>
                     <p>Universidad Agraria del Ecuador</p>
                 </div>
 
                 <div class="tarjeta-integrante">
-                    <div class="avatar-integrante">👨‍💻</div>
+                    <div class="avatar-integrante">AJ</div>
                     <h4>Escobar Quiñonez Adonis Jhiret</h4>
                     <p>Universidad Agraria del Ecuador</p>
                 </div>
 
                 <div class="tarjeta-integrante">
-                    <div class="avatar-integrante">👩‍💻</div>
+                    <div class="avatar-integrante">VC</div>
                     <h4>López Plúas Verónica Cecilia</h4>
                     <p>Universidad Agraria del Ecuador</p>
                 </div>
@@ -898,11 +902,11 @@
                 <p>Contenido Detallado: Unidades I (Semanas 1 a 3)</p>
             </div>
             <div class="nav-links">
-                <button class="btn-nav" onclick="navegarA('portada-bienvenida')">🏠 Inicio</button>
-                <button class="btn-nav" onclick="navegarA('portada-integrantes')">👥 Integrantes</button>
-                <button class="btn-nav" onclick="navegarA('portada-formulas')">📐 Fórmulas</button>
-                <button class="btn-nav" onclick="navegarA('portada-simulador')">📊 Simulador</button>
-                <button class="btn-nav activo" onclick="navegarA('portada-teoria')">📚 Teoría & Clases</button>
+                <button class="btn-nav" onclick="navegarA('portada-bienvenida')">Inicio</button>
+                <button class="btn-nav" onclick="navegarA('portada-integrantes')">Integrantes</button>
+                <button class="btn-nav" onclick="navegarA('portada-formulas')">Fórmulas</button>
+                <button class="btn-nav" onclick="navegarA('portada-simulador')">Simulador</button>
+                <button class="btn-nav activo" onclick="navegarA('portada-teoria')">Teoría</button>
             </div>
         </header>
 
@@ -912,25 +916,25 @@
 
         <div class="temas-grid">
             <div class="tarjeta-tema" onclick="abrirModal('modal-s1')">
-                <div class="icono-tema">🏛️</div>
+                <div class="icono-tema">S1</div>
                 <h4>Semana 1: Fundamentos</h4>
                 <p>Importancia de la ingeniería económica, toma de decisiones y relación estratégica con la ingeniería de sistemas.</p>
             </div>
 
             <div class="tarjeta-tema" onclick="abrirModal('modal-s2')">
-                <div class="icono-tema">📉</div>
+                <div class="icono-tema">S2</div>
                 <h4>Semana 2: Dinero en el Tiempo</h4>
                 <p>Definiciones de capital, valor presente, tasa de rendimiento y el impacto del tiempo en los flujos monetarios.</p>
             </div>
 
             <div class="tarjeta-tema" onclick="abrirModal('modal-s3-interes')">
-                <div class="icono-tema">💵</div>
+                <div class="icono-tema">S3.1</div>
                 <h4>Semana 3.1: Interés Simple</h4>
                 <p>Análisis de capital constante, fórmulas analíticas de rendimiento, despejes y conversiones de plazos.</p>
             </div>
 
             <div class="tarjeta-tema" onclick="abrirModal('modal-s3-avanzado')">
-                <div class="icono-tema">⚖️</div>
+                <div class="icono-tema">S3.2</div>
                 <h4>Semana 3.2: Descuentos y Ecuaciones</h4>
                 <p>Descuento comercial, análisis de tasas reales, diagramas cronológicos de tiempo y ecuaciones de valor equivalente.</p>
             </div>
@@ -941,7 +945,7 @@
     <div id="modal-s1" class="modal-overlay">
         <div class="modal-contenido">
             <button class="btn-cerrar-modal" onclick="cerrarModal('modal-s1')">&times;</button>
-            <h3>🏛️ Semana 1: Fundamentos y Rol en la Ingeniería</h3>
+            <h3>Semana 1: Fundamentos y Rol en la Ingeniería</h3>
             
             <h4>1. ¿Qué es la Ingeniería Económica?</h4>
             <p>Es una disciplina fundamental que permite formular, estimar y evaluar los resultados económicos de diferentes alternativas cuando existen recursos limitados para lograr un objetivo específico. Simplifica la evaluación mediante modelos matemáticos basados en el valor del dinero en el tiempo.</p>
@@ -963,7 +967,7 @@
     <div id="modal-s2" class="modal-overlay">
         <div class="modal-contenido">
             <button class="btn-cerrar-modal" onclick="cerrarModal('modal-s2')">&times;</button>
-            <h3>📉 Semana 2: El Valor del Dinero en el Tiempo</h3>
+            <h3>Semana 2: El Valor del Dinero en el Tiempo</h3>
 
             <h4>1. El Concepto de Equivalencia Temporal</h4>
             <p>Una cantidad monetaria experimenta modificaciones en su poder adquisitivo y valor económico dependiendo de la fecha exacta en la que se reciba o se pague. La premisa central indica que un dólar hoy vale más que un dólar en el futuro debido al potencial de generar ganancias.</p>
@@ -982,50 +986,50 @@
     <div id="modal-s3-interes" class="modal-overlay">
         <div class="modal-contenido">
             <button class="btn-cerrar-modal" onclick="cerrarModal('modal-s3-interes')">&times;</button>
-            <h3>💵 Semana 3.1: Interés Simple, Fórmulas y Despejes</h3>
+            <h3>Semana 3.1: Interés Simple, Fórmulas y Despejes</h3>
 
             <h4>1. Características del Interés Simple</h4>
             <p>Bajo este régimen financiero, los intereses generados en cada período no se capitalizan ni se suman al saldo base; por lo tanto, el capital inicial permanece invariable durante toda la vigencia del contrato.</p>
 
             <h4>2. Compendio Oficial de Fórmulas y Despejes</h4>
             <ul>
-                <li><strong>Interés Ganado ($I$):</strong> $I = C \cdot i \cdot n$</li>
-                <li><strong>Monto Futuro ($M$):</strong> $M = C(1 + i \cdot n) = C + I$</li>
-                <li><strong>Cálculo del Capital Inicial ($C$):</strong> $C = \frac{M}{1 + i \cdot n}$ o $C = \frac{I}{i \cdot n}$</li>
-                <li><strong>Cálculo de la Tasa ($i$):</strong> $i = \frac{I}{C \cdot n}$ o $i = \frac{\frac{M}{C} - 1}{n}$</li>
-                <li><strong>Cálculo del Plazo ($n$):</strong> $n = \frac{I}{C \cdot i}$ o $n = \frac{\frac{M}{C} - 1}{i}$</li>
+                <li><strong>Interés Ganado (I):</strong> I = C * i * n</li>
+                <li><strong>Monto Futuro (M):</strong> M = C(1 + i * n) = C + I</li>
+                <li><strong>Cálculo del Capital Inicial (C):</strong> C = M / (1 + i * n)  o  C = I / (i * n)</li>
+                <li><strong>Cálculo de la Tasa (i):</strong> i = I / (C * n)</li>
+                <li><strong>Cálculo del Plazo (n):</strong> n = I / (C * i)</li>
             </ul>
 
             <h4>3. Regla de Conversión Temporal</h4>
-            <p>Es indispensable que la tasa de interés y el plazo guarden estricta concordancia en su unidad de medida (si la tasa es anual, el tiempo debe expresarse en años o fraccionarse adecuadamente, por ejemplo $n = \frac{\text{meses}}{12}$ o $n = \frac{\text{días}}{360}$ bajo base comercial).</p>
+            <p>Es indispensable que la tasa de interés y el plazo guarden estricta concordancia en su unidad de medida (si la tasa es anual, el tiempo debe expresarse en años o fraccionarse adecuadamente, por ejemplo n = meses / 12 o n = días / 360 bajo base comercial).</p>
         </div>
     </div>
 
     <div id="modal-s3-avanzado" class="modal-overlay">
         <div class="modal-contenido">
             <button class="btn-cerrar-modal" onclick="cerrarModal('modal-s3-avanzado')">&times;</button>
-            <h3>⚖️ Semana 3.2: Descuentos, Diagramas y Ecuaciones de Valor</h3>
+            <h3>Semana 3.2: Descuentos, Diagramas y Ecuaciones de Valor</h3>
 
             <h4>1. Descuento Simple y Cobro Anticipado</h4>
-            <p>El descuento ($D$) representa la rebaja aplicada al valor nominal ($F$) cuando un título es negociado antes de su fecha de vencimiento. Su fórmula general es $D = F \cdot d \cdot n$ y el capital líquido a recibir se determina como $P = F(1 - d \cdot n)$. Nota financiera de clase: las operaciones con cobro de intereses anticipados generan tasas de rendimiento reales superiores a las nominales declaradas.</p>
+            <p>El descuento (D) representa la rebaja aplicada al valor nominal (F) cuando un título es negociado antes de su fecha de vencimiento. Su fórmula general es D = F * d * n y el capital líquido a recibir se determina como P = F(1 - d * n). Nota financiera de clase: las operaciones con cobro de intereses anticipados generan tasas de rendimiento reales superiores a las nominales declaradas.</p>
 
             <h4>2. Diagramas de Tiempo</h4>
-            <p>Herramienta visual que plasma cronológicamente los flujos monetarios: las inversiones o depósitos se representan orientados hacia arriba, mientras que los retiros o pagos se dirigen hacia abajo. Facilitan definir una <strong>fecha focal</strong> común para trasladar todos los capitales.</p>
+            <p>Herramienta visual que plasma cronológicamente los flujos monetarios: las inversiones o depósitos se representan orientados hacia arriba, mientras que los retiros o pagos se dirigen hacia abajo. Facilitan definir una fecha focal común para trasladar todos los capitales.</p>
 
             <h4>3. Ecuaciones de Valor Equivalente</h4>
-            <p>Permiten a un deudor reestructurar un conjunto de obligaciones financieras de común acuerdo con su acreedor. El principio de solución consiste en igualar la sumatoria de los valores equivalentes originales con los nuevos pagos llevados a una misma fecha focal: $\sum \text{Originales} = \sum \text{Nuevos}$.</p>
+            <p>Permiten a un deudor reestructurar un conjunto de obligaciones financieras de común acuerdo con su acreedor. El principio de solución consiste en igualar la sumatoria de los valores equivalentes originales con los nuevos pagos llevados a una misma fecha focal.</p>
         </div>
     </div>
 
     <!-- FOOTER DE DERECHOS RESERVADOS -->
     <footer class="footer-derechos">
-        Universidad Agraria del Ecuador • Facultad de Ciencias Agrarias • Computación en Línea 6S © 2026 Grupo 10. Todos los derechos reservados.
+        Universidad Agraria del Ecuador • Facultad de Ciencias Agrarias • Computación en Línea 6S © 2026 Grupo 11. Todos los derechos reservados.
     </footer>
 
     <!-- SCRIPT DE CONTROL -->
     <script>
         function despachaVariables() {
-            console.log("Infraestructura de Ingeniería Económica - Grupo 10 desplegada correctamente.");
+            console.log("Infraestructura de Ingeniería Económica - Grupo 11 desplegada correctamente.");
         }
 
         function navegarA(idPortada) {
@@ -1054,48 +1058,48 @@
             caja.classList.remove('oculto');
 
             if (tipo === 'interes') {
-                titulo.innerHTML = "💵 Proceso de Cálculo: Interés Simple ($I$)";
+                titulo.innerHTML = "Proceso de Cálculo: Interés Simple (I)";
                 contenido.innerHTML = `
-                    <p><strong>Fórmula:</strong> $I = C \\cdot i \\cdot n$</p>
+                    <p><strong>Fórmula:</strong> I = C * i * n</p>
                     <p><strong>Descripción del Proceso:</strong></p>
                     <ul>
-                        <li><strong>C ($C$):</strong> Capital principal prestado o invertido.</li>
-                        <li><strong>i ($i$):</strong> Tasa de interés expresada en tanto por uno (dividida para 100).</li>
-                        <li><strong>n ($n$):</strong> Tiempo o plazo de la operación normalizado a la misma unidad de la tasa (meses/12 o días/360).</li>
+                        <li><strong>C:</strong> Capital principal prestado o invertido.</li>
+                        <li><strong>i:</strong> Tasa de interés expresada en tanto por uno (dividida para 100).</li>
+                        <li><strong>n:</strong> Tiempo o plazo de la operación normalizado a la misma unidad de la tasa (meses/12 o días/360).</li>
                     </ul>
-                    <p><em>Ejemplo de cálculo analítico:</em> Para $1,000 al 12% anual ($i = 0.12$) durante 8 meses ($n = 8/12$):<br>
-                    $I = 1000 \\cdot 0.12 \\cdot (8 / 12) = \\$80.00$.</p>
+                    <p><em>Ejemplo analítico:</em> Para $1,000 al 12% anual (i = 0.12) durante 8 meses (n = 8/12):<br>
+                    I = 1000 * 0.12 * (8 / 12) = $80.00.</p>
                 `;
             } else if (tipo === 'monto') {
-                titulo.innerHTML = "📈 Proceso de Cálculo: Monto Acumulado ($M$)";
+                titulo.innerHTML = "Proceso de Cálculo: Monto Acumulado (M)";
                 contenido.innerHTML = `
-                    <p><strong>Fórmula:</strong> $M = C + I$  o  $M = C(1 + i \\cdot n)$</p>
+                    <p><strong>Fórmula:</strong> M = C + I  o  M = C(1 + i * n)</p>
                     <p><strong>Descripción del Proceso:</strong></p>
                     <ul>
                         <li>Representa el valor futuro total que se acumula al finalizar el contrato.</li>
-                        <li>Se obtiene sumando el capital inicial más la totalidad de los intereses devengados ($I$).</li>
+                        <li>Se obtiene sumando el capital inicial más la totalidad de los intereses devengados (I).</li>
                     </ul>
-                    <p><em>Ejemplo analítico:</em> Capital de $1,000 + Interés de $80 = \\$1,080.00$.</p>
+                    <p><em>Ejemplo analítico:</em> Capital de $1,000 + Interés de $80 = $1,080.00.</p>
                 `;
             } else if (tipo === 'descuento') {
-                titulo.innerHTML = "🏷️ Proceso de Cálculo: Descuento Comercial ($D$)";
+                titulo.innerHTML = "Proceso de Cálculo: Descuento Comercial (D)";
                 contenido.innerHTML = `
-                    <p><strong>Fórmula:</strong> $D = F \\cdot d \\cdot n$  |  <strong>Valor Líquido:</strong> $P = F(1 - d \\cdot n)$</p>
+                    <p><strong>Fórmula:</strong> D = F * d * n  |  <strong>Valor Líquido:</strong> P = F(1 - d * n)</p>
                     <p><strong>Descripción del Proceso:</strong></p>
                     <ul>
-                        <li><strong>F ($F$):</strong> Valor nominal futuro del documento o pagaré.</li>
-                        <li><strong>d ($d$):</strong> Tasa de descuento aplicada por anticipado.</li>
+                        <li><strong>F:</strong> Valor nominal futuro del documento o pagaré.</li>
+                        <li><strong>d:</strong> Tasa de descuento aplicada por anticipado.</li>
                         <li>Permite conocer la rebaja que se efectúa al cobrar un título valor antes de su fecha de vencimiento.</li>
                     </ul>
                 `;
             } else if (tipo === 'despejes') {
-                titulo.innerHTML = "⚖️ Proceso de Despeje de Variables";
+                titulo.innerHTML = "Proceso de Despeje de Variables";
                 contenido.innerHTML = `
                     <p><strong>Fórmulas Derivadas del Interés Simple:</strong></p>
                     <ul>
-                        <li><strong>Calcular Capital ($C$):</strong> $C = \\frac{I}{i \\cdot n}$  o  $C = \\frac{M}{1 + i \\cdot n}$</li>
-                        <li><strong>Calcular Tasa ($i$):</strong> $i = \\frac{I}{C \\cdot n}$</li>
-                        <li><strong>Calcular Plazo ($n$):</strong> $n = \\frac{I}{C \\cdot i}$</li>
+                        <li><strong>Calcular Capital (C):</strong> C = I / (i * n)  o  C = M / (1 + i * n)</li>
+                        <li><strong>Calcular Tasa (i):</strong> i = I / (C * n)</li>
+                        <li><strong>Calcular Plazo (n):</strong> n = I / (C * i)</li>
                     </ul>
                     <p>Estas ecuaciones permiten hallar cualquier incógnita contractual conociendo las demás variables financieras.</p>
                 `;
@@ -1160,10 +1164,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
-    
