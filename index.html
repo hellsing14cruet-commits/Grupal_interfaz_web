@@ -327,27 +327,6 @@
             font-weight: bold;
         }
 
-        .btn-guardar-simulacion {
-            background: linear-gradient(135deg, var(--green-money) 0%, #219653 100%);
-            color: #ffffff;
-            font-size: 14px;
-            font-weight: 800;
-            padding: 14px 20px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            text-transform: uppercase;
-            width: 100%;
-            margin-top: 15px;
-            box-shadow: 0 5px 15px rgba(46, 204, 113, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .btn-guardar-simulacion:hover {
-            background: linear-gradient(135deg, #27ae60, #1e8449);
-            transform: translateY(-2px);
-        }
-
         /* TABLA DE AMORTIZACIÓN / HISTORIAL EN TEORÍA */
         .tabla-amortizacion-container {
             width: 100%;
@@ -511,7 +490,7 @@
             font-size: 13px;
         }
 
-        /* FÓRMULAS E IMÁGENES AMPLIADAS Y CLICKEABLES */
+        /* FÓRMULAS E IMÁGENES AMPLIADAS (OPTIMIZADO ZOOM Y NIDEZ) */
         .formulas-grid-scroll {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -549,20 +528,31 @@
             display: block;
         }
 
+        .contenedor-imagen-formula {
+            background: #020604;
+            border: 2px solid var(--gold-primary);
+            border-radius: 12px;
+            padding: 15px;
+            margin-top: 15px;
+            overflow: auto;
+            max-height: 550px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
         .imagen-formula-desplegada {
             width: 100%;
-            max-width: 900px;
+            max-width: 100%;
             height: auto;
-            border-radius: 10px;
-            border: 2px solid var(--gold-primary);
-            box-shadow: 0 10px 35px rgba(0,0,0,0.9);
-            margin-top: 15px;
+            border-radius: 8px;
             cursor: zoom-in;
             transition: transform 0.3s ease;
+            image-rendering: -webkit-optimize-contrast; /* Máxima nitidez */
         }
 
         .imagen-formula-desplegada:hover {
-            transform: scale(1.01);
+            transform: scale(1.02);
         }
 
         /* TEORÍA ENRIQUECIDA */
@@ -645,9 +635,9 @@
             border: 1px solid var(--gold-primary);
             border-radius: 16px;
             padding: 40px;
-            max-width: 850px;
-            width: 90%;
-            max-height: 88vh;
+            max-width: 900px;
+            width: 92%;
+            max-height: 90vh;
             overflow-y: auto;
             position: relative;
         }
@@ -689,7 +679,7 @@
 
         .modal-contenido ul { padding-left: 22px; margin-bottom: 15px; }
 
-        /* LIGHTBOX PARA IMÁGENES EN GRANDE */
+        /* LIGHTBOX PARA VER IMÁGENES EN PANTALLA COMPLETA */
         #lightbox-modal {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -700,7 +690,7 @@
             transition: opacity 0.3s ease;
         }
         #lightbox-modal.activo { opacity: 1; pointer-events: auto; }
-        #lightbox-img { max-width: 95%; max-height: 95vh; border: 2px solid var(--gold-primary); border-radius: 8px; }
+        #lightbox-img { max-width: 95%; max-height: 95vh; border: 2px solid var(--gold-primary); border-radius: 8px; object-fit: contain; }
 
         .footer-derechos {
             text-align: center;
@@ -733,7 +723,7 @@
         </button>
     </section>
 
-    <!-- PORTADA 2: SIMULADOR (SIN LA TABLA DE AMORTIZACIÓN) -->
+    <!-- PORTADA 2: SIMULADOR -->
     <section id="portada-simulador" class="portada-seccion oculto">
         <header class="navbar-top">
             <div class="navbar-brand">
@@ -791,8 +781,7 @@
                     </div>
                 </div>
 
-                <!-- BOTÓN GUARDAR CONECTADO A LA TABLA EN TEORÍA -->
-                <button class="btn-guardar-simulacion" onclick="guardarEnTablaAmortizacion()">
+                <button class="btn-guardar-simulacion" onclick="guardarEnTablaAmortizacion()" style="background: linear-gradient(135deg, var(--green-money) 0%, #219653 100%); color: #ffffff; font-size: 14px; font-weight: 800; padding: 14px 20px; border: none; border-radius: 8px; cursor: pointer; text-transform: uppercase; width: 100%; margin-top: 15px;">
                     💾 Guardar en Tabla de Amortización (Ver en Teoría)
                 </button>
             </div>
@@ -850,12 +839,12 @@
         </div>
     </section>
 
-    <!-- PORTADA: CONOCIMIENTO LIBRE -->
+    <!-- PORTADA: CONOCIMIENTO LIBRE (NUEVO LINK: hellsing14cruet-commits/formulaimagenes) -->
     <section id="portada-formulas" class="portada-seccion oculto">
         <header class="navbar-top">
             <div class="navbar-brand">
                 <h2>Conocimiento Libre - Ingeniería Económica</h2>
-                <p>Compendio Visual de Ecuaciones y Procesos de Cálculo</p>
+                <p>Compendio Visual de Ecuaciones y Fórmulas de Alta Nitidez</p>
             </div>
             <div class="nav-links">
                 <button class="btn-nav" onclick="navegarA('portada-bienvenida')">Inicio</button>
@@ -869,7 +858,7 @@
         <div class="panel-modulo">
             <h3>Seleccione una Fórmula para ver la Imagen Detallada</h3>
             <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 15px;">
-                Haz clic sobre cualquier tema para cargar la imagen en gran tamaño. Puedes hacer clic sobre la imagen desplegada para verla en pantalla completa:
+                Haz clic sobre cualquier tema para cargar la imagen en alta definición con zoom optimizado:
             </p>
 
             <div class="formulas-grid-scroll">
@@ -981,7 +970,7 @@
 
             <div id="caja-proceso-formula" class="panel-detalle-formula oculto" style="margin-top:25px; padding:20px; background:#020604; border:1px solid var(--gold-primary); border-radius:12px; text-align:center;">
                 <h4 id="titulo-proceso-formula" style="color:var(--gold-primary); margin-bottom:10px;">Seleccione una opción arriba</h4>
-                <div id="contenido-proceso-formula"></div>
+                <div id="contenido-proceso-formula" class="contenedor-imagen-formula"></div>
             </div>
         </div>
     </section>
@@ -1043,7 +1032,7 @@
         </div>
     </section>
 
-    <!-- PORTADA: TEORÍA CON LA TABLA DE AMORTIZACIÓN Y HISTORIAL UBICADA AQUÍ -->
+    <!-- PORTADA: TEORÍA CON LA TABLA DE AMORTIZACIÓN Y HISTORIAL -->
     <section id="portada-teoria" class="portada-seccion oculto">
         <header class="navbar-top">
             <div class="navbar-brand">
@@ -1101,8 +1090,8 @@
                     <thead>
                         <tr>
                             <th>N° Operación</th>
-                            <th>Capital Inicial ($C)</th>
-                            <th>Tasa (%i)</th>
+                            <th>Capital Inicial ($C$)</th>
+                            <th>Tasa (%$i$)</th>
                             <th>Plazo ($n$)</th>
                             <th>Interés Devengado ($I$)</th>
                             <th>Monto Total ($M$)</th>
@@ -1127,7 +1116,7 @@
             <button class="btn-cerrar-modal" onclick="cerrarModal('modal-interes')">&times;</button>
             <h3>Régimen de Interés Simple y Compuesto</h3>
             <h4>Instrumento Web / Imagen Oficial</h4>
-            <div style="text-align: center; background: #020604; padding: 15px; border-radius: 10px; border: 1px solid var(--border-green); margin-bottom: 15px;">
+            <div class="contenedor-imagen-formula" style="margin-bottom: 15px;">
                 <img src="https://raw.githubusercontent.com/hellsing14cruet-commits/Intrumetos-web/main/Interes%20simple.PNG" alt="Interés Simple" class="imagen-formula-desplegada" onclick="abrirLightbox(this.src)" onerror="this.onerror=null; this.src='https://via.placeholder.com/600x250?text=Interes+Simple';">
             </div>
             <h4>Fundamento Teórico</h4>
@@ -1141,7 +1130,7 @@
             <button class="btn-cerrar-modal" onclick="cerrarModal('modal-descuento')">&times;</button>
             <h3>Descuento y Títulos Valores</h3>
             <h4>Instrumento Web / Imagen Oficial</h4>
-            <div style="text-align: center; background: #020604; padding: 15px; border-radius: 10px; border: 1px solid var(--border-green); margin-bottom: 15px;">
+            <div class="contenedor-imagen-formula" style="margin-bottom: 15px;">
                 <img src="https://raw.githubusercontent.com/hellsing14cruet-commits/Intrumetos-web/main/descuento%20simple.PNG" alt="Descuento Simple" class="imagen-formula-desplegada" onclick="abrirLightbox(this.src)" onerror="this.onerror=null; this.src='https://via.placeholder.com/600x250?text=Descuento+Simple';">
             </div>
             <h4>Fundamento Teórico</h4>
@@ -1155,7 +1144,7 @@
             <button class="btn-cerrar-modal" onclick="cerrarModal('modal-ecuaciones')">&times;</button>
             <h3>Ecuaciones de Valor</h3>
             <h4>Instrumento Web / Gráfica Oficial</h4>
-            <div style="text-align: center; background: #020604; padding: 15px; border-radius: 10px; border: 1px solid var(--border-green); margin-bottom: 15px;">
+            <div class="contenedor-imagen-formula" style="margin-bottom: 15px;">
                 <img src="https://raw.githubusercontent.com/hellsing14cruet-commits/Intrumetos-web/main/Grafica.PNG" alt="Ecuaciones de Valor" class="imagen-formula-desplegada" onclick="abrirLightbox(this.src)" onerror="this.onerror=null; this.src='https://via.placeholder.com/600x250?text=Ecuaciones+de+Valor';">
             </div>
             <h4>Fundamento Teórico</h4>
@@ -1169,7 +1158,7 @@
             <button class="btn-cerrar-modal" onclick="cerrarModal('modal-diagramas')">&times;</button>
             <h3>Diagramas de Tiempo</h3>
             <h4>Instrumento Web / Imagen Oficial</h4>
-            <div style="text-align: center; background: #020604; padding: 15px; border-radius: 10px; border: 1px solid var(--border-green); margin-bottom: 15px;">
+            <div class="contenedor-imagen-formula" style="margin-bottom: 15px;">
                 <img src="https://raw.githubusercontent.com/hellsing14cruet-commits/Intrumetos-web/main/diagrama%20de%20tiempo.PNG" alt="Diagrama de Tiempo" class="imagen-formula-desplegada" onclick="abrirLightbox(this.src)" onerror="this.onerror=null; this.src='https://via.placeholder.com/600x250?text=Diagrama+de+Tiempo';">
             </div>
             <h4>Fundamento Teórico</h4>
@@ -1257,7 +1246,6 @@
             registrosAmortizacion.push(nuevaOperacion);
             renderizarTablaAmortizacion();
             
-            // Notificación visual opcional al guardar
             alert("¡Operación guardada exitosamente en la Tabla de Amortización de la sección Teoría!");
         }
 
@@ -1315,7 +1303,7 @@
             caja.classList.remove('oculto');
             titulo.innerHTML = tituloFormula + " (Haz clic en la imagen para ampliar)";
             
-            const urlRaw = `https://raw.githubusercontent.com/hellsing14cruet-commits/formulasimagenes/main/${encodeURIComponent(nombreArchivo)}`;
+            const urlRaw = `https://raw.githubusercontent.com/hellsing14cruet-commits/formulaimagenes/main/${encodeURIComponent(nombreArchivo)}`;
             
             contenido.innerHTML = `
                 <img src="${urlRaw}" alt="${tituloFormula}" class="imagen-formula-desplegada" onclick="abrirLightbox('${urlRaw}')" onerror="this.onerror=null; this.src='https://via.placeholder.com/600x200?text=Imagen+en+proceso+de+carga';">
