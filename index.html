@@ -535,24 +535,25 @@
             padding: 15px;
             margin-top: 15px;
             overflow: auto;
-            max-height: 550px;
+            max-height: 600px;
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
         .imagen-formula-desplegada {
-            width: 100%;
+            width: auto;
             max-width: 100%;
             height: auto;
+            max-height: 550px;
             border-radius: 8px;
             cursor: zoom-in;
             transition: transform 0.3s ease;
-            image-rendering: -webkit-optimize-contrast; /* Máxima nitidez */
+            image-rendering: -webkit-optimize-contrast;
         }
 
         .imagen-formula-desplegada:hover {
-            transform: scale(1.02);
+            transform: scale(1.03);
         }
 
         /* TEORÍA ENRIQUECIDA */
@@ -839,7 +840,7 @@
         </div>
     </section>
 
-    <!-- PORTADA: CONOCIMIENTO LIBRE (NUEVO LINK: hellsing14cruet-commits/formulaimagenes) -->
+    <!-- PORTADA: CONOCIMIENTO LIBRE (APUNTANDO EXACTAMENTE A TUS NUEVOS ARCHIVOS) -->
     <section id="portada-formulas" class="portada-seccion oculto">
         <header class="navbar-top">
             <div class="navbar-brand">
@@ -862,30 +863,6 @@
             </p>
 
             <div class="formulas-grid-scroll">
-                <div class="tarjeta-formula-item" onclick="cargarImagenFormula('pagina 61.PNG', 'Enésimo término de las progresiones aritméticas')">
-                    <h5>Enésimo término progresión aritmética</h5>
-                    <span>Página 61</span>
-                </div>
-                <div class="tarjeta-formula-item" onclick="cargarImagenFormula('pagina 63.PNG', 'Suma de los primeros términos de una serie aritmética')">
-                    <h5>Suma serie aritmética</h5>
-                    <span>Página 63</span>
-                </div>
-                <div class="tarjeta-formula-item" onclick="cargarImagenFormula('pagina 69.PNG', 'Enésimo término de las progresiones geométricas')">
-                    <h5>Enésimo término progresión geométrica</h5>
-                    <span>Página 69</span>
-                </div>
-                <div class="tarjeta-formula-item" onclick="cargarImagenFormula('pagina 71.PNG', 'Suma de los primeros n términos de una serie geométrica')">
-                    <h5>Suma serie geométrica</h5>
-                    <span>Página 71</span>
-                </div>
-                <div class="tarjeta-formula-item" onclick="cargarImagenFormula('pagina 95.PNG', 'Intereses simples y relaciones del capital')">
-                    <h5>Intereses</h5>
-                    <span>Página 95</span>
-                </div>
-                <div class="tarjeta-formula-item" onclick="cargarImagenFormula('pagina 96.PNG', 'Fórmula del interés simple y monto acumulado')">
-                    <h5>Fórmula del interés simple</h5>
-                    <span>Página 96</span>
-                </div>
                 <div class="tarjeta-formula-item" onclick="cargarImagenFormula('pagina 111.PNG', 'Valor comercial de un documento con descuento simple')">
                     <h5>Valor comercial con descuento simple</h5>
                     <span>Página 111</span>
@@ -901,6 +878,10 @@
                 <div class="tarjeta-formula-item" onclick="cargarImagenFormula('pagina 134.PNG', 'Saldo insoluto en operaciones de crédito con interés simple')">
                     <h5>Saldo insoluto crédito interés simple</h5>
                     <span>Página 134</span>
+                </div>
+                <div class="tarjeta-formula-item" onclick="cargarImagenFormula('pagina 151.jpg', 'Operaciones con interés y equivalencias')">
+                    <h5>Operaciones con interés y equivalencias</h5>
+                    <span>Página 151</span>
                 </div>
                 <div class="tarjeta-formula-item" onclick="cargarImagenFormula('pagina 168.PNG', 'Fórmula del interés compuesto')">
                     <h5>Fórmula del interés compuesto</h5>
@@ -1306,7 +1287,7 @@
             const urlRaw = `https://raw.githubusercontent.com/hellsing14cruet-commits/formulaimagenes/main/${encodeURIComponent(nombreArchivo)}`;
             
             contenido.innerHTML = `
-                <img src="${urlRaw}" alt="${tituloFormula}" class="imagen-formula-desplegada" onclick="abrirLightbox('${urlRaw}')" onerror="this.onerror=null; this.src='https://via.placeholder.com/600x200?text=Imagen+en+proceso+de+carga';">
+                <img src="${urlRaw}" alt="${tituloFormula}" class="imagen-formula-desplegada" onclick="abrirLightbox('${urlRaw}')" onerror="this.onerror=null; this.src='https://via.placeholder.com/600x200?text=Imagen+no+encontrada+en+el+repositorio';">
             `;
             
             caja.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
