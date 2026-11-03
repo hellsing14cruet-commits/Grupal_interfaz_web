@@ -78,7 +78,7 @@
             transform: translateY(0);
         }
 
-        /* NAVEGACIÓN SUPERIOR */
+        /* NAVEGACIÓN SUPERIOR (Orden: Inicio, Teoría, Fórmulas, Integrantes) */
         .navbar-top {
             display: flex;
             justify-content: space-between;
@@ -325,6 +325,26 @@
             align-items: center;
             justify-content: center;
             font-weight: bold;
+        }
+
+        /* CONTENEDOR DEL GIF EN EL SIMULADOR (CUADRO AMARILLO) */
+        .contenedor-gif-simulador {
+            width: 100%;
+            height: 180px;
+            border: 2px dashed var(--border-gold);
+            border-radius: 10px;
+            background: rgba(2, 6, 4, 0.6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 18px;
+            overflow: hidden;
+        }
+
+        .contenedor-gif-simulador img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
         }
 
         /* TABLA DE AMORTIZACIÓN / HISTORIAL EN TEORÍA */
@@ -733,10 +753,10 @@
             </div>
             <div class="nav-links">
                 <button class="btn-nav" onclick="navegarA('portada-bienvenida')">Inicio</button>
-                <button class="btn-nav" onclick="navegarA('portada-integrantes')">Integrantes</button>
-                <button class="btn-nav" onclick="navegarA('portada-formulas')">Fórmulas</button>
-                <button class="btn-nav activo" onclick="navegarA('portada-simulador')">Simulador</button>
                 <button class="btn-nav" onclick="navegarA('portada-teoria')">Teoría</button>
+                <button class="btn-nav" onclick="navegarA('portada-formulas')">Fórmulas</button>
+                <button class="btn-nav" onclick="navegarA('portada-integrantes')">Integrantes</button>
+                <button class="btn-nav activo" onclick="navegarA('portada-simulador')">Simulador</button>
             </div>
         </header>
 
@@ -809,6 +829,11 @@
                 <div class="badge-dolar-container">
                     <div class="badge-dolar">$</div>
                 </div>
+
+                <!-- CONTENEDOR PARA EL GIF (Reemplazo del cuadro amarillo) -->
+                <div class="contenedor-gif-simulador">
+                    <img src="https://raw.githubusercontent.com/hellsing14cruet-commits/Gif-/main/tu-animacion.gif" alt="GIF Animado" onerror="this.src='https://via.placeholder.com/400x150?text=Sube+tu+GIF+a+hellsing14cruet-commits/Gif-';">
+                </div>
             </div>
         </div>
 
@@ -840,7 +865,7 @@
         </div>
     </section>
 
-    <!-- PORTADA: CONOCIMIENTO LIBRE (LAS 27 IMÁGENES EXACTAS DE GITHUB) -->
+    <!-- PORTADA: CONOCIMIENTO LIBRE (FÓRMULAS) -->
     <section id="portada-formulas" class="portada-seccion oculto">
         <header class="navbar-top">
             <div class="navbar-brand">
@@ -849,10 +874,10 @@
             </div>
             <div class="nav-links">
                 <button class="btn-nav" onclick="navegarA('portada-bienvenida')">Inicio</button>
-                <button class="btn-nav" onclick="navegarA('portada-integrantes')">Integrantes</button>
-                <button class="btn-nav activo" onclick="navegarA('portada-formulas')">Fórmulas</button>
-                <button class="btn-nav" onclick="navegarA('portada-simulador')">Simulador</button>
                 <button class="btn-nav" onclick="navegarA('portada-teoria')">Teoría</button>
+                <button class="btn-nav activo" onclick="navegarA('portada-formulas')">Fórmulas</button>
+                <button class="btn-nav" onclick="navegarA('portada-integrantes')">Integrantes</button>
+                <button class="btn-nav" onclick="navegarA('portada-simulador')">Simulador</button>
             </div>
         </header>
 
@@ -980,7 +1005,7 @@
         </div>
     </section>
 
-    <!-- PORTADA: INTEGRANTES -->
+    <!-- PORTADA: INTEGRANTES (Con Curso 6 SB y Emoji $) -->
     <section id="portada-integrantes" class="portada-seccion oculto">
         <header class="navbar-top">
             <div class="navbar-brand">
@@ -989,10 +1014,10 @@
             </div>
             <div class="nav-links">
                 <button class="btn-nav" onclick="navegarA('portada-bienvenida')">Inicio</button>
-                <button class="btn-nav activo" onclick="navegarA('portada-integrantes')">Integrantes</button>
-                <button class="btn-nav" onclick="navegarA('portada-formulas')">Fórmulas</button>
-                <button class="btn-nav" onclick="navegarA('portada-simulador')">Simulador</button>
                 <button class="btn-nav" onclick="navegarA('portada-teoria')">Teoría</button>
+                <button class="btn-nav" onclick="navegarA('portada-formulas')">Fórmulas</button>
+                <button class="btn-nav activo" onclick="navegarA('portada-integrantes')">Integrantes</button>
+                <button class="btn-nav" onclick="navegarA('portada-simulador')">Simulador</button>
             </div>
         </header>
 
@@ -1034,6 +1059,12 @@
                     <p>Universidad Agraria del Ecuador</p>
                 </div>
             </div>
+
+            <!-- CURSO Y EMOJI $ -->
+            <div style="margin-top: 35px; font-size: 22px; font-weight: bold; color: var(--gold-light); letter-spacing: 1px;">
+                Curso: 6 SB<br>
+                <span style="font-size: 32px; color: var(--green-money);">💲</span>
+            </div>
         </div>
     </section>
 
@@ -1046,10 +1077,10 @@
             </div>
             <div class="nav-links">
                 <button class="btn-nav" onclick="navegarA('portada-bienvenida')">Inicio</button>
-                <button class="btn-nav" onclick="navegarA('portada-integrantes')">Integrantes</button>
-                <button class="btn-nav" onclick="navegarA('portada-formulas')">Fórmulas</button>
-                <button class="btn-nav" onclick="navegarA('portada-simulador')">Simulador</button>
                 <button class="btn-nav activo" onclick="navegarA('portada-teoria')">Teoría</button>
+                <button class="btn-nav" onclick="navegarA('portada-formulas')">Fórmulas</button>
+                <button class="btn-nav" onclick="navegarA('portada-integrantes')">Integrantes</button>
+                <button class="btn-nav" onclick="navegarA('portada-simulador')">Simulador</button>
             </div>
         </header>
 
