@@ -495,7 +495,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 15px;
-            max-height: 450px;
+            max-height: 480px;
             overflow-y: auto;
             padding-right: 10px;
             margin-top: 20px;
@@ -840,7 +840,7 @@
         </div>
     </section>
 
-    <!-- PORTADA: CONOCIMIENTO LIBRE (APUNTANDO EXACTAMENTE A TUS NUEVOS ARCHIVOS) -->
+    <!-- PORTADA: CONOCIMIENTO LIBRE (LAS 27 IMÁGENES CONECTADAS AL REPOSITORIO FORMULAIMAGENES) -->
     <section id="portada-formulas" class="portada-seccion oculto">
         <header class="navbar-top">
             <div class="navbar-brand">
@@ -863,6 +863,30 @@
             </p>
 
             <div class="formulas-grid-scroll">
+                <div class="tarjeta-formula-item" onclick="cargarImagenFormula('pagina 61.PNG', 'Enésimo término de las progresiones aritméticas')">
+                    <h5>Enésimo término progresión aritmética</h5>
+                    <span>Página 61</span>
+                </div>
+                <div class="tarjeta-formula-item" onclick="cargarImagenFormula('pagina 63.PNG', 'Suma de los primeros términos de una serie aritmética')">
+                    <h5>Suma serie aritmética</h5>
+                    <span>Página 63</span>
+                </div>
+                <div class="tarjeta-formula-item" onclick="cargarImagenFormula('pagina 69.PNG', 'Enésimo término de las progresiones geométricas')">
+                    <h5>Enésimo término progresión geométrica</h5>
+                    <span>Página 69</span>
+                </div>
+                <div class="tarjeta-formula-item" onclick="cargarImagenFormula('pagina 71.PNG', 'Suma de los primeros n términos de una serie geométrica')">
+                    <h5>Suma serie geométrica</h5>
+                    <span>Página 71</span>
+                </div>
+                <div class="tarjeta-formula-item" onclick="cargarImagenFormula('pagina 95.PNG', 'Intereses simples y relaciones del capital')">
+                    <h5>Intereses simples y capital</h5>
+                    <span>Página 95</span>
+                </div>
+                <div class="tarjeta-formula-item" onclick="cargarImagenFormula('pagina 96.PNG', 'Fórmula del interés simple y monto acumulado')">
+                    <h5>Fórmula del interés simple</h5>
+                    <span>Página 96</span>
+                </div>
                 <div class="tarjeta-formula-item" onclick="cargarImagenFormula('pagina 111.PNG', 'Valor comercial de un documento con descuento simple')">
                     <h5>Valor comercial con descuento simple</h5>
                     <span>Página 111</span>
@@ -1213,7 +1237,7 @@
             if (baseTemporal === 'dias') n = plazo / 360;
 
             const interesLiquido = capital * i * n;
-            const montoFinal = capital + interesLiquido;
+            const montoFinal = capital + interesLiquide = capital + interesLiquido;
 
             const nuevaOperacion = {
                 id: registrosAmortizacion.length + 1,
@@ -1287,7 +1311,7 @@
             const urlRaw = `https://raw.githubusercontent.com/hellsing14cruet-commits/formulaimagenes/main/${encodeURIComponent(nombreArchivo)}`;
             
             contenido.innerHTML = `
-                <img src="${urlRaw}" alt="${tituloFormula}" class="imagen-formula-desplegada" onclick="abrirLightbox('${urlRaw}')" onerror="this.onerror=null; this.src='https://via.placeholder.com/600x200?text=Imagen+no+encontrada+en+el+repositorio';">
+                <img src="${urlRaw}" alt="${tituloFormula}" class="imagen-formula-desplegada" onclick="abrirLightbox('${urlRaw}')" onerror="this.onerror=null; this.src='https://via.placeholder.com/600x200?text=Imagen+no+encontrada';">
             `;
             
             caja.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
