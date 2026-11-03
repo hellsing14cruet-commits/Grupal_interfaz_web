@@ -78,7 +78,7 @@
             transform: translateY(0);
         }
 
-        /* NAVEGACIÓN SUPERIOR (Orden: Inicio, Teoría, Fórmulas, Integrantes) */
+        /* NAVEGACIÓN SUPERIOR (Orden: Inicio, Simulador, Teoría, Fórmulas, Integrantes) */
         .navbar-top {
             display: flex;
             justify-content: space-between;
@@ -327,13 +327,13 @@
             font-weight: bold;
         }
 
-        /* CONTENEDOR DEL GIF EN EL SIMULADOR (CUADRO AMARILLO) */
+        /* CONTENEDOR DEL GIF REAL */
         .contenedor-gif-simulador {
             width: 100%;
             height: 180px;
-            border: 2px dashed var(--border-gold);
+            border: 2px solid var(--border-gold);
             border-radius: 10px;
-            background: rgba(2, 6, 4, 0.6);
+            background: rgba(2, 6, 4, 0.8);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -753,10 +753,10 @@
             </div>
             <div class="nav-links">
                 <button class="btn-nav" onclick="navegarA('portada-bienvenida')">Inicio</button>
+                <button class="btn-nav activo" onclick="navegarA('portada-simulador')">Simulador</button>
                 <button class="btn-nav" onclick="navegarA('portada-teoria')">Teoría</button>
                 <button class="btn-nav" onclick="navegarA('portada-formulas')">Fórmulas</button>
                 <button class="btn-nav" onclick="navegarA('portada-integrantes')">Integrantes</button>
-                <button class="btn-nav activo" onclick="navegarA('portada-simulador')">Simulador</button>
             </div>
         </header>
 
@@ -830,9 +830,9 @@
                     <div class="badge-dolar">$</div>
                 </div>
 
-                <!-- CONTENEDOR PARA EL GIF (Reemplazo del cuadro amarillo) -->
+                <!-- CONTENEDOR DEL GIF REAL CONECTADO -->
                 <div class="contenedor-gif-simulador">
-                    <img src="https://raw.githubusercontent.com/hellsing14cruet-commits/Gif-/main/tu-animacion.gif" alt="GIF Animado" onerror="this.src='https://via.placeholder.com/400x150?text=Sube+tu+GIF+a+hellsing14cruet-commits/Gif-';">
+                    <img src="https://raw.githubusercontent.com/hellsing14cruet-commits/Gif-/main/ingieneria%20conomica%20gif.gif" alt="GIF Ingeniería Económica" onerror="this.onerror=null; this.src='https://via.placeholder.com/400x150?text=GIF+no+encontrado';">
                 </div>
             </div>
         </div>
@@ -874,10 +874,10 @@
             </div>
             <div class="nav-links">
                 <button class="btn-nav" onclick="navegarA('portada-bienvenida')">Inicio</button>
+                <button class="btn-nav" onclick="navegarA('portada-simulador')">Simulador</button>
                 <button class="btn-nav" onclick="navegarA('portada-teoria')">Teoría</button>
                 <button class="btn-nav activo" onclick="navegarA('portada-formulas')">Fórmulas</button>
                 <button class="btn-nav" onclick="navegarA('portada-integrantes')">Integrantes</button>
-                <button class="btn-nav" onclick="navegarA('portada-simulador')">Simulador</button>
             </div>
         </header>
 
@@ -1005,7 +1005,7 @@
         </div>
     </section>
 
-    <!-- PORTADA: INTEGRANTES (Con Curso 6 SB y Emoji $) -->
+    <!-- PORTADA: INTEGRANTES -->
     <section id="portada-integrantes" class="portada-seccion oculto">
         <header class="navbar-top">
             <div class="navbar-brand">
@@ -1014,10 +1014,10 @@
             </div>
             <div class="nav-links">
                 <button class="btn-nav" onclick="navegarA('portada-bienvenida')">Inicio</button>
+                <button class="btn-nav" onclick="navegarA('portada-simulador')">Simulador</button>
                 <button class="btn-nav" onclick="navegarA('portada-teoria')">Teoría</button>
                 <button class="btn-nav" onclick="navegarA('portada-formulas')">Fórmulas</button>
                 <button class="btn-nav activo" onclick="navegarA('portada-integrantes')">Integrantes</button>
-                <button class="btn-nav" onclick="navegarA('portada-simulador')">Simulador</button>
             </div>
         </header>
 
@@ -1060,7 +1060,6 @@
                 </div>
             </div>
 
-            <!-- CURSO Y EMOJI $ -->
             <div style="margin-top: 35px; font-size: 22px; font-weight: bold; color: var(--gold-light); letter-spacing: 1px;">
                 Curso: 6 SB<br>
                 <span style="font-size: 32px; color: var(--green-money);">💲</span>
@@ -1068,7 +1067,7 @@
         </div>
     </section>
 
-    <!-- PORTADA: TEORÍA CON LA TABLA DE AMORTIZACIÓN Y HISTORIAL -->
+    <!-- PORTADA: TEORÍA -->
     <section id="portada-teoria" class="portada-seccion oculto">
         <header class="navbar-top">
             <div class="navbar-brand">
@@ -1077,10 +1076,10 @@
             </div>
             <div class="nav-links">
                 <button class="btn-nav" onclick="navegarA('portada-bienvenida')">Inicio</button>
+                <button class="btn-nav" onclick="navegarA('portada-simulador')">Simulador</button>
                 <button class="btn-nav activo" onclick="navegarA('portada-teoria')">Teoría</button>
                 <button class="btn-nav" onclick="navegarA('portada-formulas')">Fórmulas</button>
                 <button class="btn-nav" onclick="navegarA('portada-integrantes')">Integrantes</button>
-                <button class="btn-nav" onclick="navegarA('portada-simulador')">Simulador</button>
             </div>
         </header>
 
@@ -1114,7 +1113,6 @@
             </div>
         </div>
 
-        <!-- TABLA DE AMORTIZACIÓN / HISTORIAL DE SIMULACIONES UBICADA EN TEORÍA -->
         <div class="panel-modulo" style="margin-top: 35px;">
             <h3>Tabla de Amortización e Historial de Operaciones Guardadas</h3>
             <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 15px;">
@@ -1202,7 +1200,7 @@
         </div>
     </div>
 
-    <!-- LIGHTBOX PARA VER IMÁGENES EN PANTALLA COMPLETA -->
+    <!-- LIGHTBOX -->
     <div id="lightbox-modal" onclick="cerrarLightbox()">
         <img id="lightbox-img" src="" alt="Ampliación">
     </div>
