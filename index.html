@@ -1117,7 +1117,7 @@
                     </div>
 
                     <button class="btn-guardar-simulacion" onclick="guardarHistorialOriginalU1()" style="background: linear-gradient(135deg, var(--green-money) 0%, #219653 100%); color: #ffffff; font-size: 14px; font-weight: 800; padding: 14px 20px; border: none; border-radius: 8px; cursor: pointer; text-transform: uppercase; width: 100%; margin-top: 15px;">
-                        💾 Guardar en Tabla de Amortización (Ver en Teoría)
+                        💾 Guardar en Historial de Simulaciones Guardadas (Ver en Teoría)
                     </button>
                 </div>
 
@@ -1412,9 +1412,9 @@
                 </div>
             </div>
 
-            <!-- TABLA ORIGINAL DE UNIDAD 1: HISTORIAL / AMORTIZACIÓN -->
+            <!-- TABLA ORIGINAL DE UNIDAD 1: SOLO HISTORIAL DE SIMULACIONES GUARDADAS -->
             <div class="panel-modulo">
-                <h3>Historial de Simulaciones Guardadas </h3>
+                <h3>Historial de Simulaciones Guardadas</h3>
                 <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 15px;">
                     Aquí se almacenan las simulaciones que guardaste desde el Simulador Financiero:
                 </p>
@@ -1435,7 +1435,7 @@
                         <tbody id="cuerpo-tabla-u1">
                             <tr>
                                 <td colspan="7" style="text-align: center; color: var(--text-muted); padding: 20px;">
-                                    Aún no has guardado simulaciones. Ve al Simulador y presiona "Guardar en Tabla de Amortización".
+                                    Aún no has guardado simulaciones. Ve al Simulador y presiona "Guardar en Historial de Simulaciones Guardadas".
                                 </td>
                             </tr>
                         </tbody>
@@ -1550,60 +1550,36 @@
             </div>
         </header>
 
-        <!-- FÓRMULAS EXCLUSIVAS UNIDAD 1 -->
+        <!-- =============================================================== -->
+        <!-- FÓRMULAS EXCLUSIVAS UNIDAD 1 (27 IMÁGENES CONECTADAS A GITHUB)  -->
+        <!-- =============================================================== -->
         <div id="bloque-formulas-u1" class="panel-modulo">
-            <h3>Seleccione una Fórmula para ver la Imagen y su Concepto</h3>
+            <h3>Seleccione una Fórmula para ver la Imagen y su Concepto (27 Opciones)</h3>
             <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 15px;">
-                Haz clic sobre cualquier tema para cargar simultáneamente la imagen y su concepto corto explicativo:
+                Haz clic sobre cualquier tema para cargar simultáneamente la imagen original y su concepto corto explicativo (haz clic en la imagen para ampliarla):
             </p>
 
-            <div class="formulas-grid-scroll">
-                <div class="tarjeta-formula-item" onclick="cargarFormulaImagen('pagina 61.PNG', 'Progresiones Aritméticas', 'Sucesión numérica donde cada término se obtiene sumando una constante llamada diferencia común (d).')">
-                    <h5>Progresiones Aritméticas</h5>
-                    <span>Página 61</span>
-                </div>
-
-                <div class="tarjeta-formula-item" onclick="cargarFormulaImagen('pagina 64.PNG', 'Progresiones Geométricas', 'Sucesión donde cada término se obtiene multiplicando el anterior por una razón constante (r).')">
-                    <h5>Progresiones Geométricas</h5>
-                    <span>Página 64</span>
-                </div>
-
-                <div class="tarjeta-formula-item" onclick="cargarFormulaImagen('pagina 74.PNG', 'Interés Simple Ordinario', 'Fórmula fundamental I = C · i · t para el cálculo del rendimiento lineal sobre el capital inicial.')">
-                    <h5>Interés Simple Ordinario</h5>
-                    <span>Página 74</span>
-                </div>
-
-                <div class="tarjeta-formula-item" onclick="cargarFormulaImagen('pagina 78.PNG', 'Monto Futuro a Interés Simple', 'Suma del capital inicial más los intereses devengados: M = C(1 + i · t).')">
-                    <h5>Monto Futuro Interés Simple</h5>
-                    <span>Página 78</span>
-                </div>
-
-                <div class="tarjeta-formula-item" onclick="cargarFormulaImagen('pagina 85.PNG', 'Descuento Comercial Bancario', 'Rebaja aplicada sobre el valor nominal de un documento antes de su vencimiento: D = M · d · t.')">
-                    <h5>Descuento Comercial</h5>
-                    <span>Página 85</span>
-                </div>
-
-                <div class="tarjeta-formula-item" onclick="cargarFormulaImagen('pagina 92.PNG', 'Interés Compuesto', 'Capitalización periódica de intereses donde los intereses generan nuevos intereses: M = C(1 + i/p)^(np).')">
-                    <h5>Interés Compuesto</h5>
-                    <span>Página 92</span>
-                </div>
+            <div class="formulas-grid-scroll" id="grid-formulas-u1">
+                <!-- Se genera dinámicamente con las 27 imágenes conectadas a GitHub -->
             </div>
 
             <div class="contenedor-detalle-formula-duo">
                 <div class="caja-imagen-formula-lado" id="contenedor-visual-u1">
-                    <img src="pagina 61.PNG" alt="Fórmula Seleccionada" class="imagen-formula-desplegada" onclick="abrirLightbox(this.src)" onerror="this.outerHTML='<div class=\\'formula-matematica-grande\\'>Progresiones Aritméticas (pagina 61.PNG)</div>'">
+                    <img src="https://raw.githubusercontent.com/hellsing14cruet-commits/formulaimagenes/main/pagina%2061.PNG" alt="Página 61" class="imagen-formula-desplegada" onclick="abrirLightbox(this.src)">
                 </div>
 
                 <div class="caja-concepto-lado">
-                    <h4 id="titulo-formula-u1">Progresiones Aritméticas</h4>
+                    <h4 id="titulo-formula-u1">Fórmula • Página 61</h4>
                     <p id="concepto-formula-u1">
-                        Sucesión numérica donde cada término se obtiene sumando una constante llamada diferencia común (d).
+                        Fundamentos de progresiones y variaciones matemáticas aplicadas a la valoración financiera en el tiempo.
                     </p>
                 </div>
             </div>
         </div>
 
-        <!-- FÓRMULAS EXCLUSIVAS UNIDAD 2 -->
+        <!-- =============================================================== -->
+        <!-- FÓRMULAS EXCLUSIVAS UNIDAD 2 (ANUALIDADES Y GRADIENTES)         -->
+        <!-- =============================================================== -->
         <div id="bloque-formulas-u2" class="panel-modulo oculto">
             <h3>Seleccione una Fórmula de Anualidades o Gradientes</h3>
             <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 15px;">
@@ -1747,6 +1723,40 @@
     </footer>
 
     <script>
+        // RUTA BASE REAL DE GITHUB PARA LAS 27 IMÁGENES DE FÓRMULAS
+        const BASE_URL_IMAGENES = 'https://raw.githubusercontent.com/hellsing14cruet-commits/formulaimagenes/main/';
+
+        // CATÁLOGO COMPLETO DE LAS 27 IMÁGENES DEL REPOSITORIO
+        const CATALOGO_FORMULAS_U1 = [
+            { archivo: 'pagina 61.PNG', titulo: 'Progresiones Aritméticas', sub: 'Página 61', desc: 'Sucesión numérica donde cada término se obtiene sumando una diferencia constante (d) al término anterior.' },
+            { archivo: 'pagina 63.PNG', titulo: 'Suma de Términos (Progresión Aritmética)', sub: 'Página 63', desc: 'Cálculo de la sumatoria total de los n primeros términos de una progresión aritmética.' },
+            { archivo: 'pagina 69.PNG', titulo: 'Progresiones Geométricas', sub: 'Página 69', desc: 'Sucesión donde cada término posterior se obtiene multiplicando el anterior por una razón constante (r).' },
+            { archivo: 'pagina 71.PNG', titulo: 'Suma de Progresión Geométrica', sub: 'Página 71', desc: 'Expresión analítica para sumar los n términos de una serie geométrica finita.' },
+            { archivo: 'pagina 95.PNG', titulo: 'Interés Simple Ordinario', sub: 'Página 95', desc: 'Fórmula fundamental I = C · i · t para el cálculo del rendimiento lineal sobre el capital inicial.' },
+            { archivo: 'pagina 96.PNG', titulo: 'Capital, Tasa y Tiempo en Interés Simple', sub: 'Página 96', desc: 'Despejes algebraicos para hallar el capital inicial (C), tasa de interés (i) o plazo (t).' },
+            { archivo: 'pagina 111.PNG', titulo: 'Monto Futuro a Interés Simple', sub: 'Página 111', desc: 'Suma del capital inicial más los intereses devengados: M = C(1 + i · t).' },
+            { archivo: 'pagina 131.PNG', titulo: 'Valor Presente a Interés Simple', sub: 'Página 131', desc: 'Actualización o descuento racional de un monto futuro hacia el momento presente: C = M / (1 + i · t).' },
+            { archivo: 'pagina 133.PNG', titulo: 'Descuento Comercial Bancario', sub: 'Página 133', desc: 'Rebaja aplicada sobre el valor nominal de un documento antes de su vencimiento: D = M · d · t.' },
+            { archivo: 'pagina 134.PNG', titulo: 'Valor Comercial o Efectivo', sub: 'Página 134', desc: 'Valor líquido recibido tras deducir el descuento bancario: P = M(1 - d · t).' },
+            { archivo: 'pagina 151.jpg', titulo: 'Ecuaciones de Valor Equivalente', sub: 'Página 151', desc: 'Igualación de conjuntos de obligaciones financieras en una fecha focal común.' },
+            { archivo: 'pagina 168.PNG', titulo: 'Interés Compuesto (Monto Futuro)', sub: 'Página 168', desc: 'Capitalización periódica de intereses donde los intereses generan nuevos intereses: M = C(1 + i/p)^(np).' },
+            { archivo: 'pagina 178.PNG', titulo: 'Tasa Efectiva y Nominal Equivalente', sub: 'Página 178', desc: 'Conversión entre tasas nominales capitalizables y tasas efectivas anuales equivalentes.' },
+            { archivo: 'pagina 230.PNG', titulo: 'Valor Presente a Interés Compuesto', sub: 'Página 230', desc: 'Descuento compuesto de un capital futuro hacia el presente: C = M(1 + i/p)^(-np).' },
+            { archivo: 'pagina 240.PNG', titulo: 'Cálculo del Tiempo (n) en Interés Compuesto', sub: 'Página 240', desc: 'Aplicación de logaritmos para determinar el número de periodos de capitalización.' },
+            { archivo: 'pagina 249.PNG', titulo: 'Cálculo de la Tasa (i) en Interés Compuesto', sub: 'Página 249', desc: 'Determinación de la tasa periódica de rendimiento o costo financiero.' },
+            { archivo: 'pagina 314.PNG', titulo: 'Anualidades Ordinarias (Monto)', sub: 'Página 314', desc: 'Acumulación futura de una serie uniforme de pagos realizados al final de cada periodo.' },
+            { archivo: 'pagina 317.PNG', titulo: 'Anualidades Ordinarias (Valor Presente)', sub: 'Página 317', desc: 'Valor actual de una serie de rentas periódicas vencidas.' },
+            { archivo: 'pagina 323.PNG', titulo: 'Cálculo de la Renta (R) en Anualidades', sub: 'Página 323', desc: 'Determinación de la cuota periódica uniforme conocida la deuda o el monto objetivo.' },
+            { archivo: 'pagina 328.PNG', titulo: 'Número de Pagos en Anualidades', sub: 'Página 328', desc: 'Cálculo logarítmico del plazo o cantidad de cuotas periódicas.' },
+            { archivo: 'pagina 371.PNG', titulo: 'Anualidades Anticipadas (Monto)', sub: 'Página 371', desc: 'Monto acumulado cuando los pagos se realizan al inicio de cada periodo.' },
+            { archivo: 'pagina 376.PNG', titulo: 'Anualidades Anticipadas (Valor Presente)', sub: 'Página 376', desc: 'Valor presente de una serie de rentas pagadas por adelantado.' },
+            { archivo: 'pagina 402.PNG', titulo: 'Anualidades Diferidas', sub: 'Página 402', desc: 'Valoración de series de pagos que inician después de transcurrido un periodo de gracia.' },
+            { archivo: 'pagina 407.PNG', titulo: 'Perpetuidades y Rentas Indefinidas', sub: 'Página 407', desc: 'Valor presente de una serie de pagos periódicos de duración infinita: VP = R / i.' },
+            { archivo: 'pagina 422.PNG', titulo: 'Amortización de Deudas', sub: 'Página 422', desc: 'Distribución de cada cuota periódica entre abono a capital e intereses sobre saldos.' },
+            { archivo: 'pagina 430.PNG', titulo: 'Fondos de Amortización', sub: 'Página 430', desc: 'Acumulación de depósitos periódicos destinados a liquidar una obligación futura.' },
+            { archivo: 'pagina 441.PNG', titulo: 'Depreciación y Valor en Libros', sub: 'Página 441', desc: 'Pérdida sistemática del valor de activos fijos a lo largo de su vida útil.' }
+        ];
+
         // ESTADO SEPARADO POR UNIDAD
         let unidadActiva = 'u1';
         let regimenU2Actual = 'anualidad-ordinaria';
@@ -1761,6 +1771,34 @@
         let baseRegistroU2 = JSON.parse(localStorage.getItem('uae_base_registro_u2')) || [];
 
         let formulaDestinoU2 = 'anualidad-ordinaria';
+
+        // RENDERIZAR LAS 27 TARJETAS DE FÓRMULAS DE UNIDAD 1
+        function inicializarCatalogoFormulasU1() {
+            const grid = document.getElementById('grid-formulas-u1');
+            if (!grid) return;
+
+            grid.innerHTML = CATALOGO_FORMULAS_U1.map((item, index) => `
+                <div class="tarjeta-formula-item" onclick="seleccionarFormulaU1(${index})">
+                    <h5>${item.titulo}</h5>
+                    <span>${item.sub}</span>
+                </div>
+            `).join('');
+
+            seleccionarFormulaU1(0);
+        }
+
+        function seleccionarFormulaU1(indice) {
+            const item = CATALOGO_FORMULAS_U1[indice];
+            if (!item) return;
+
+            const urlImagen = BASE_URL_IMAGENES + encodeURIComponent(item.archivo);
+            const contenedor = document.getElementById('contenedor-visual-u1');
+            contenedor.innerHTML = `
+                <img src="${urlImagen}" alt="${item.titulo}" class="imagen-formula-desplegada" onclick="abrirLightbox(this.src)" onerror="this.outerHTML='<div class=\\'formula-matematica-grande\\'>${item.titulo} (${item.archivo})</div>'">
+            `;
+            document.getElementById('titulo-formula-u1').textContent = `${item.titulo} (${item.sub})`;
+            document.getElementById('concepto-formula-u1').textContent = item.desc;
+        }
 
         // BOTONES DE INICIO: FILTRAN COMPLETAMENTE CADA UNIDAD
         function iniciarUnidad(unidad) {
@@ -1782,7 +1820,7 @@
                 formU2.classList.add('oculto');
 
                 document.getElementById('subtitulo-nav-simulador').textContent = 'Unidad 1 • Interés Simple e Inversiones';
-                document.getElementById('subtitulo-nav-teoria').textContent = 'Unidad 1 • Fundamentos y Tabla de Amortización';
+                document.getElementById('subtitulo-nav-teoria').textContent = 'Unidad 1 • Fundamentos e Historial de Simulaciones';
                 document.getElementById('subtitulo-nav-formulas').textContent = 'Unidad 1 • Ecuaciones e Imágenes';
             } else {
                 simU1.classList.add('oculto');
@@ -1818,7 +1856,7 @@
         }
 
         // =========================================================================
-        // MOTOR Y TABLA ORIGINAL DE UNIDAD 1 (SIN EXCEL NI MEZCLAS)
+        // MOTOR Y TABLA ORIGINAL DE UNIDAD 1
         // =========================================================================
         function ejecutarMotorCalculo() {
             const C = parseFloat(document.getElementById('val-capital').value) || 0;
@@ -1869,7 +1907,7 @@
             historialOriginalU1.push(ultimoCalculoU1);
             localStorage.setItem('uae_historial_u1', JSON.stringify(historialOriginalU1));
             renderizarTablaU1();
-            alert('✅ Simulación guardada en la Tabla de Amortización (Teoría).');
+            alert('✅ Simulación guardada en el Historial de Simulaciones Guardadas (Teoría).');
         }
 
         function renderizarTablaU1() {
@@ -1880,7 +1918,7 @@
                 tbody.innerHTML = `
                     <tr>
                         <td colspan="7" style="text-align: center; color: var(--text-muted); padding: 20px;">
-                            Aún no has guardado simulaciones. Ve al Simulador y presiona "Guardar en Tabla de Amortización".
+                            Aún no has guardado simulaciones. Ve al Simulador y presiona "Guardar en Historial de Simulaciones Guardadas".
                         </td>
                     </tr>`;
                 return;
@@ -2466,16 +2504,7 @@
             document.getElementById('modal-general').classList.remove('activo');
         }
 
-        // FÓRMULAS
-        function cargarFormulaImagen(nombreImagen, titulo, concepto) {
-            const contenedor = document.getElementById('contenedor-visual-u1');
-            contenedor.innerHTML = `
-                <img src="${nombreImagen}" alt="${titulo}" class="imagen-formula-desplegada" onclick="abrirLightbox(this.src)" onerror="this.outerHTML='<div class=\\'formula-matematica-grande\\'>${titulo} (${nombreImagen})</div>'">
-            `;
-            document.getElementById('titulo-formula-u1').textContent = titulo;
-            document.getElementById('concepto-formula-u1').textContent = concepto;
-        }
-
+        // FÓRMULAS UNIDAD 2
         function cargarFormulaEcuacion(ecuacion, titulo, concepto, regimenSimulador) {
             document.getElementById('visor-ecuacion-u2').textContent = ecuacion;
             document.getElementById('titulo-formula-u2').textContent = titulo;
@@ -2495,6 +2524,7 @@
 
         // INICIALIZACIÓN
         window.addEventListener('DOMContentLoaded', () => {
+            inicializarCatalogoFormulasU1();
             ejecutarMotorCalculo();
             ejecutarMotorU2();
             renderizarTablaU1();
