@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ingeniería Económica | Universidad Agraria del Ecuador - Grupo 2</title>
+    <title>Ingeniería Económica | Universidad Agraria del Ecuador</title>
     <!-- Librería SheetJS para Exportar e Importar archivos Excel (.xlsx) reales -->
     <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
     <style>
@@ -133,42 +133,6 @@
             box-shadow: 0 0 15px rgba(214, 175, 55, 0.25);
         }
 
-        /* SELECTOR DE RÉGIMEN EN EL SIMULADOR */
-        .selector-regimen-bar {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 22px;
-            padding-bottom: 15px;
-            border-bottom: 1px dashed rgba(214, 175, 55, 0.25);
-        }
-
-        .btn-regimen {
-            background: rgba(7, 18, 13, 0.9);
-            color: var(--text-muted);
-            border: 1px solid var(--border-gold);
-            padding: 9px 14px;
-            border-radius: 8px;
-            font-size: 12px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.25s ease;
-            flex: 1 1 auto;
-            text-align: center;
-        }
-
-        .btn-regimen:hover {
-            border-color: var(--green-money);
-            color: var(--text-main);
-        }
-
-        .btn-regimen.activo {
-            background: linear-gradient(135deg, rgba(46, 204, 113, 0.22), rgba(214, 175, 55, 0.18));
-            border-color: var(--green-money);
-            color: var(--gold-light);
-            box-shadow: 0 0 12px rgba(46, 204, 113, 0.2);
-        }
-
         /* PORTADA 1: BIENVENIDA */
         #portada-bienvenida {
             display: flex;
@@ -281,7 +245,7 @@
         /* GRID Y PANELES */
         .workspace-grid {
             display: grid;
-            grid-template-columns: 1.05fr 1fr;
+            grid-template-columns: 1fr 1.1fr;
             gap: 25px;
             margin-bottom: 30px;
         }
@@ -300,12 +264,79 @@
             margin-bottom: 25px;
         }
 
+        .panel-modulo.modulo-u2-borde {
+            border-color: var(--border-green);
+        }
+
         .panel-modulo h3 {
             color: var(--gold-primary);
             font-size: 20px;
             border-bottom: 1px solid rgba(255,255,255,0.08);
             padding-bottom: 12px;
             margin-bottom: 18px;
+        }
+
+        .separador-unidad {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 35px 0 25px 0;
+        }
+
+        .separador-unidad span {
+            background: rgba(46, 204, 113, 0.15);
+            border: 1px solid var(--green-money);
+            color: var(--green-money);
+            padding: 6px 18px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .separador-unidad::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, var(--green-money), transparent);
+        }
+
+        /* SELECTOR INTERNO DE SUBTEMAS UNIDAD 2 */
+        .selector-regimen-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 18px;
+            padding-bottom: 14px;
+            border-bottom: 1px dashed rgba(214, 175, 55, 0.25);
+        }
+
+        .btn-regimen {
+            background: rgba(7, 18, 13, 0.9);
+            color: var(--text-muted);
+            border: 1px solid var(--border-gold);
+            padding: 9px 12px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            flex: 1 1 auto;
+            text-align: center;
+        }
+
+        .btn-regimen:hover {
+            border-color: var(--green-money);
+            color: var(--text-main);
+        }
+
+        .btn-regimen.activo {
+            background: linear-gradient(135deg, rgba(46, 204, 113, 0.22), rgba(214, 175, 55, 0.18));
+            border-color: var(--green-money);
+            color: var(--gold-light);
+            box-shadow: 0 0 12px rgba(46, 204, 113, 0.2);
         }
 
         .inputs-dos-columnas {
@@ -319,30 +350,28 @@
         }
 
         .control-grupo {
-            margin-bottom: 16px;
+            margin-bottom: 18px;
         }
 
         .control-grupo label {
             display: block;
-            font-size: 11px;
+            font-size: 12px;
             font-weight: 700;
             color: var(--text-muted);
-            margin-bottom: 6px;
+            margin-bottom: 7px;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
         }
 
         .control-grupo input, .control-grupo select {
             width: 100%;
-            padding: 12px 14px;
+            padding: 13px 15px;
             border: 1px solid var(--border-gold);
             border-radius: 8px;
             background-color: var(--bg-input);
             color: #ffffff;
-            font-size: 14px;
+            font-size: 15px;
             font-weight: 600;
             outline: none;
-            transition: border-color 0.2s;
         }
 
         .control-grupo input:focus, .control-grupo select:focus {
@@ -361,25 +390,57 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 8px 0;
+            padding: 9px 0;
             border-bottom: 1px solid rgba(255,255,255,0.05);
             font-size: 13px;
         }
 
         .valor-computado {
-            font-size: 18px;
+            font-size: 19px;
             font-weight: 800;
             color: var(--green-money);
-        }
-
-        .valor-computado.secundario {
-            font-size: 15px;
-            color: var(--gold-light);
         }
 
         .valor-computado.total-destacado {
             font-size: 23px;
             color: var(--gold-primary);
+        }
+
+        /* DESGLOSE PASO A PASO UNIDAD 2 (COMO EN EXCEL) */
+        .caja-desglose-pasos {
+            background: #020604;
+            border: 1px solid var(--border-green);
+            border-radius: 10px;
+            padding: 16px;
+            margin-top: 15px;
+        }
+
+        .caja-desglose-pasos h4 {
+            color: var(--gold-light);
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 10px;
+            border-bottom: 1px dashed rgba(214, 175, 55, 0.3);
+            padding-bottom: 6px;
+        }
+
+        .paso-fila {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            padding: 6px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .paso-fila span:first-child {
+            color: var(--text-muted);
+        }
+
+        .paso-fila span:last-child {
+            color: var(--green-money);
+            font-weight: 700;
         }
 
         .botones-accion-simulador {
@@ -440,7 +501,6 @@
             color: var(--green-money);
             font-weight: bold;
             margin: 15px 0;
-            word-break: break-word;
         }
 
         .badge-dolar-container {
@@ -466,7 +526,7 @@
 
         .contenedor-gif-simulador {
             width: 100%;
-            height: 170px;
+            height: 175px;
             border: 2px solid var(--border-gold);
             border-radius: 10px;
             background: rgba(2, 6, 4, 0.8);
@@ -483,7 +543,7 @@
             object-fit: contain;
         }
 
-        /* BARRA DE HERRAMIENTAS DE TABLA EXCEL */
+        /* BARRA DE HERRAMIENTAS DE TABLA */
         .barra-herramientas-tabla {
             display: flex;
             justify-content: space-between;
@@ -558,7 +618,7 @@
             color: #ffffff;
         }
 
-        /* TABLA DE AMORTIZACIÓN / HISTORIAL EN TEORÍA */
+        /* TABLA DE REGISTRO FINANCIERO */
         .tabla-amortizacion-container {
             width: 100%;
             overflow-x: auto;
@@ -632,7 +692,7 @@
 
         .contenedor-ejercicios-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
             gap: 20px;
             margin-top: 20px;
         }
@@ -650,7 +710,6 @@
 
         .tarjeta-ejercicio.destacado-u2 {
             border-color: var(--border-green);
-            background: rgba(15, 38, 27, 0.9);
         }
 
         .tarjeta-ejercicio:hover {
@@ -760,7 +819,7 @@
             font-size: 13px;
         }
 
-        /* FÓRMULAS */
+        /* FÓRMULAS CON DISEÑO DE DOS COLUMNAS (IMAGEN / ECUACIÓN + CONCEPTO CORTO) */
         .filtros-formulas {
             display: flex;
             gap: 10px;
@@ -816,7 +875,7 @@
             padding: 20px;
             margin-top: 20px;
             display: grid;
-            grid-template-columns: 1.2fr 1fr;
+            grid-template-columns: 1.3fr 1fr;
             gap: 20px;
             align-items: center;
         }
@@ -829,23 +888,39 @@
             background: #000;
             border: 1px solid var(--border-gold);
             border-radius: 8px;
-            padding: 20px;
+            padding: 15px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            min-height: 220px;
+            min-height: 260px;
+            max-height: 400px;
+            overflow: auto;
             text-align: center;
+        }
+
+        .imagen-formula-desplegada {
+            width: auto;
+            max-width: 100%;
+            height: auto;
+            max-height: 360px;
+            border-radius: 6px;
+            cursor: zoom-in;
+            transition: transform 0.3s ease;
+        }
+
+        .imagen-formula-desplegada:hover {
+            transform: scale(1.02);
         }
 
         .formula-matematica-grande {
             font-family: 'Courier New', Courier, monospace;
-            font-size: 22px;
+            font-size: 21px;
             font-weight: 800;
             color: var(--green-money);
             background: rgba(46, 204, 113, 0.08);
             border: 1px dashed var(--green-money);
-            padding: 18px;
+            padding: 20px;
             border-radius: 10px;
             width: 100%;
         }
@@ -889,7 +964,6 @@
 
         .tarjeta-tema.tema-u2 {
             border-color: var(--border-green);
-            background: rgba(12, 34, 24, 0.9);
         }
 
         .tarjeta-tema:hover {
@@ -1023,6 +1097,19 @@
             margin-bottom: 6px;
         }
 
+        /* LIGHTBOX PARA IMÁGENES DE FÓRMULAS */
+        #lightbox-modal {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.95);
+            display: flex; justify-content: center; align-items: center;
+            z-index: 2000;
+            opacity: 0; pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        #lightbox-modal.activo { opacity: 1; pointer-events: auto; }
+        #lightbox-img { max-width: 95%; max-height: 95vh; border: 2px solid var(--gold-primary); border-radius: 8px; object-fit: contain; }
+
         .footer-derechos {
             text-align: center;
             padding: 20px;
@@ -1037,166 +1124,107 @@
 </head>
 <body>
 
-    <!-- PORTADA 1: BIENVENIDA -->
+    <!-- PORTADA 1: BIENVENIDA (ÚNICA MENCIÓN GENERAL DE GRUPO) -->
     <section id="portada-bienvenida" class="portada-seccion visible">
         <div class="emblema-wrapper">
             <img src="https://raw.githubusercontent.com/hellsing14cruet-commits/Intrumetos-web/main/Grupo%2011%20economica.jpg" alt="Ingeniería Económica UAE" class="portada-imagen-grupo" onerror="this.src='https://via.placeholder.com/420x200/0d2218/d4af37?text=Ingenieria+Economica+-+UAE';">
         </div>
-        <div class="badge-grupo">UNIVERSIDAD AGRARIA DEL ECUADOR • COMPUTACIÓN EN LÍNEA 6S</div>
+        <div class="badge-grupo">UNIVERSIDAD AGRARIA DEL ECUADOR • GRUPO 2</div>
         <h1 class="titulo-bienvenida">
-            Plataforma Integral de <br><span>Ingeniería Económica</span>
+            Bienvenidos a la Plataforma de <br><span>Ingeniería Económica</span>
         </h1>
         <p class="subtitulo-bienvenida">
-            Herramienta interactiva para el análisis, comparación y toma de decisiones financieras. Incluye simulación completa de <strong>Unidad 1 (Interés Simple y Compuesto)</strong> y <strong>Unidad 2 (Anualidades Ordinarias, Anticipadas, Eventuales / Actuariales y Gradientes)</strong>.
+            La Ingeniería Económica es la disciplina analítica encargada de formular, estimar y evaluar los resultados económicos cuando se dispone de alternativas limitadas para llevar a cabo un propósito determinado.
         </p>
         <div class="botones-portada-group">
-            <button class="btn-ingresar" onclick="navegarA('portada-simulador'); cambiarRegimen('simple')">
+            <button class="btn-ingresar" onclick="navegarA('portada-simulador')">
                 Unidad 1: Interés Simple →
             </button>
-            <button class="btn-ingresar-u2" onclick="navegarA('portada-simulador'); cambiarRegimen('anualidad-ordinaria')">
-                Unidad 2: Anualidades (Grupo 2) →
+            <button class="btn-ingresar-u2" onclick="irASeccionSimuladorU2()">
+                Unidad 2: Anualidades →
             </button>
         </div>
     </section>
 
-    <!-- PORTADA 2: SIMULADOR -->
+    <!-- PORTADA 2: SIMULADOR (UNIDAD 1 TAL COMO ESTABA + UNIDAD 2 DESGLOSADA COMPARTIENDO ESPACIO) -->
     <section id="portada-simulador" class="portada-seccion oculto">
         <header class="navbar-top">
             <div class="navbar-brand">
-                <h2>Simulador Financiero U1 & U2</h2>
+                <h2>Simulador Financiero</h2>
                 <p>Ingeniería Económica • Universidad Agraria del Ecuador</p>
             </div>
             <div class="nav-links">
                 <button class="btn-nav" onclick="navegarA('portada-bienvenida')">Inicio</button>
                 <button class="btn-nav activo" onclick="navegarA('portada-simulador')">Simulador</button>
-                <button class="btn-nav" onclick="navegarA('portada-teoria')">Teoría & Excel</button>
+                <button class="btn-nav" onclick="navegarA('portada-teoria')">Teoría</button>
                 <button class="btn-nav" onclick="navegarA('portada-formulas')">Fórmulas</button>
                 <button class="btn-nav" onclick="navegarA('portada-integrantes')">Integrantes</button>
             </div>
         </header>
 
+        <!-- BLOQUE UNIDAD 1: TAL COMO ESTABA IMPLEMENTADO -->
         <div class="workspace-grid">
             <div class="panel-modulo">
-                <h3>Consola de Variables Dinámicas</h3>
-                <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 14px;">
-                    Selecciona el régimen financiero de la Unidad 1 o Unidad 2 para calcular en tiempo real:
+                <h3>Consola de Variables Dinámicas (Unidad 1)</h3>
+                <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 20px;">
+                    Modifica los parámetros numéricos para simular operaciones financieras de interés simple e inversiones en tiempo real.
                 </p>
 
-                <!-- SELECTOR DE RÉGIMEN (UNIDAD 1 Y UNIDAD 2) -->
-                <div class="selector-regimen-bar">
-                    <button class="btn-regimen activo" id="reg-simple" onclick="cambiarRegimen('simple')">U1: Interés Simple</button>
-                    <button class="btn-regimen" id="reg-ordinaria" onclick="cambiarRegimen('anualidad-ordinaria')">U2: Anualidad Ordinaria</button>
-                    <button class="btn-regimen" id="reg-anticipada" onclick="cambiarRegimen('anualidad-anticipada')">U2: Anualidad Anticipada</button>
-                    <button class="btn-regimen" id="reg-eventual" onclick="cambiarRegimen('anualidad-eventual')">U2: Eventual (Actuarial)</button>
-                    <button class="btn-regimen" id="reg-gradiente" onclick="cambiarRegimen('gradiente')">U2: Gradientes</button>
+                <div class="control-grupo">
+                    <label for="val-capital">Capital Principal ($ C o P):</label>
+                    <input type="number" id="val-capital" value="1000" oninput="ejecutarMotorCalculo()">
                 </div>
 
-                <div class="inputs-dos-columnas">
-                    <div class="control-grupo">
-                        <label id="lbl-capital" for="val-capital">Capital Principal ($ C o P):</label>
-                        <input type="number" id="val-capital" value="1000" step="any" oninput="ejecutarMotorCalculo()">
-                    </div>
-
-                    <div class="control-grupo">
-                        <label for="val-tasa">Tasa Nominal Anual (% i):</label>
-                        <input type="number" id="val-tasa" value="12" step="any" oninput="ejecutarMotorCalculo()">
-                    </div>
+                <div class="control-grupo">
+                    <label for="val-tasa">Tasa Nominal Anual Simple (% i):</label>
+                    <input type="number" id="val-tasa" value="12" step="0.1" oninput="ejecutarMotorCalculo()">
                 </div>
 
-                <div class="inputs-dos-columnas">
-                    <div class="control-grupo">
-                        <label id="lbl-plazo" for="val-plazo">Plazo / N° Pagos (n o np):</label>
-                        <input type="number" id="val-plazo" value="8" step="1" oninput="ejecutarMotorCalculo()">
-                    </div>
-
-                    <div class="control-grupo">
-                        <label id="lbl-base" for="val-base">Unidad / Frecuencia (p):</label>
-                        <select id="val-base" onchange="ejecutarMotorCalculo()">
-                            <option value="meses" selected>Mensual (p = 12)</option>
-                            <option value="trimestral">Trimestral (p = 4)</option>
-                            <option value="semestral">Semestral (p = 2)</option>
-                            <option value="anos">Anual (p = 1)</option>
-                            <option value="dias">Días Comerciales (360)</option>
-                        </select>
-                    </div>
+                <div class="control-grupo">
+                    <label for="val-plazo">Plazo / Tiempo Contractual (n):</label>
+                    <input type="number" id="val-plazo" value="8" oninput="ejecutarMotorCalculo()">
                 </div>
 
-                <!-- CAMPO ADICIONAL PARA ANUALIDAD EVENTUAL (PROBABILIDAD ACTUARIAL) -->
-                <div class="inputs-dos-columnas oculto" id="grupo-eventual-extra">
-                    <div class="control-grupo">
-                        <label for="val-probabilidad">Probabilidad Supervivencia / Ocurrencia (% Px):</label>
-                        <input type="number" id="val-probabilidad" value="85" min="1" max="100" step="0.5" oninput="ejecutarMotorCalculo()">
-                    </div>
-                    <div class="control-grupo">
-                        <label for="val-tipo-contingencia">Sector de Aplicación Real:</label>
-                        <select id="val-tipo-contingencia" onchange="ejecutarMotorCalculo()">
-                            <option value="Jubilación / Pensión IESS">Jubilación / Pensión IESS</option>
-                            <option value="Seguro de Vida / Renta Vitalicia">Seguro de Vida / Renta Vitalicia</option>
-                            <option value="Indemnización Judicial">Indemnización por Litigio</option>
-                        </select>
-                    </div>
+                <div class="control-grupo">
+                    <label for="val-base">Unidad del Tiempo Ingresado:</label>
+                    <select id="val-base" onchange="ejecutarMotorCalculo()">
+                        <option value="meses" selected>Meses de Plazo</option>
+                        <option value="anos">Años Completos</option>
+                        <option value="dias">Días Comerciales (Base 360)</option>
+                    </select>
                 </div>
 
-                <!-- CAMPO ADICIONAL PARA GRADIENTES -->
-                <div class="inputs-dos-columnas oculto" id="grupo-gradiente-extra">
-                    <div class="control-grupo">
-                        <label for="val-gradiente">Variación / Gradiente ($ G o % g):</label>
-                        <input type="number" id="val-gradiente" value="50" step="any" oninput="ejecutarMotorCalculo()">
-                    </div>
-                    <div class="control-grupo">
-                        <label for="val-tipo-gradiente">Tipo de Gradiente:</label>
-                        <select id="val-tipo-gradiente" onchange="ejecutarMotorCalculo()">
-                            <option value="aritmetico">Gradiente Aritmético Lineal ($ G)</option>
-                            <option value="geometrico">Gradiente Geométrico Porcentual (% g)</option>
-                        </select>
-                    </div>
-                </div>
-
-                <!-- TERMINAL DE RESULTADOS CON DESGLOSE TIPO EXCEL -->
                 <div class="terminal-resultados">
                     <div class="fila-data">
-                        <span id="lbl-res-1">Tasa Efectiva por Periodo (i/p):</span>
-                        <span id="out-res-1" class="valor-computado secundario">1.0000%</span>
+                        <span>Interés Líquido Devengado (I):</span>
+                        <span id="out-interes" class="valor-computado">$80.00</span>
                     </div>
-                    <div class="fila-data">
-                        <span id="lbl-res-2">Factor Financiero / Total Pagado:</span>
-                        <span id="out-res-2" class="valor-computado secundario">$1,000.00</span>
-                    </div>
-                    <div class="fila-data">
-                        <span id="lbl-res-3">Interés Líquido Devengado (I):</span>
-                        <span id="out-res-3" class="valor-computado">$80.00</span>
-                    </div>
-                    <div class="fila-data" style="margin-top: 8px; padding-top: 10px; border-top: 1px dashed var(--border-gold);">
-                        <span id="lbl-res-4">Monto Acumulado Futuro (M):</span>
-                        <span id="out-res-4" class="valor-computado total-destacado">$1,080.00</span>
+                    <div class="fila-data" style="margin-top: 8px; padding-top: 8px; border-top: 1px dashed var(--border-gold);">
+                        <span>Monto Acumulado Futuro (M):</span>
+                        <span id="out-monto" class="valor-computado total-destacado">$1080.00</span>
                     </div>
                 </div>
 
-                <div class="botones-accion-simulador">
-                    <button class="btn-accion-primario" onclick="guardarEnTablaAmortizacion()">
-                        💾 Guardar en Base / Historial
-                    </button>
-                    <button class="btn-accion-secundario" onclick="abrirModalCronograma()">
-                        📊 Ver Cronograma Periodo a Periodo
-                    </button>
-                </div>
+                <button class="btn-accion-primario" onclick="guardarEnTablaAmortizacion('u1')" style="width: 100%; margin-top: 15px;">
+                    💾 Guardar en Base de Registro (Ver en Teoría)
+                </button>
             </div>
 
             <div class="panel-modulo">
-                <h3>Esquema Analítico en Tiempo Real</h3>
-                <p id="desc-regimen-actual" style="color: var(--text-muted); font-size: 13px; margin-bottom: 12px;">
-                    Ecuación matemática correspondiente al régimen de Interés Simple seleccionado:
+                <h3>Esquema Analítico en Tiempo Real (Unidad 1)</h3>
+                <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 12px;">
+                    Ecuación matemática correspondiente al régimen de tiempo seleccionado:
                 </p>
                 
                 <div class="visor-formula" id="visor-formula-dinamica">I = C × i × (n / 12)</div>
                 
-                <p id="explicacion-tecnica-regimen" style="color: var(--text-muted); font-size: 13px; line-height: 1.5; margin-bottom: 15px;">
+                <p style="color: var(--text-muted); font-size: 13px; line-height: 1.5; margin-bottom: 15px;">
                     El motor computacional normaliza de forma automática las unidades de tiempo frente a la tasa nominal pactada, asegurando consistencia matemática de acuerdo con las pautas metodológicas de la clase.
                 </p>
 
                 <div style="padding: 12px 15px; background: rgba(214, 175, 55, 0.05); border-left: 3px solid var(--gold-primary); border-radius: 6px;">
-                    <strong id="titulo-principio" style="color: var(--gold-light); font-size: 13px;">Principio Fundamental:</strong>
-                    <p id="texto-principio" style="color: var(--text-muted); font-size: 12px; margin-top: 4px;">
+                    <strong style="color: var(--gold-light); font-size: 13px;">Principio Fundamental:</strong>
+                    <p style="color: var(--text-muted); font-size: 12px; margin-top: 4px;">
                         Una cantidad de dinero hoy no tiene el mismo valor en el futuro debido al tiempo, los costos y el rendimiento esperado.
                     </p>
                 </div>
@@ -1206,107 +1234,239 @@
                 </div>
 
                 <div class="contenedor-gif-simulador">
-                    <img src="https://raw.githubusercontent.com/hellsing14cruet-commits/Gif-/main/ingieneria%20conomica%20gif.gif" alt="GIF Ingeniería Económica" onerror="this.onerror=null; this.src='https://via.placeholder.com/400x150/040907/2ecc71?text=ANALIZAR+%C2%B7+COMPARAR+%C2%B7+DECIDIR';">
+                    <img src="https://raw.githubusercontent.com/hellsing14cruet-commits/Gif-/main/ingieneria%20conomica%20gif.gif" alt="GIF Ingeniería Económica" onerror="this.onerror=null; this.src='https://via.placeholder.com/400x150?text=GIF+no+encontrado';">
                 </div>
             </div>
         </div>
 
-        <!-- EJERCICIOS PRÁCTICOS UNIDAD 2 (GRUPO 2) + UNIDAD 1 -->
+        <!-- SEPARADOR Y BLOQUE ADICIONAL UNIDAD 2 (DESGLOSADO POR PARTES) -->
+        <div class="separador-unidad" id="ancla-simulador-u2">
+            <span>Unidad 2: Simulador de Anualidades y Gradientes</span>
+        </div>
+
+        <div class="workspace-grid">
+            <div class="panel-modulo modulo-u2-borde">
+                <h3>Consola de Variables • Unidad 2</h3>
+                <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 14px;">
+                    Selecciona el tipo de anualidad o gradiente para calcular los factores y resultados paso a paso:
+                </p>
+
+                <div class="selector-regimen-bar">
+                    <button class="btn-regimen activo" id="reg-ordinaria" onclick="cambiarRegimenU2('anualidad-ordinaria')">Anualidad Ordinaria (C)</button>
+                    <button class="btn-regimen" id="reg-anticipada" onclick="cambiarRegimenU2('anualidad-anticipada')">Anualidad Anticipada (M)</button>
+                    <button class="btn-regimen" id="reg-eventual" onclick="cambiarRegimenU2('anualidad-eventual')">Anualidad Eventual (Actuarial)</button>
+                    <button class="btn-regimen" id="reg-gradiente" onclick="cambiarRegimenU2('gradiente')">Gradientes (Arit. / Geom.)</button>
+                </div>
+
+                <div class="inputs-dos-columnas">
+                    <div class="control-grupo">
+                        <label for="u2-renta">Renta / Pago Periódico ($ R):</label>
+                        <input type="number" id="u2-renta" value="25000" step="any" oninput="ejecutarMotorU2()">
+                    </div>
+
+                    <div class="control-grupo">
+                        <label for="u2-tasa">Tasa Nominal Anual (% i):</label>
+                        <input type="number" id="u2-tasa" value="13.08" step="any" oninput="ejecutarMotorU2()">
+                    </div>
+                </div>
+
+                <div class="inputs-dos-columnas">
+                    <div class="control-grupo">
+                        <label for="u2-pagos">Número Total de Pagos (np):</label>
+                        <input type="number" id="u2-pagos" value="7" step="1" oninput="ejecutarMotorU2()">
+                    </div>
+
+                    <div class="control-grupo">
+                        <label for="u2-frecuencia">Periodos por Año (p):</label>
+                        <select id="u2-frecuencia" onchange="ejecutarMotorU2()">
+                            <option value="12" selected>Mensual (p = 12)</option>
+                            <option value="4">Trimestral (p = 4)</option>
+                            <option value="2">Semestral (p = 2)</option>
+                            <option value="1">Anual (p = 1)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- CAMPOS ADICIONALES PARA EVENTUAL / ACTUARIAL -->
+                <div class="inputs-dos-columnas oculto" id="u2-extra-eventual">
+                    <div class="control-grupo">
+                        <label for="u2-probabilidad">Probabilidad Supervivencia (% Px):</label>
+                        <input type="number" id="u2-probabilidad" value="88" min="1" max="100" step="0.5" oninput="ejecutarMotorU2()">
+                    </div>
+                    <div class="control-grupo">
+                        <label for="u2-sector-eventual">Aplicación Contingente:</label>
+                        <select id="u2-sector-eventual" onchange="ejecutarMotorU2()">
+                            <option value="Pensión Jubilación IESS">Pensión Jubilación IESS</option>
+                            <option value="Seguro de Vida / Renta Vitalicia">Seguro de Vida / Renta Vitalicia</option>
+                            <option value="Indemnización Judicial">Indemnización Judicial</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- CAMPOS ADICIONALES PARA GRADIENTES -->
+                <div class="inputs-dos-columnas oculto" id="u2-extra-gradiente">
+                    <div class="control-grupo">
+                        <label for="u2-gradiente">Gradiente ($ G o % g):</label>
+                        <input type="number" id="u2-gradiente" value="100" step="any" oninput="ejecutarMotorU2()">
+                    </div>
+                    <div class="control-grupo">
+                        <label for="u2-tipo-gradiente">Tipo de Variación:</label>
+                        <select id="u2-tipo-gradiente" onchange="ejecutarMotorU2()">
+                            <option value="aritmetico">Gradiente Aritmético Lineal ($ G)</option>
+                            <option value="geometrico">Gradiente Geométrico (% g)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="terminal-resultados">
+                    <div class="fila-data">
+                        <span id="u2-lbl-total-base">Total Pagado (np × R):</span>
+                        <span id="u2-out-total-base" class="valor-computado">$175,000.00</span>
+                    </div>
+                    <div class="fila-data">
+                        <span id="u2-lbl-intereses">Intereses Totales:</span>
+                        <span id="u2-out-intereses" class="valor-computado">$7,387.14</span>
+                    </div>
+                    <div class="fila-data" style="margin-top: 8px; padding-top: 8px; border-top: 1px dashed var(--border-gold);">
+                        <span id="u2-lbl-principal">Valor Presente / Costo Crédito (C):</span>
+                        <span id="u2-out-principal" class="valor-computado total-destacado">$167,612.86</span>
+                    </div>
+                </div>
+
+                <div class="botones-accion-simulador">
+                    <button class="btn-accion-primario" onclick="guardarEnTablaAmortizacion('u2')">
+                        💾 Guardar en Base de Registro
+                    </button>
+                    <button class="btn-accion-secundario" onclick="abrirModalCronograma()">
+                        📊 Ver Cronograma de Flujos
+                    </button>
+                </div>
+            </div>
+
+            <!-- PANEL DERECHO UNIDAD 2: FÓRMULA + DESGLOSE PASO A PASO -->
+            <div class="panel-modulo modulo-u2-borde">
+                <h3>Resolución Desglosada Paso a Paso (Unidad 2)</h3>
+                <p id="u2-desc-ecuacion" style="color: var(--text-muted); font-size: 13px; margin-bottom: 10px;">
+                    Fórmula de Valor Presente para rentas vencidas / ordinarias (Teorema 5.2):
+                </p>
+
+                <div class="visor-formula" id="u2-visor-formula">C = R × [1 - (1 + i/p)^(-np)] / (i/p)</div>
+
+                <!-- DESGLOSE POR PARTES IGUAL QUE EN EXCEL -->
+                <div class="caja-desglose-pasos">
+                    <h4>Desglose Computacional por Partes:</h4>
+                    <div class="paso-fila">
+                        <span id="paso-1-lbl">1. Tasa por periodo (i / p):</span>
+                        <span id="paso-1-val">1.0900%</span>
+                    </div>
+                    <div class="paso-fila">
+                        <span id="paso-2-lbl">2. Potencia (1 + i/p)^(-np):</span>
+                        <span id="paso-2-val">0.926921</span>
+                    </div>
+                    <div class="paso-fila">
+                        <span id="paso-3-lbl">3. Numerador / Término intermedio:</span>
+                        <span id="paso-3-val">0.073079</span>
+                    </div>
+                    <div class="paso-fila">
+                        <span id="paso-4-lbl">4. Factor Financiero Resultante:</span>
+                        <span id="paso-4-val">6.704514</span>
+                    </div>
+                </div>
+
+                <div style="padding: 12px 15px; background: rgba(46, 204, 113, 0.06); border-left: 3px solid var(--green-money); border-radius: 6px; margin-top: 15px;">
+                    <strong id="u2-titulo-base" style="color: var(--gold-light); font-size: 13px;">Criterio Metodológico (Unidad 2):</strong>
+                    <p id="u2-texto-base" style="color: var(--text-muted); font-size: 12px; margin-top: 4px; line-height: 1.5;">
+                        Los pagos periódicos iguales (R) se evalúan al final de cada periodo. Cuando la fecha de inicio o término es incierta (Anualidad Eventual), se apoya en probabilidades de supervivencia y tablas demográficas.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- EJERCICIOS PRÁCTICOS COMPARTIDOS (UNIDAD 1 Y UNIDAD 2) -->
         <div class="panel-modulo">
-            <h3>Casos Prácticos de Exposición: Unidad 2 (Grupo 2) y Unidad 1</h3>
+            <h3>Ejercicios Prácticos de Diapositivas (Unidad 1 y Unidad 2)</h3>
             <p style="color: var(--text-muted); font-size: 13px;">
-                Carga instantáneamente los ejercicios de tu presentación <strong>G2-EVENTUAL.pptx</strong> y del archivo <strong>G2-EVENTUAL.xlsx</strong> para validar sus resultados en clase:
+                Carga de manera instantánea los datos de los ejercicios resueltos en clases para comprobar los resultados analíticos de ambas unidades:
             </p>
 
             <div class="contenedor-ejercicios-grid">
+                <!-- EJERCICIOS UNIDAD 2 -->
                 <div class="tarjeta-ejercicio destacado-u2">
                     <div>
-                        <h4>[U2 - Ej. 1] Equipo de Cómputo (Ordinaria)</h4>
-                        <p><strong>Datos PPT/Excel:</strong> Renta vencida R = $25,000, tasa i = 13.08% anual capitalizable mensual (p = 12), plazo np = 7 meses. Calcula Valor Presente ($167,612.86).</p>
+                        <h4>[U2] Equipo de Cómputo (Ordinaria)</h4>
+                        <p>Renta vencida R = $25,000, tasa i = 13.08% anual capitalizable por meses (p = 12), plazo np = 7 meses. Calcula Valor Presente ($167,612.86).</p>
                     </div>
-                    <button class="btn-cargar-caso" onclick="cargarCasoU2('anualidad-ordinaria', 25000, 13.08, 7, 'meses')">Cargar Ejercicio 1 ($25,000)</button>
+                    <button class="btn-cargar-caso" onclick="cargarCasoU2('anualidad-ordinaria', 25000, 13.08, 7, '12')">Cargar Caso $25,000 (7 Meses)</button>
                 </div>
 
                 <div class="tarjeta-ejercicio destacado-u2">
                     <div>
-                        <h4>[U2 - Ej. 2] Cuenta de Ahorros (Anticipada)</h4>
-                        <p><strong>Datos PPT/Excel:</strong> Depósito al inicio de mes R = $1,500, tasa i = 24% anual capitalizable mensual (p = 12), plazo np = 24 meses. Calcula Monto ($46,545.45).</p>
+                        <h4>[U2] Cuenta de Ahorros (Anticipada)</h4>
+                        <p>Depósito al inicio de mes R = $1,500, tasa i = 24% anual capitalizable por meses (p = 12), plazo np = 24 meses. Calcula Monto ($46,545.45).</p>
                     </div>
-                    <button class="btn-cargar-caso" onclick="cargarCasoU2('anualidad-anticipada', 1500, 24, 24, 'meses')">Cargar Ejercicio 2 ($1,500)</button>
+                    <button class="btn-cargar-caso" onclick="cargarCasoU2('anualidad-anticipada', 1500, 24, 24, '12')">Cargar Caso $1,500 (24 Meses)</button>
                 </div>
 
                 <div class="tarjeta-ejercicio destacado-u2">
                     <div>
-                        <h4>[U2 - Grupo 2] Pensión Jubilación IESS (Eventual)</h4>
-                        <p><strong>Caso Actuarial:</strong> Pensión mensual estimada R = $650, tasa actuarial i = 8.5% anual, horizonte estimado 180 meses (15 años) con probabilidad de supervivencia Px = 88%.</p>
+                        <h4>[U2] Pensión Jubilación IESS (Eventual)</h4>
+                        <p>Renta mensual estimada R = $650, tasa i = 8.5% anual, horizonte estimado 180 meses con probabilidad de supervivencia Px = 88%.</p>
                     </div>
-                    <button class="btn-cargar-caso" onclick="cargarCasoU2('anualidad-eventual', 650, 8.5, 180, 'meses', 88)">Cargar Caso Eventual IESS</button>
+                    <button class="btn-cargar-caso" onclick="cargarCasoU2('anualidad-eventual', 650, 8.5, 180, '12', 88)">Cargar Caso Eventual IESS</button>
+                </div>
+
+                <!-- EJERCICIOS UNIDAD 1 ORIGINALES -->
+                <div class="tarjeta-ejercicio">
+                    <div>
+                        <h4>[U1] Préstamo Comercial (8 Meses)</h4>
+                        <p>Capital: $1,000. Tasa: 12% anual. Plazo: 8 meses. Evalúa el interés generado y el monto acumulado.</p>
+                    </div>
+                    <button class="btn-cargar-caso" onclick="cargarCaso(1000, 12, 8, 'meses')">Cargar Caso $1,000 (8 Meses)</button>
                 </div>
 
                 <div class="tarjeta-ejercicio">
                     <div>
-                        <h4>[U1] Préstamo Comercial (8 Meses)</h4>
-                        <p>Capital: $1,000. Tasa: 12% anual simple. Plazo: 8 meses. Evalúa el interés generado ($80.00) y el monto acumulado ($1,080.00).</p>
+                        <h4>[U1] Inversión de Capital ($2,400)</h4>
+                        <p>Inversión de $2,400 al 9% anual simple durante 5 meses. Calcula la ganancia y el monto al vencimiento.</p>
                     </div>
-                    <button class="btn-cargar-caso" onclick="cargarCasoU1(1000, 12, 8, 'meses')">Cargar Caso U1 ($1,000)</button>
+                    <button class="btn-cargar-caso" onclick="cargarCaso(2400, 9, 5, 'meses')">Cargar Caso $2,400 (5 Meses)</button>
+                </div>
+
+                <div class="tarjeta-ejercicio">
+                    <div>
+                        <h4>[U1] Cálculo con Días Exactos ($40,000)</h4>
+                        <p>Capital de $40,000 en 1 año, 7 meses y 21 días (591 días comerciales) al 24% anual.</p>
+                    </div>
+                    <button class="btn-cargar-caso" onclick="cargarCaso(40000, 24, 591, 'dias')">Cargar Caso $40,000 (591 Días)</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- PORTADA 3: TEORÍA Y CONEXIÓN EXCEL (.XLSX) -->
+    <!-- PORTADA 3: TEORÍA Y BASE DE REGISTRO FINANCIERO -->
     <section id="portada-teoria" class="portada-seccion oculto">
         <header class="navbar-top">
             <div class="navbar-brand">
-                <h2>Biblioteca Teórica & Base Excel (.xlsx)</h2>
-                <p>Unidad 1 y Unidad 2 • Anualidades, Gradientes y Registro Financiero</p>
+                <h2>Biblioteca Teórica y Conceptual</h2>
+                <p>Ingeniería Económica • Universidad Agraria del Ecuador</p>
             </div>
             <div class="nav-links">
                 <button class="btn-nav" onclick="navegarA('portada-bienvenida')">Inicio</button>
                 <button class="btn-nav" onclick="navegarA('portada-simulador')">Simulador</button>
-                <button class="btn-nav activo" onclick="navegarA('portada-teoria')">Teoría & Excel</button>
+                <button class="btn-nav activo" onclick="navegarA('portada-teoria')">Teoría</button>
                 <button class="btn-nav" onclick="navegarA('portada-formulas')">Fórmulas</button>
                 <button class="btn-nav" onclick="navegarA('portada-integrantes')">Integrantes</button>
             </div>
         </header>
 
-        <!-- MÓDULOS TEÓRICOS UNIDAD 2 (NUEVOS) -->
+        <!-- MÓDULOS TEÓRICOS COMPARTIDOS (UNIDAD 1 + UNIDAD 2) -->
         <div class="panel-modulo">
-            <h3>Unidad 2: Anualidades y su Aplicación (Enfoque Grupo 2)</h3>
+            <h3>Módulos Temáticos: Unidad 1 y Unidad 2</h3>
             <p style="color: var(--text-muted); font-size: 13px;">
-                Haz clic en cada módulo de la Unidad 2 para estudiar su fundamentación matemática, actuarial y aplicaciones en el mundo real:
+                Selecciona cada módulo temático para estudiar los conceptos, fundamentos analíticos y sus propiedades:
             </p>
 
-            <div class="temas-grid">
-                <div class="tarjeta-tema tema-u2" onclick="abrirModalTeoria('ao')">
-                    <div class="icono-tema">AO</div>
-                    <h4>Anualidades Ordinarias y Anticipadas</h4>
-                    <p>Series uniformes de pagos periódicos vencidos (fin de periodo) y anticipados (inicio de periodo) para valor presente y monto.</p>
-                </div>
-
-                <div class="tarjeta-tema tema-u2" onclick="abrirModalTeoria('ae')">
-                    <div class="icono-tema">AE</div>
-                    <h4>Anualidades Eventuales (Grupo 2)</h4>
-                    <p>Rentas contingentes donde se desconoce al menos una fecha extrema. Base actuarial, pensiones IESS, seguros de vida e indemnizaciones.</p>
-                </div>
-
-                <div class="tarjeta-tema tema-u2" onclick="abrirModalTeoria('ad')">
-                    <div class="icono-tema">AD</div>
-                    <h4>Diferidas y Perpetuidades</h4>
-                    <p>Anualidades con periodos de gracia iniciales y rentas con horizonte infinito para evaluación de proyectos y fondos permanentes.</p>
-                </div>
-
-                <div class="tarjeta-tema tema-u2" onclick="abrirModalTeoria('gr')">
-                    <div class="icono-tema">GR</div>
-                    <h4>Gradientes Aritméticos y Geométricos</h4>
-                    <p>Series de pagos no uniformes con incrementos o decrementos lineales ($G) o porcentuales (%g) en planes de inversión.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- MÓDULOS TEÓRICOS UNIDAD 1 (ORIGINALES) -->
-        <div class="panel-modulo">
-            <h3>Unidad 1: Fundamentos de Interés y Valor del Dinero</h3>
+            <!-- TARJETAS UNIDAD 1 (TAL COMO ESTABAN) -->
             <div class="temas-grid">
                 <div class="tarjeta-tema" onclick="abrirModalTeoria('is')">
                     <div class="icono-tema">IS</div>
@@ -1331,23 +1491,48 @@
                     <h4>Diagramas de Tiempo</h4>
                     <p>Representación gráfica de flujos de efectivo y líneas de tiempo financieras.</p>
                 </div>
+
+                <!-- TARJETAS NUEVAS UNIDAD 2 -->
+                <div class="tarjeta-tema tema-u2" onclick="abrirModalTeoria('ao')">
+                    <div class="icono-tema">AO</div>
+                    <h4>Anualidades Ordinarias y Anticipadas</h4>
+                    <p>Series uniformes de pagos periódicos vencidos y anticipados para cálculo de valor presente y monto.</p>
+                </div>
+
+                <div class="tarjeta-tema tema-u2" onclick="abrirModalTeoria('ae')">
+                    <div class="icono-tema">AE</div>
+                    <h4>Anualidades Eventuales</h4>
+                    <p>Rentas contingentes sin fecha extrema conocida. Base actuarial, pensiones IESS, seguros de vida e indemnizaciones.</p>
+                </div>
+
+                <div class="tarjeta-tema tema-u2" onclick="abrirModalTeoria('ad')">
+                    <div class="icono-tema">AD</div>
+                    <h4>Diferidas y Perpetuidades</h4>
+                    <p>Anualidades con periodos de gracia iniciales y rentas con horizonte infinito para proyectos.</p>
+                </div>
+
+                <div class="tarjeta-tema tema-u2" onclick="abrirModalTeoria('gr')">
+                    <div class="icono-tema">GR</div>
+                    <h4>Gradientes Aritméticos y Geométricos</h4>
+                    <p>Series de pagos no uniformes con incrementos o decrementos lineales o porcentuales.</p>
+                </div>
             </div>
         </div>
 
-        <!-- TABLA DE AMORTIZACIÓN CON CONEXIÓN REAL A EXCEL (.XLSX) -->
+        <!-- TABLA: BASE DE REGISTRO FINANCIERO -->
         <div class="panel-modulo">
-            <h3>Base de Registro Financiero y Conexión Excel (.xlsx)</h3>
+            <h3>Base de Registro Financiero</h3>
             <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 15px;">
-                Los cálculos guardados desde el Simulador se almacenan localmente en tu navegador y pueden <strong>exportarse a un archivo Excel real (.xlsx)</strong> o <strong>importarse desde tu computadora</strong>:
+                Registros almacenados desde el Simulador Financiero (Unidad 1 y Unidad 2) con opciones de respaldo en hoja de cálculo:
             </p>
 
             <div class="barra-herramientas-tabla">
                 <div class="grupo-botones-excel">
                     <button class="btn-excel-exportar" onclick="exportarAExcelReal()">
-                        📥 Descargar Base en Excel (.xlsx)
+                        📥 Descargar Excel (.xlsx)
                     </button>
                     <label class="btn-excel-importar" for="input-importar-excel">
-                        📤 Importar desde Excel (.xlsx)
+                        📤 Importar Excel (.xlsx)
                     </label>
                     <input type="file" id="input-importar-excel" accept=".xlsx, .xls" style="display: none;" onchange="importarDesdeExcelReal(event)">
                     <button class="btn-accion-secundario" onclick="abrirModalComparativo()" style="padding: 9px 14px;">
@@ -1364,7 +1549,7 @@
                 <table class="tabla-amortizacion" id="tabla-registros-excel">
                     <thead>
                         <tr>
-                            <th>N° Op.</th>
+                            <th>N° Operación</th>
                             <th>Unidad / Régimen</th>
                             <th>Capital / Renta ($)</th>
                             <th>Tasa (% i)</th>
@@ -1377,7 +1562,7 @@
                     <tbody id="cuerpo-tabla-amortizacion">
                         <tr>
                             <td colspan="8" style="text-align: center; color: var(--text-muted); padding: 20px;">
-                                No hay simulaciones guardadas todavía. Ve al Simulador y haz clic en "Guardar en Base / Historial" o importa un archivo .xlsx.
+                                No hay simulaciones guardadas todavía. Ve al Simulador y haz clic en "Guardar en Base de Registro".
                             </td>
                         </tr>
                     </tbody>
@@ -1386,115 +1571,131 @@
         </div>
     </section>
 
-    <!-- PORTADA 4: FÓRMULAS -->
+    <!-- PORTADA 4: FÓRMULAS (UNIDAD 1 CON IMÁGENES COMO ESTABA + UNIDAD 2 COMPARTIENDO ESPACIO) -->
     <section id="portada-formulas" class="portada-seccion oculto">
         <header class="navbar-top">
             <div class="navbar-brand">
-                <h2>Compendio de Ecuaciones y Fórmulas</h2>
-                <p>Unidad 1 & Unidad 2 • Fórmulas de Anualidades, Eventuales y Gradientes</p>
+                <h2>Conocimiento Libre - Ingeniería Económica</h2>
+                <p>Compendio Visual de Ecuaciones y Fórmulas (Unidad 1 y Unidad 2)</p>
             </div>
             <div class="nav-links">
                 <button class="btn-nav" onclick="navegarA('portada-bienvenida')">Inicio</button>
                 <button class="btn-nav" onclick="navegarA('portada-simulador')">Simulador</button>
-                <button class="btn-nav" onclick="navegarA('portada-teoria')">Teoría & Excel</button>
+                <button class="btn-nav" onclick="navegarA('portada-teoria')">Teoría</button>
                 <button class="btn-nav activo" onclick="navegarA('portada-formulas')">Fórmulas</button>
                 <button class="btn-nav" onclick="navegarA('portada-integrantes')">Integrantes</button>
             </div>
         </header>
 
         <div class="panel-modulo">
-            <h3>Selecciona una Ecuación para Analizarla y Probarla</h3>
-            
+            <h3>Seleccione una Fórmula para ver su Representación y Concepto</h3>
+            <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 12px;">
+                Haz clic sobre cualquier tema de la Unidad 1 o Unidad 2 para cargar simultáneamente su ecuación/imagen y su concepto explicativo:
+            </p>
+
             <div class="filtros-formulas">
-                <button class="btn-nav activo" id="filtro-todas" onclick="filtrarFormulas('todas')">Todas las Fórmulas</button>
-                <button class="btn-nav" id="filtro-u2" onclick="filtrarFormulas('u2')">Solo Unidad 2 (Anualidades y Grupo 2)</button>
-                <button class="btn-nav" id="filtro-u1" onclick="filtrarFormulas('u1')">Solo Unidad 1 (Interés y Descuento)</button>
+                <button class="btn-nav activo" id="filtro-todas" onclick="filtrarFormulas('todas')">Todas (Unidad 1 y Unidad 2)</button>
+                <button class="btn-nav" id="filtro-u1" onclick="filtrarFormulas('u1')">Unidad 1 (Imágenes Originales)</button>
+                <button class="btn-nav" id="filtro-u2" onclick="filtrarFormulas('u2')">Unidad 2 (Anualidades y Gradientes)</button>
             </div>
 
             <div class="formulas-grid-scroll" id="grid-formulas-lista">
-                <!-- FÓRMULAS UNIDAD 2 (GRUPO 2) -->
-                <div class="tarjeta-formula-item item-u2" data-unidad="u2" onclick="seleccionarFormula('C = R × [1 - (1 + i/p)^(-np)] / (i/p)', 'Valor Presente - Anualidad Ordinaria / Vencida', 'Calcula el capital inicial o valor actual (C) de una serie de pagos periódicos iguales (R) realizados al final de cada periodo. Base del Ejercicio 1 de G2-EVENTUAL.', 'anualidad-ordinaria')">
+                <!-- FÓRMULAS UNIDAD 1 ORIGINALES CON IMÁGENES -->
+                <div class="tarjeta-formula-item" data-unidad="u1" onclick="cargarFormulaImagen('pagina 61.PNG', 'Progresiones Aritméticas', 'Sucesión numérica donde cada término se obtiene sumando una constante llamada diferencia común (d). Base matemática para gradientes lineales.')">
+                    <h5>[U1] Progresiones Aritméticas</h5>
+                    <span>Imagen de Diapositiva • Página 61</span>
+                </div>
+
+                <div class="tarjeta-formula-item" data-unidad="u1" onclick="cargarFormulaImagen('pagina 64.PNG', 'Progresiones Geométricas', 'Sucesión donde cada término se obtiene multiplicando el anterior por una razón constante (r). Base del interés compuesto.')">
+                    <h5>[U1] Progresiones Geométricas</h5>
+                    <span>Imagen de Diapositiva • Página 64</span>
+                </div>
+
+                <div class="tarjeta-formula-item" data-unidad="u1" onclick="cargarFormulaImagen('pagina 74.PNG', 'Interés Simple Ordinario', 'Fórmula fundamental I = C · i · t para el cálculo del rendimiento lineal sobre el capital inicial.')">
+                    <h5>[U1] Interés Simple Ordinario</h5>
+                    <span>Imagen de Diapositiva • Página 74</span>
+                </div>
+
+                <div class="tarjeta-formula-item" data-unidad="u1" onclick="cargarFormulaImagen('pagina 78.PNG', 'Monto Futuro a Interés Simple', 'Suma del capital inicial más los intereses devengados: M = C(1 + i · t).')">
+                    <h5>[U1] Monto Futuro Interés Simple</h5>
+                    <span>Imagen de Diapositiva • Página 78</span>
+                </div>
+
+                <div class="tarjeta-formula-item" data-unidad="u1" onclick="cargarFormulaImagen('pagina 85.PNG', 'Descuento Comercial Bancario', 'Rebaja aplicada sobre el valor nominal de un documento antes de su vencimiento: D = M · d · t.')">
+                    <h5>[U1] Descuento Comercial</h5>
+                    <span>Imagen de Diapositiva • Página 85</span>
+                </div>
+
+                <div class="tarjeta-formula-item" data-unidad="u1" onclick="cargarFormulaImagen('pagina 92.PNG', 'Interés Compuesto (Monto)', 'Capitalización periódica de intereses donde los intereses generan nuevos intereses: M = C(1 + i/p)^(np).')">
+                    <h5>[U1] Interés Compuesto</h5>
+                    <span>Imagen de Diapositiva • Página 92</span>
+                </div>
+
+                <!-- FÓRMULAS UNIDAD 2 -->
+                <div class="tarjeta-formula-item item-u2" data-unidad="u2" onclick="cargarFormulaEcuacion('C = R × [1 - (1 + i/p)^(-np)] / (i/p)', 'Valor Presente - Anualidad Ordinaria / Vencida', 'Calcula el capital inicial o valor actual (C) de una serie de pagos periódicos iguales (R) realizados al final de cada periodo.', 'anualidad-ordinaria')">
                     <h5>[U2] Valor Presente Anualidad Ordinaria (C)</h5>
-                    <span>Fórmula Principal • Rentas Vencidas</span>
+                    <span>Unidad 2 • Rentas Vencidas (Teorema 5.2)</span>
                 </div>
 
-                <div class="tarjeta-formula-item item-u2" data-unidad="u2" onclick="seleccionarFormula('C = R(1 + i/p) × [1 - (1 + i/p)^(-np)] / (i/p)', 'Valor Presente - Anualidad Anticipada', 'Determina el valor actual cuando cada renta periódica (R) se paga o deposita al inicio de cada periodo de capitalización.', 'anualidad-anticipada')">
+                <div class="tarjeta-formula-item item-u2" data-unidad="u2" onclick="cargarFormulaEcuacion('C = R(1 + i/p) × [1 - (1 + i/p)^(-np)] / (i/p)', 'Valor Presente - Anualidad Anticipada', 'Determina el valor actual cuando cada renta periódica (R) se paga o deposita al inicio de cada periodo de capitalización.', 'anualidad-anticipada')">
                     <h5>[U2] Valor Presente Anualidad Anticipada (C)</h5>
-                    <span>Fórmula Principal • Rentas Anticipadas</span>
+                    <span>Unidad 2 • Rentas Anticipadas</span>
                 </div>
 
-                <div class="tarjeta-formula-item item-u2" data-unidad="u2" onclick="seleccionarFormula('M = R(1 + i/p) × [(1 + i/p)^(np) - 1] / (i/p)', 'Monto Acumulado - Anualidad Anticipada (Teorema 5.1)', 'Calcula el capital futuro acumulado al final de np periodos cuando se realizan depósitos periódicos al inicio de cada mes. Base del Ejercicio 2 de G2-EVENTUAL.', 'anualidad-anticipada')">
+                <div class="tarjeta-formula-item item-u2" data-unidad="u2" onclick="cargarFormulaEcuacion('M = R(1 + i/p) × [(1 + i/p)^(np) - 1] / (i/p)', 'Monto Acumulado - Anualidad Anticipada', 'Calcula el capital futuro acumulado al final de np periodos cuando se realizan depósitos periódicos al inicio de cada mes.', 'anualidad-anticipada')">
                     <h5>[U2] Monto Acumulado Anticipado (M)</h5>
-                    <span>Teorema 5.1 • Ahorros y Capitalización</span>
+                    <span>Unidad 2 • Teorema 5.1</span>
                 </div>
 
-                <div class="tarjeta-formula-item item-u2" data-unidad="u2" onclick="seleccionarFormula('VA_actuarial = R × a_(n|i) × Px', 'Valor Actuarial - Anualidad Eventual / Contingente', 'Valora rentas periódicas donde la fecha de inicio o término es incierta (como jubilaciones del IESS o seguros de vida), ponderando por probabilidades de supervivencia (Px).', 'anualidad-eventual')">
-                    <h5>[U2] Anualidad Eventual / Actuarial (Grupo 2)</h5>
-                    <span>Tratamiento Actuarial • Tablas Demográficas</span>
+                <div class="tarjeta-formula-item item-u2" data-unidad="u2" onclick="cargarFormulaEcuacion('VA_actuarial = R × [1 - (1 + i/p)^(-np)] / (i/p) × Px', 'Anualidad Eventual / Contingente (Actuarial)', 'Valora rentas periódicas donde la fecha de inicio o término es incierta, apoyándose en probabilidades de supervivencia (Px) y tablas demográficas.', 'anualidad-eventual')">
+                    <h5>[U2] Anualidad Eventual / Actuarial</h5>
+                    <span>Unidad 2 • Tratamiento Actuarial</span>
                 </div>
 
-                <div class="tarjeta-formula-item item-u2" data-unidad="u2" onclick="seleccionarFormula('M = C × (1 + i/p)^(np)', 'Traslado de Capital / Interés Compuesto', 'Permite trasladar capitales o montos en el tiempo bajo capitalización periódica (p veces al año), indispensable para anualidades diferidas y eventuales.', 'anualidad-ordinaria')">
-                    <h5>[U2] Traslado de Capital Compuesto (M)</h5>
-                    <span>Apoyo Anualidades Diferidas y Eventuales</span>
+                <div class="tarjeta-formula-item item-u2" data-unidad="u2" onclick="cargarFormulaEcuacion('M = C × (1 + i/p)^(np)', 'Traslado de Capital / Interés Compuesto', 'Permite trasladar capitales o montos en el tiempo cuando se requiere evaluar anualidades diferidas o eventuales.', 'anualidad-ordinaria')">
+                    <h5>[U2] Traslado de Capital (M)</h5>
+                    <span>Unidad 2 • Capitalización Compuesta</span>
                 </div>
 
-                <div class="tarjeta-formula-item item-u2" data-unidad="u2" onclick="seleccionarFormula('VP_G = R·a_(n|i) + (G / i)·[a_(n|i) - n(1 + i)^(-n)]', 'Gradiente Aritmético Lineal (Valor Presente)', 'Evalúa series de pagos periódicos que aumentan o disminuyen en una cantidad monetaria constante (G) cada periodo.', 'gradiente')">
-                    <h5>[U2] Gradiente Aritmético Lineal (VP)</h5>
-                    <span>Subtema 2.3 & 2.4 • Variación Constante</span>
-                </div>
-
-                <!-- FÓRMULAS UNIDAD 1 -->
-                <div class="tarjeta-formula-item" data-unidad="u1" onclick="seleccionarFormula('I = C × i × (n / 12)', 'Interés Simple Ordinario (Mensual)', 'Calcula el interés líquido generado por un capital principal (C) a una tasa nominal anual (i) durante n meses.', 'simple')">
-                    <h5>[U1] Interés Simple Mensual (I)</h5>
-                    <span>Unidad 1 • Capitalización Lineal</span>
-                </div>
-
-                <div class="tarjeta-formula-item" data-unidad="u1" onclick="seleccionarFormula('M = C × (1 + i × t)', 'Monto Futuro a Interés Simple (M)', 'Suma el capital original más los intereses devengados en el periodo contractual.', 'simple')">
-                    <h5>[U1] Monto Futuro Interés Simple (M)</h5>
-                    <span>Unidad 1 • Valor al Vencimiento</span>
-                </div>
-
-                <div class="tarjeta-formula-item" data-unidad="u1" onclick="seleccionarFormula('D = M × d × t', 'Descuento Comercial Bancario (D)', 'Rebaja aplicada sobre el valor nominal de un documento financiero (pagaré o letra de cambio) antes de su vencimiento.', 'simple')">
-                    <h5>[U1] Descuento Comercial (D)</h5>
-                    <span>Unidad 1 • Títulos Valores</span>
+                <div class="tarjeta-formula-item item-u2" data-unidad="u2" onclick="cargarFormulaEcuacion('VP_G = R·a_(n|i) + (G / i)·[a_(n|i) - n(1 + i)^(-n)]', 'Gradiente Aritmético Lineal (Valor Presente)', 'Evalúa series de pagos periódicos que aumentan o disminuyen en una cantidad monetaria constante (G) cada periodo.', 'gradiente')">
+                    <h5>[U2] Gradiente Aritmético Lineal</h5>
+                    <span>Unidad 2 • Subtemas 2.3 y 2.4</span>
                 </div>
             </div>
 
-            <!-- VISOR DETALLADO DE FÓRMULA -->
+            <!-- VISOR DE DOS COLUMNAS (IMAGEN O ECUACIÓN + CONCEPTO) -->
             <div class="contenedor-detalle-formula-duo">
-                <div class="caja-imagen-formula-lado">
-                    <div class="formula-matematica-grande" id="visor-ecuacion-seleccionada">
-                        C = R × [1 - (1 + i/p)^(-np)] / (i/p)
+                <div class="caja-imagen-formula-lado" id="contenedor-visual-formula">
+                    <img src="pagina 61.PNG" alt="Fórmula Seleccionada" class="imagen-formula-desplegada" id="img-formula-actual" onclick="abrirLightbox(this.src)" onerror="this.style.display='none'; document.getElementById('fallback-texto-img').style.display='block';">
+                    <div id="fallback-texto-img" class="formula-matematica-grande" style="display: none;">
+                        Progresiones Aritméticas (pagina 61.PNG)
                     </div>
-                    <span style="color: var(--text-muted); font-size: 11px; margin-top: 10px;">
-                        Notación estándar de Ingeniería Económica (R: Renta, i: Tasa anual, p: Frecuencia, np: Total pagos)
-                    </span>
                 </div>
 
                 <div class="caja-concepto-lado">
-                    <h4 id="titulo-formula-seleccionada">Valor Presente - Anualidad Ordinaria / Vencida</h4>
+                    <h4 id="titulo-formula-seleccionada">Progresiones Aritméticas</h4>
                     <p id="concepto-formula-seleccionada">
-                        Calcula el capital inicial o valor actual (C) de una serie de pagos periódicos iguales (R) realizados al final de cada periodo. Base del Ejercicio 1 de G2-EVENTUAL.
+                        Sucesión numérica donde cada término se obtiene sumando una constante llamada diferencia común (d). Base matemática para gradientes lineales.
                     </p>
-                    <button class="btn-accion-primario" id="btn-probar-formula" onclick="probarFormulaEnSimulador('anualidad-ordinaria')" style="width: 100%;">
-                        ⚡ Probar esta fórmula en el Simulador
+                    <button class="btn-accion-primario oculto" id="btn-probar-formula-u2" onclick="probarFormulaEnSimulador()" style="width: 100%;">
+                        ⚡ Probar esta fórmula en Simulador Unidad 2
                     </button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- PORTADA 5: INTEGRANTES GRUPO 2 -->
+    <!-- PORTADA 5: INTEGRANTES -->
     <section id="portada-integrantes" class="portada-seccion oculto">
         <header class="navbar-top">
             <div class="navbar-brand">
-                <h2>Créditos Académicos • Grupo 2</h2>
+                <h2>Créditos Académicos</h2>
                 <p>Universidad Agraria del Ecuador • Carrera de Computación en Línea - 6S</p>
             </div>
             <div class="nav-links">
                 <button class="btn-nav" onclick="navegarA('portada-bienvenida')">Inicio</button>
                 <button class="btn-nav" onclick="navegarA('portada-simulador')">Simulador</button>
-                <button class="btn-nav" onclick="navegarA('portada-teoria')">Teoría & Excel</button>
+                <button class="btn-nav" onclick="navegarA('portada-teoria')">Teoría</button>
                 <button class="btn-nav" onclick="navegarA('portada-formulas')">Fórmulas</button>
                 <button class="btn-nav activo" onclick="navegarA('portada-integrantes')">Integrantes</button>
             </div>
@@ -1504,7 +1705,7 @@
             <div class="escudo-container">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Escudo_de_la_Universidad_Agraria_del_Ecuador.png/240px-Escudo_de_la_Universidad_Agraria_del_Ecuador.png" alt="Escudo UAE" class="escudo-institucional" onerror="this.style.display='none'">
                 <h3 style="border: none; margin-bottom: 5px;">Universidad Agraria del Ecuador</h3>
-                <p style="color: var(--text-muted); font-size: 13px;">Ingeniería Económica • Unidad 2: Anualidades Eventuales (Grupo 2)</p>
+                <p style="color: var(--text-muted); font-size: 13px;">Ingeniería Económica • Computación en Línea 6S</p>
             </div>
 
             <div class="integrantes-grid">
@@ -1518,31 +1719,31 @@
                 <div class="tarjeta-integrante">
                     <div class="avatar-integrante">AB</div>
                     <h4>Balladares Coello Arleth Tatiana</h4>
-                    <p>Integrante • Grupo 2 (Computación 6S)</p>
+                    <p>Integrante • Computación 6S</p>
                 </div>
 
                 <div class="tarjeta-integrante">
                     <div class="avatar-integrante">FC</div>
                     <h4>Chilpe Reyes Fidel Gardel</h4>
-                    <p>Integrante • Grupo 2 (Computación 6S)</p>
+                    <p>Integrante • Computación 6S</p>
                 </div>
 
                 <div class="tarjeta-integrante">
                     <div class="avatar-integrante">CC</div>
                     <h4>Chávez Franco Carlos Bryan</h4>
-                    <p>Integrante & Desarrollo Web • Grupo 2</p>
+                    <p>Integrante • Computación 6S</p>
                 </div>
 
                 <div class="tarjeta-integrante">
                     <div class="avatar-integrante">AE</div>
                     <h4>Escobar Quiñonez Adonis Jhiret</h4>
-                    <p>Integrante • Grupo 2 (Computación 6S)</p>
+                    <p>Integrante • Computación 6S</p>
                 </div>
 
                 <div class="tarjeta-integrante">
                     <div class="avatar-integrante">VL</div>
                     <h4>López Plúas Verónica Cecilia</h4>
-                    <p>Integrante • Grupo 2 (Computación 6S)</p>
+                    <p>Integrante • Computación 6S</p>
                 </div>
             </div>
         </div>
@@ -1556,19 +1757,25 @@
         </div>
     </div>
 
+    <!-- LIGHTBOX PARA IMÁGENES EN PANTALLA COMPLETA -->
+    <div id="lightbox-modal" onclick="this.classList.remove('activo')">
+        <img id="lightbox-img" src="" alt="Vista ampliada">
+    </div>
+
     <footer class="footer-derechos">
-        Universidad Agraria del Ecuador • Facultad de Ciencias Agrarias • Carrera de Computación en Línea (6S) • Grupo 2 © 2026. Todos los derechos reservados.
+        Universidad Agraria del Ecuador • Facultad de Ciencias Agrarias © 2026. Todos los derechos reservados.
     </footer>
 
     <script>
-        // ESTADO GLOBAL DEL SIMULADOR
-        let regimenActual = 'simple';
-        let ultimoCalculo = {};
-        let ultimoCronograma = [];
+        // ESTADO GLOBAL
+        let regimenU2Actual = 'anualidad-ordinaria';
+        let ultimoCalculoU1 = {};
+        let ultimoCalculoU2 = {};
+        let ultimoCronogramaU2 = [];
         let historialRegistros = JSON.parse(localStorage.getItem('uae_ing_econ_historial')) || [];
-        let formulaRegimenDestino = 'anualidad-ordinaria';
+        let formulaDestinoU2 = 'anualidad-ordinaria';
 
-        // NAVEGACIÓN ENTRE SECCIONES
+        // NAVEGACIÓN ENTRE PORTADAS
         function navegarA(idSeccion) {
             document.querySelectorAll('.portada-seccion').forEach(sec => {
                 sec.classList.remove('visible');
@@ -1585,385 +1792,371 @@
             }
         }
 
-        // CAMBIAR RÉGIMEN EN EL SIMULADOR (U1 vs U2)
-        function cambiarRegimen(nuevoRegimen) {
-            regimenActual = nuevoRegimen;
+        function irASeccionSimuladorU2() {
+            navegarA('portada-simulador');
+            setTimeout(() => {
+                const ancla = document.getElementById('ancla-simulador-u2');
+                if (ancla) ancla.scrollIntoView({ behavior: 'smooth' });
+            }, 150);
+        }
 
-            // Actualizar botones activos
+        // =========================================================================
+        // MOTOR DE CÁLCULO UNIDAD 1 (TAL COMO ESTABA IMPLEMENTADO)
+        // =========================================================================
+        function ejecutarMotorCalculo() {
+            const C = parseFloat(document.getElementById('val-capital').value) || 0;
+            const i = (parseFloat(document.getElementById('val-tasa').value) || 0) / 100;
+            const n = parseFloat(document.getElementById('val-plazo').value) || 0;
+            const base = document.getElementById('val-base').value;
+
+            let interes = 0;
+            let formulaTexto = '';
+
+            if (base === 'meses') {
+                interes = C * i * (n / 12);
+                formulaTexto = 'I = C × i × (n / 12)';
+            } else if (base === 'anos') {
+                interes = C * i * n;
+                formulaTexto = 'I = C × i × n';
+            } else if (base === 'dias') {
+                interes = C * i * (n / 360);
+                formulaTexto = 'I = C × i × (n / 360)';
+            }
+
+            const monto = C + interes;
+
+            document.getElementById('visor-formula-dinamica').textContent = formulaTexto;
+            document.getElementById('out-interes').textContent = '$' + interes.toFixed(2);
+            document.getElementById('out-monto').textContent = '$' + monto.toFixed(2);
+
+            ultimoCalculoU1 = {
+                unidad: 'Unidad 1',
+                regimen: 'Interés Simple',
+                baseMonto: C,
+                tasa: (i * 100).toFixed(2) + '%',
+                plazo: `${n} (${base})`,
+                secundario: '$' + interes.toFixed(2),
+                principal: '$' + monto.toFixed(2)
+            };
+        }
+
+        function cargarCaso(capital, tasa, plazo, base) {
+            document.getElementById('val-capital').value = capital;
+            document.getElementById('val-tasa').value = tasa;
+            document.getElementById('val-plazo').value = plazo;
+            document.getElementById('val-base').value = base;
+            ejecutarMotorCalculo();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // =========================================================================
+        // MOTOR DE CÁLCULO UNIDAD 2 (DESGLOSADO POR PARTES COMO EN EXCEL)
+        // =========================================================================
+        function cambiarRegimenU2(nuevoRegimen) {
+            regimenU2Actual = nuevoRegimen;
+
             document.querySelectorAll('.btn-regimen').forEach(btn => btn.classList.remove('activo'));
-            const mapaBotones = {
-                'simple': 'reg-simple',
+            const mapa = {
                 'anualidad-ordinaria': 'reg-ordinaria',
                 'anualidad-anticipada': 'reg-anticipada',
                 'anualidad-eventual': 'reg-eventual',
                 'gradiente': 'reg-gradiente'
             };
-            const btnActivo = document.getElementById(mapaBotones[nuevoRegimen]);
-            if (btnActivo) btnActivo.classList.add('activo');
+            const btn = document.getElementById(mapa[nuevoRegimen]);
+            if (btn) btn.classList.add('activo');
 
-            // Mostrar/Ocultar campos extra según el régimen
-            const extraEventual = document.getElementById('grupo-eventual-extra');
-            const extraGradiente = document.getElementById('grupo-gradiente-extra');
-            extraEventual.classList.add('oculto');
-            extraGradiente.classList.add('oculto');
-
-            const lblCapital = document.getElementById('lbl-capital');
-            const lblPlazo = document.getElementById('lbl-plazo');
-            const lblBase = document.getElementById('lbl-base');
-
-            if (nuevoRegimen === 'simple') {
-                lblCapital.textContent = 'Capital Principal ($ C o P):';
-                lblPlazo.textContent = 'Plazo / Tiempo Contractual (n):';
-                lblBase.textContent = 'Unidad del Tiempo Ingresado:';
-            } else {
-                lblCapital.textContent = 'Renta / Pago Periódico ($ R):';
-                lblPlazo.textContent = 'Número Total de Pagos (np):';
-                lblBase.textContent = 'Frecuencia de Capitalización (p):';
-                if (document.getElementById('val-base').value === 'dias') {
-                    document.getElementById('val-base').value = 'meses';
-                }
-            }
+            document.getElementById('u2-extra-eventual').classList.add('oculto');
+            document.getElementById('u2-extra-gradiente').classList.add('oculto');
 
             if (nuevoRegimen === 'anualidad-eventual') {
-                extraEventual.classList.remove('oculto');
+                document.getElementById('u2-extra-eventual').classList.remove('oculto');
             } else if (nuevoRegimen === 'gradiente') {
-                extraGradiente.classList.remove('oculto');
+                document.getElementById('u2-extra-gradiente').classList.remove('oculto');
             }
 
-            ejecutarMotorCalculo();
+            ejecutarMotorU2();
         }
 
-        // OBTENER FRECUENCIA p
-        function obtenerFrecuencia(baseStr) {
-            switch (baseStr) {
-                case 'meses': return 12;
-                case 'trimestral': return 4;
-                case 'semestral': return 2;
-                case 'anos': return 1;
-                case 'dias': return 360;
-                default: return 12;
-            }
-        }
+        function ejecutarMotorU2() {
+            const R = parseFloat(document.getElementById('u2-renta').value) || 0;
+            const i_anual = (parseFloat(document.getElementById('u2-tasa').value) || 0) / 100;
+            const np = parseFloat(document.getElementById('u2-pagos').value) || 0;
+            const p = parseFloat(document.getElementById('u2-frecuencia').value) || 12;
+            const i_p = i_anual / p;
 
-        // MOTOR MATEMÁTICO UNIFICADO (UNIDAD 1 + UNIDAD 2)
-        function ejecutarMotorCalculo() {
-            const C_o_R = parseFloat(document.getElementById('val-capital').value) || 0;
-            const i_anual = (parseFloat(document.getElementById('val-tasa').value) || 0) / 100;
-            const n_o_np = parseFloat(document.getElementById('val-plazo').value) || 0;
-            const base = document.getElementById('val-base').value;
-            const p = obtenerFrecuencia(base);
-            const i_periodo = i_anual / p;
+            const visor = document.getElementById('u2-visor-formula');
+            const desc = document.getElementById('u2-desc-ecuacion');
+            const titBase = document.getElementById('u2-titulo-base');
+            const txtBase = document.getElementById('u2-texto-base');
 
-            const visorFormula = document.getElementById('visor-formula-dinamica');
-            const descRegimen = document.getElementById('desc-regimen-actual');
-            const expTecnica = document.getElementById('explicacion-tecnica-regimen');
-            const titPrincipio = document.getElementById('titulo-principio');
-            const txtPrincipio = document.getElementById('texto-principio');
+            const lblTotalBase = document.getElementById('u2-lbl-total-base');
+            const lblIntereses = document.getElementById('u2-lbl-intereses');
+            const lblPrincipal = document.getElementById('u2-lbl-principal');
 
-            const lbl1 = document.getElementById('lbl-res-1');
-            const lbl2 = document.getElementById('lbl-res-2');
-            const lbl3 = document.getElementById('lbl-res-3');
-            const lbl4 = document.getElementById('lbl-res-4');
+            const outTotalBase = document.getElementById('u2-out-total-base');
+            const outIntereses = document.getElementById('u2-out-intereses');
+            const outPrincipal = document.getElementById('u2-out-principal');
 
-            const out1 = document.getElementById('out-res-1');
-            const out2 = document.getElementById('out-res-2');
-            const out3 = document.getElementById('out-res-3');
-            const out4 = document.getElementById('out-res-4');
+            const p1Lbl = document.getElementById('paso-1-lbl'), p1Val = document.getElementById('paso-1-val');
+            const p2Lbl = document.getElementById('paso-2-lbl'), p2Val = document.getElementById('paso-2-val');
+            const p3Lbl = document.getElementById('paso-3-lbl'), p3Val = document.getElementById('paso-3-val');
+            const p4Lbl = document.getElementById('paso-4-lbl'), p4Val = document.getElementById('paso-4-val');
 
-            ultimoCronograma = [];
+            ultimoCronogramaU2 = [];
 
-            if (regimenActual === 'simple') {
-                // UNIDAD 1: INTERÉS SIMPLE
-                let divisor = p;
-                let textoFormula = `I = C × i × (n / ${divisor})`;
-                if (base === 'anos') textoFormula = 'I = C × i × n';
+            if (regimenU2Actual === 'anualidad-ordinaria') {
+                // RESOLUCIÓN PASO A PASO IDÉNTICA A HOJA 1 DEL EXCEL
+                const potenciaNeg = Math.pow(1 + i_p, -np);
+                const numerador = 1 - potenciaNeg;
+                const factorVP = i_p > 0 ? numerador / i_p : np;
+                const C = R * factorVP;
+                const totalPagado = np * R;
+                const interesesTotales = totalPagado - C;
 
-                const interes = C_o_R * i_anual * (n_o_np / divisor);
-                const monto = C_o_R + interes;
+                desc.textContent = 'Fórmula de Valor Presente para rentas vencidas / ordinarias (Teorema 5.2):';
+                visor.textContent = 'C = R × [1 - (1 + i/p)^(-np)] / (i/p)';
 
-                visorFormula.textContent = textoFormula;
-                descRegimen.textContent = 'Ecuación correspondiente al régimen de Interés Simple (Unidad 1):';
-                expTecnica.textContent = 'El interés se calcula únicamente sobre el capital inicial (C) durante todo el plazo contractual sin capitalización intermedia.';
-                titPrincipio.textContent = 'Principio Fundamental (Unidad 1):';
-                txtPrincipio.textContent = 'Una cantidad de dinero hoy no tiene el mismo valor en el futuro debido al tiempo, los costos y el rendimiento esperado.';
+                p1Lbl.textContent = '1. Tasa por periodo (i / p):';
+                p1Val.textContent = (i_p * 100).toFixed(4) + '%';
+                p2Lbl.textContent = '2. Potencia (1 + i/p)^(-np):';
+                p2Val.textContent = potenciaNeg.toFixed(6);
+                p3Lbl.textContent = '3. Numerador 1 - (1 + i/p)^(-np):';
+                p3Val.textContent = numerador.toFixed(6);
+                p4Lbl.textContent = '4. Factor de Valor Presente:';
+                p4Val.textContent = factorVP.toFixed(6);
 
-                lbl1.textContent = 'Tasa Proporcional del Periodo:';
-                lbl2.textContent = 'Capital Principal Invertido (C):';
-                lbl3.textContent = 'Interés Líquido Devengado (I):';
-                lbl4.textContent = 'Monto Acumulado Futuro (M):';
+                lblTotalBase.textContent = 'Total Pagado (np × R):';
+                lblIntereses.textContent = 'Intereses Totales:';
+                lblPrincipal.textContent = 'Valor Presente / Costo Crédito (C):';
 
-                out1.textContent = (i_periodo * 100).toFixed(4) + '%';
-                out2.textContent = '$' + C_o_R.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-                out3.textContent = '$' + interes.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-                out4.textContent = '$' + monto.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+                outTotalBase.textContent = '$' + totalPagado.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+                outIntereses.textContent = '$' + interesesTotales.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+                outPrincipal.textContent = '$' + C.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
-                // Cronograma simple
-                for (let k = 1; k <= Math.min(n_o_np, 120); k++) {
-                    const intPeriodo = C_o_R * i_periodo;
-                    ultimoCronograma.push({
-                        periodo: k,
-                        flujo: k === n_o_np ? C_o_R + intPeriodo : intPeriodo,
-                        interes: intPeriodo,
-                        saldo: C_o_R + (intPeriodo * k)
-                    });
-                }
+                titBase.textContent = 'Anualidad Ordinaria / Vencida:';
+                txtBase.textContent = 'Los pagos periódicos iguales (R) se efectúan al final de cada periodo. Descuenta cada cuota al inicio del plazo para determinar el valor presente (C).';
 
-                ultimoCalculo = {
-                    unidad: 'Unidad 1',
-                    regimen: 'Interés Simple',
-                    baseMonto: C_o_R,
-                    tasa: (i_anual * 100).toFixed(2) + '%',
-                    plazo: `${n_o_np} (${base})`,
-                    secundario: '$' + interes.toFixed(2),
-                    principal: '$' + monto.toFixed(2)
-                };
-
-            } else if (regimenActual === 'anualidad-ordinaria') {
-                // UNIDAD 2: ANUALIDAD ORDINARIA / VENCIDA (EJERCICIO 1 EXCEL)
-                const factorVP = i_periodo > 0 ? (1 - Math.pow(1 + i_periodo, -n_o_np)) / i_periodo : n_o_np;
-                const valorPresente = C_o_R * factorVP;
-                const totalPagado = C_o_R * n_o_np;
-                const interesesTotales = totalPagado - valorPresente;
-
-                visorFormula.textContent = 'C = R × [1 - (1 + i/p)^(-np)] / (i/p)';
-                descRegimen.textContent = 'Fórmula de Valor Presente para Rentas Vencidas / Ordinarias (Teorema 5.2):';
-                expTecnica.textContent = 'Los pagos periódicos (R) se efectúan al final de cada periodo. Descuenta cada cuota a la tasa efectiva por periodo (i/p) para hallar el costo o valor presente (C).';
-                titPrincipio.textContent = 'Aplicación Práctica (Ejercicio 1 - Grupo 2):';
-                txtPrincipio.textContent = 'Ideal para calcular el valor de contado de equipos, préstamos comerciales y compras a plazos con cuotas vencidas.';
-
-                lbl1.textContent = 'Tasa por Periodo (i/p) | Factor VP:';
-                lbl2.textContent = 'Total Pagado (np × R):';
-                lbl3.textContent = 'Intereses Totales del Crédito:';
-                lbl4.textContent = 'Valor Presente / Costo Crédito (C):';
-
-                out1.textContent = `${(i_periodo * 100).toFixed(4)}%  |  ${factorVP.toFixed(6)}`;
-                out2.textContent = '$' + totalPagado.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-                out3.textContent = '$' + interesesTotales.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-                out4.textContent = '$' + valorPresente.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-
-                // Cronograma de amortización del Valor Presente
-                let saldo = valorPresente;
-                for (let k = 1; k <= Math.min(n_o_np, 240); k++) {
-                    const intK = saldo * i_periodo;
-                    const amortK = C_o_R - intK;
+                let saldo = C;
+                for (let k = 1; k <= Math.min(np, 240); k++) {
+                    const intK = saldo * i_p;
+                    const amortK = R - intK;
                     saldo = Math.max(0, saldo - amortK);
-                    ultimoCronograma.push({
-                        periodo: k,
-                        flujo: C_o_R,
-                        interes: intK,
-                        saldo: saldo
-                    });
+                    ultimoCronogramaU2.push({ periodo: k, flujo: R, interes: intK, saldo: saldo });
                 }
 
-                ultimoCalculo = {
+                ultimoCalculoU2 = {
                     unidad: 'Unidad 2',
                     regimen: 'Anualidad Ordinaria (C)',
-                    baseMonto: C_o_R,
+                    baseMonto: R,
                     tasa: (i_anual * 100).toFixed(2) + '%',
-                    plazo: `${n_o_np} pagos (p=${p})`,
+                    plazo: `${np} pagos (p=${p})`,
                     secundario: 'Int: $' + interesesTotales.toFixed(2),
-                    principal: 'C = $' + valorPresente.toFixed(2)
+                    principal: 'C = $' + C.toFixed(2)
                 };
 
-            } else if (regimenActual === 'anualidad-anticipada') {
-                // UNIDAD 2: ANUALIDAD ANTICIPADA (EJERCICIO 2 EXCEL)
-                const factorAnticipado = 1 + i_periodo;
-                const factorMonto = i_periodo > 0 ? ((Math.pow(1 + i_periodo, n_o_np) - 1) / i_periodo) : n_o_np;
-                const montoAcumulado = C_o_R * factorAnticipado * factorMonto;
-                const valorPresenteAnt = i_periodo > 0 ? C_o_R * factorAnticipado * ((1 - Math.pow(1 + i_periodo, -n_o_np)) / i_periodo) : C_o_R * n_o_np;
-                const totalDepositado = C_o_R * n_o_np;
-                const interesesGanados = montoAcumulado - totalDepositado;
+            } else if (regimenU2Actual === 'anualidad-anticipada') {
+                // RESOLUCIÓN PASO A PASO IDÉNTICA A HOJA 2 DEL EXCEL
+                const potenciaPos = Math.pow(1 + i_p, np);
+                const factorBase = i_p > 0 ? (potenciaPos - 1) / i_p : np;
+                const factorAnticipado = 1 + i_p;
+                const M = R * factorAnticipado * factorBase;
+                const totalDepositado = np * R;
+                const interesesGanados = M - totalDepositado;
 
-                visorFormula.textContent = 'M = R(1 + i/p) × [(1 + i/p)^(np) - 1] / (i/p)';
-                descRegimen.textContent = 'Fórmula de Monto Acumulado para Rentas Anticipadas (Teorema 5.1):';
-                expTecnica.textContent = 'Los depósitos o pagos (R) se realizan al inicio de cada periodo, por lo que cada cuota devenga intereses desde el primer día mediante el factor anticipado (1 + i/p).';
-                titPrincipio.textContent = 'Aplicación Práctica (Ejercicio 2 - Grupo 2):';
-                txtPrincipio.textContent = `Valor Presente Anticipado equivalente: $${valorPresenteAnt.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}. Ideal para fondos de ahorro, arriendos y pólizas pagadas por adelantado.`;
+                desc.textContent = 'Fórmula de Monto Acumulado para rentas anticipadas (Teorema 5.1):';
+                visor.textContent = 'M = R(1 + i/p) × [(1 + i/p)^(np) - 1] / (i/p)';
 
-                lbl1.textContent = 'Factor Anticipado (1 + i/p):';
-                lbl2.textContent = 'Total Depositado (np × R):';
-                lbl3.textContent = 'Intereses Ganados en el Plazo:';
-                lbl4.textContent = 'Monto Acumulado Final (M):';
+                p1Lbl.textContent = '1. Tasa por periodo (i / p):';
+                p1Val.textContent = (i_p * 100).toFixed(4) + '%';
+                p2Lbl.textContent = '2. Potencia (1 + i/p)^(np):';
+                p2Val.textContent = potenciaPos.toFixed(6);
+                p3Lbl.textContent = '3. Factor [(1 + i/p)^(np) - 1] / (i/p):';
+                p3Val.textContent = factorBase.toFixed(6);
+                p4Lbl.textContent = '4. Factor Anticipado (1 + i/p):';
+                p4Val.textContent = factorAnticipado.toFixed(4);
 
-                out1.textContent = `${factorAnticipado.toFixed(4)} (${(i_periodo * 100).toFixed(2)}%)`;
-                out2.textContent = '$' + totalDepositado.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-                out3.textContent = '$' + interesesGanados.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-                out4.textContent = '$' + montoAcumulado.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+                lblTotalBase.textContent = 'Total Depositado (np × R):';
+                lblIntereses.textContent = 'Intereses Ganados:';
+                lblPrincipal.textContent = 'Monto Acumulado Final (M):';
 
-                // Cronograma de capitalización anticipada
+                outTotalBase.textContent = '$' + totalDepositado.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+                outIntereses.textContent = '$' + interesesGanados.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+                outPrincipal.textContent = '$' + M.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+                titBase.textContent = 'Anualidad Anticipada:';
+                txtBase.textContent = 'Los depósitos se realizan al inicio de cada mes o periodo, generando rendimiento desde el primer día mediante el factor anticipado (1 + i/p).';
+
                 let saldoAcum = 0;
-                for (let k = 1; k <= Math.min(n_o_np, 240); k++) {
-                    const baseConDeposito = saldoAcum + C_o_R;
-                    const intK = baseConDeposito * i_periodo;
-                    saldoAcum = baseConDeposito + intK;
-                    ultimoCronograma.push({
-                        periodo: k,
-                        flujo: C_o_R,
-                        interes: intK,
-                        saldo: saldoAcum
-                    });
+                for (let k = 1; k <= Math.min(np, 240); k++) {
+                    const base = saldoAcum + R;
+                    const intK = base * i_p;
+                    saldoAcum = base + intK;
+                    ultimoCronogramaU2.push({ periodo: k, flujo: R, interes: intK, saldo: saldoAcum });
                 }
 
-                ultimoCalculo = {
+                ultimoCalculoU2 = {
                     unidad: 'Unidad 2',
                     regimen: 'Anualidad Anticipada (M)',
-                    baseMonto: C_o_R,
+                    baseMonto: R,
                     tasa: (i_anual * 100).toFixed(2) + '%',
-                    plazo: `${n_o_np} pagos (p=${p})`,
+                    plazo: `${np} pagos (p=${p})`,
                     secundario: 'Ganado: $' + interesesGanados.toFixed(2),
-                    principal: 'M = $' + montoAcumulado.toFixed(2)
+                    principal: 'M = $' + M.toFixed(2)
                 };
 
-            } else if (regimenActual === 'anualidad-eventual') {
-                // UNIDAD 2: ANUALIDAD EVENTUAL / ACTUARIAL (TEMA CENTRAL GRUPO 2)
-                const probPx = (parseFloat(document.getElementById('val-probabilidad').value) || 85) / 100;
-                const sector = document.getElementById('val-tipo-contingencia').value;
-                const factorVP = i_periodo > 0 ? (1 - Math.pow(1 + i_periodo, -n_o_np)) / i_periodo : n_o_np;
-                const vpCierto = C_o_R * factorVP;
-                const vpActuarial = vpCierto * probPx;
-                const ajusteRiesgo = vpCierto - vpActuarial;
+            } else if (regimenU2Actual === 'anualidad-eventual') {
+                // ANUALIDAD EVENTUAL / ACTUARIAL
+                const px = (parseFloat(document.getElementById('u2-probabilidad').value) || 88) / 100;
+                const sector = document.getElementById('u2-sector-eventual').value;
+                const potenciaNeg = Math.pow(1 + i_p, -np);
+                const factorVP = i_p > 0 ? (1 - potenciaNeg) / i_p : np;
+                const vpCierto = R * factorVP;
+                const vpActuarial = vpCierto * px;
+                const reservaContingencia = vpCierto - vpActuarial;
 
-                visorFormula.textContent = 'VA_actuarial = R × [1 - (1 + i/p)^(-np)] / (i/p) × Px';
-                descRegimen.textContent = 'Valoración Actuarial de Anualidad Eventual o Contingente (Grupo 2):';
-                expTecnica.textContent = 'En una anualidad eventual se desconoce al menos una de las fechas extremas (inicio o término). Se apoya en tablas demográficas y probabilidades de supervivencia (Px).';
-                titPrincipio.textContent = `Sector Seleccionado: ${sector}`;
-                txtPrincipio.textContent = 'Los pagos periódicos están condicionados a que el beneficiario se encuentre con vida (pensiones del IESS, rentas vitalicias) o a la resolución de un litigio judicial.';
+                desc.textContent = 'Valoración Actuarial de Anualidad Eventual o Contingente:';
+                visor.textContent = 'VA_actuarial = R × [1 - (1 + i/p)^(-np)] / (i/p) × Px';
 
-                lbl1.textContent = 'Probabilidad Actuarial (Px):';
-                lbl2.textContent = 'Valor Presente Sin Contingencia:';
-                lbl3.textContent = 'Reserva / Ajuste por Contingencia:';
-                lbl4.textContent = 'Valor Presente Actuarial Esperado:';
+                p1Lbl.textContent = '1. Tasa por periodo (i / p):';
+                p1Val.textContent = (i_p * 100).toFixed(4) + '%';
+                p2Lbl.textContent = '2. Factor VP Cierto:';
+                p2Val.textContent = factorVP.toFixed(6);
+                p3Lbl.textContent = '3. Probabilidad Actuarial (Px):';
+                p3Val.textContent = (px * 100).toFixed(2) + '%';
+                p4Lbl.textContent = '4. Factor Actuarial Neto:';
+                p4Val.textContent = (factorVP * px).toFixed(6);
 
-                out1.textContent = (probPx * 100).toFixed(2) + '%';
-                out2.textContent = '$' + vpCierto.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-                out3.textContent = '-$' + ajusteRiesgo.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-                out4.textContent = '$' + vpActuarial.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+                lblTotalBase.textContent = 'Valor Presente Cierto (Sin Riesgo):';
+                lblIntereses.textContent = 'Ajuste por Contingencia:';
+                lblPrincipal.textContent = 'Valor Presente Actuarial (VA):';
+
+                outTotalBase.textContent = '$' + vpCierto.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+                outIntereses.textContent = '-$' + reservaContingencia.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+                outPrincipal.textContent = '$' + vpActuarial.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+                titBase.textContent = `Aplicación Real: ${sector}`;
+                txtBase.textContent = 'En las anualidades eventuales no se conoce al menos una de las fechas extremas (inicio o término). Se apoyan en probabilidades de supervivencia o tablas demográficas.';
 
                 let saldoAct = vpActuarial;
-                for (let k = 1; k <= Math.min(n_o_np, 240); k++) {
-                    const flujoEsperado = C_o_R * probPx;
-                    const intK = saldoAct * i_periodo;
-                    saldoAct = Math.max(0, saldoAct + intK - flujoEsperado);
-                    ultimoCronograma.push({
-                        periodo: k,
-                        flujo: flujoEsperado,
-                        interes: intK,
-                        saldo: saldoAct
-                    });
+                for (let k = 1; k <= Math.min(np, 240); k++) {
+                    const flujoEsp = R * px;
+                    const intK = saldoAct * i_p;
+                    saldoAct = Math.max(0, saldoAct + intK - flujoEsp);
+                    ultimoCronogramaU2.push({ periodo: k, flujo: flujoEsp, interes: intK, saldo: saldoAct });
                 }
 
-                ultimoCalculo = {
+                ultimoCalculoU2 = {
                     unidad: 'Unidad 2',
                     regimen: `Eventual (${sector})`,
-                    baseMonto: C_o_R,
+                    baseMonto: R,
                     tasa: (i_anual * 100).toFixed(2) + '%',
-                    plazo: `${n_o_np} est. (Px=${(probPx*100).toFixed(0)}%)`,
-                    secundario: 'VP Cierto: $' + vpCierto.toFixed(2),
+                    plazo: `${np} est. (Px=${(px*100).toFixed(0)}%)`,
+                    secundario: 'Cierto: $' + vpCierto.toFixed(2),
                     principal: 'VA Act: $' + vpActuarial.toFixed(2)
                 };
 
-            } else if (regimenActual === 'gradiente') {
-                // UNIDAD 2: GRADIENTES ARITMÉTICOS Y GEOMÉTRICOS
-                const G_o_g = parseFloat(document.getElementById('val-gradiente').value) || 0;
-                const tipoGrad = document.getElementById('val-tipo-gradiente').value;
+            } else if (regimenU2Actual === 'gradiente') {
+                // GRADIENTES ARITMÉTICOS Y GEOMÉTRICOS
+                const G = parseFloat(document.getElementById('u2-gradiente').value) || 0;
+                const tipoG = document.getElementById('u2-tipo-gradiente').value;
                 let vpTotal = 0;
                 let montoTotal = 0;
 
-                if (tipoGrad === 'aritmetico') {
-                    visorFormula.textContent = 'VP = R·a_(n|i) + (G/i)·[a_(n|i) - n(1+i)^(-n)]';
-                    for (let k = 1; k <= n_o_np; k++) {
-                        const pagoK = C_o_R + (k - 1) * G_o_g;
-                        vpTotal += pagoK / Math.pow(1 + i_periodo, k);
-                        montoTotal += pagoK * Math.pow(1 + i_periodo, n_o_np - k);
+                if (tipoG === 'aritmetico') {
+                    visor.textContent = 'VP = R·a_(n|i) + (G/i)·[a_(n|i) - n(1+i)^(-n)]';
+                    for (let k = 1; k <= np; k++) {
+                        const cuotaK = R + (k - 1) * G;
+                        vpTotal += cuotaK / Math.pow(1 + i_p, k);
+                        montoTotal += cuotaK * Math.pow(1 + i_p, np - k);
                         if (k <= 240) {
-                            ultimoCronograma.push({
-                                periodo: k,
-                                flujo: pagoK,
-                                interes: pagoK - (vpTotal / n_o_np),
-                                saldo: montoTotal
-                            });
+                            ultimoCronogramaU2.push({ periodo: k, flujo: cuotaK, interes: cuotaK * i_p, saldo: montoTotal });
                         }
                     }
                 } else {
-                    const g_porc = G_o_g / 100;
-                    visorFormula.textContent = 'VP = R × [1 - ((1 + g)/(1 + i))^n] / (i - g)';
-                    for (let k = 1; k <= n_o_np; k++) {
-                        const pagoK = C_o_R * Math.pow(1 + g_porc, k - 1);
-                        vpTotal += pagoK / Math.pow(1 + i_periodo, k);
-                        montoTotal += pagoK * Math.pow(1 + i_periodo, n_o_np - k);
+                    const gPorc = G / 100;
+                    visor.textContent = 'VP = R × [1 - ((1 + g)/(1 + i))^n] / (i - g)';
+                    for (let k = 1; k <= np; k++) {
+                        const cuotaK = R * Math.pow(1 + gPorc, k - 1);
+                        vpTotal += cuotaK / Math.pow(1 + i_p, k);
+                        montoTotal += cuotaK * Math.pow(1 + i_p, np - k);
                         if (k <= 240) {
-                            ultimoCronograma.push({
-                                periodo: k,
-                                flujo: pagoK,
-                                interes: pagoK * i_periodo,
-                                saldo: montoTotal
-                            });
+                            ultimoCronogramaU2.push({ periodo: k, flujo: cuotaK, interes: cuotaK * i_p, saldo: montoTotal });
                         }
                     }
                 }
 
-                descRegimen.textContent = 'Evaluación de Series de Pagos con Gradiente (Subtemas 2.3 y 2.4):';
-                expTecnica.textContent = 'Modela flujos de caja que crecen o decrecen de forma uniforme en cada periodo (linealmente en dólares o porcentualmente).';
-                titPrincipio.textContent = 'Evaluación de Proyectos (Unidad 2):';
-                txtPrincipio.textContent = 'Permite proyectar costos de mantenimiento crecientes, escalas salariales o ingresos indexados a la inflación.';
+                const ultimaCuota = ultimoCronogramaU2.length > 0 ? ultimoCronogramaU2[ultimoCronogramaU2.length - 1].flujo : R;
 
-                lbl1.textContent = 'Tasa por Periodo (i/p):';
-                lbl2.textContent = 'Última Cuota Proyectada (R_n):';
-                lbl3.textContent = 'Monto Futuro Acumulado (M):';
-                lbl4.textContent = 'Valor Presente del Gradiente (VP):';
+                desc.textContent = 'Evaluación de Series de Pagos con Gradiente (Subtemas 2.3 y 2.4):';
+                p1Lbl.textContent = '1. Tasa por periodo (i / p):';
+                p1Val.textContent = (i_p * 100).toFixed(4) + '%';
+                p2Lbl.textContent = '2. Primera Cuota Base (R1):';
+                p2Val.textContent = '$' + R.toFixed(2);
+                p3Lbl.textContent = '3. Última Cuota Proyectada (Rn):';
+                p3Val.textContent = '$' + ultimaCuota.toFixed(2);
+                p4Lbl.textContent = '4. Factor Equivalente (VP / R1):';
+                p4Val.textContent = R > 0 ? (vpTotal / R).toFixed(6) : '0.000000';
 
-                const ultimaCuota = ultimoCronograma.length > 0 ? ultimoCronograma[ultimoCronograma.length - 1].flujo : C_o_R;
-                out1.textContent = (i_periodo * 100).toFixed(4) + '%';
-                out2.textContent = '$' + ultimaCuota.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-                out3.textContent = '$' + montoTotal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-                out4.textContent = '$' + vpTotal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+                lblTotalBase.textContent = 'Última Cuota Proyectada (Rn):';
+                lblIntereses.textContent = 'Monto Futuro Acumulado (M):';
+                lblPrincipal.textContent = 'Valor Presente del Gradiente (VP):';
 
-                ultimoCalculo = {
+                outTotalBase.textContent = '$' + ultimaCuota.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+                outIntereses.textContent = '$' + montoTotal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+                outPrincipal.textContent = '$' + vpTotal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+                titBase.textContent = 'Gradientes Periódicos:';
+                txtBase.textContent = 'Permite modelar series de pagos que aumentan o disminuyen uniformemente cada periodo en proyectos de inversión y financiamiento.';
+
+                ultimoCalculoU2 = {
                     unidad: 'Unidad 2',
-                    regimen: `Gradiente (${tipoGrad})`,
-                    baseMonto: C_o_R,
+                    regimen: `Gradiente (${tipoG})`,
+                    baseMonto: R,
                     tasa: (i_anual * 100).toFixed(2) + '%',
-                    plazo: `${n_o_np} periodos`,
+                    plazo: `${np} periodos`,
                     secundario: 'M = $' + montoTotal.toFixed(2),
                     principal: 'VP = $' + vpTotal.toFixed(2)
                 };
             }
         }
 
-        // CARGAR CASOS PRÁCTICOS RÁPIDOS
-        function cargarCasoU1(capital, tasa, plazo, base) {
-            cambiarRegimen('simple');
-            document.getElementById('val-capital').value = capital;
-            document.getElementById('val-tasa').value = tasa;
-            document.getElementById('val-plazo').value = plazo;
-            document.getElementById('val-base').value = base;
-            ejecutarMotorCalculo();
-        }
-
-        function cargarCasoU2(regimen, renta, tasa, pagos, base, prob = 85) {
-            cambiarRegimen(regimen);
-            document.getElementById('val-capital').value = renta;
-            document.getElementById('val-tasa').value = tasa;
-            document.getElementById('val-plazo').value = pagos;
-            document.getElementById('val-base').value = base;
+        function cargarCasoU2(regimen, renta, tasa, pagos, frec, prob = 88) {
+            cambiarRegimenU2(regimen);
+            document.getElementById('u2-renta').value = renta;
+            document.getElementById('u2-tasa').value = tasa;
+            document.getElementById('u2-pagos').value = pagos;
+            document.getElementById('u2-frecuencia').value = frec;
             if (regimen === 'anualidad-eventual') {
-                document.getElementById('val-probabilidad').value = prob;
+                document.getElementById('u2-probabilidad').value = prob;
             }
-            ejecutarMotorCalculo();
+            ejecutarMotorU2();
+            const ancla = document.getElementById('ancla-simulador-u2');
+            if (ancla) ancla.scrollIntoView({ behavior: 'smooth' });
         }
 
-        // GUARDAR EN HISTORIAL / BASE LOCAL
-        function guardarEnTablaAmortizacion() {
-            ejecutarMotorCalculo();
+        // =========================================================================
+        // BASE DE REGISTRO FINANCIERO Y CONEXIÓN EXCEL (.XLSX)
+        // =========================================================================
+        function guardarEnTablaAmortizacion(origenUnidad) {
+            let datosGuardar;
+            if (origenUnidad === 'u1') {
+                ejecutarMotorCalculo();
+                datosGuardar = ultimoCalculoU1;
+            } else {
+                ejecutarMotorU2();
+                datosGuardar = ultimoCalculoU2;
+            }
+
             const nuevoRegistro = {
                 id: historialRegistros.length + 1,
                 fecha: new Date().toLocaleDateString('es-EC'),
-                ...ultimoCalculo
+                ...datosGuardar
             };
+
             historialRegistros.push(nuevoRegistro);
             localStorage.setItem('uae_ing_econ_historial', JSON.stringify(historialRegistros));
             renderizarTablaHistorial();
-            alert(`✅ Operación guardada en la Base de Registro (${nuevoRegistro.regimen}: ${nuevoRegistro.principal}). Puedes verla o exportarla a Excel en "Teoría & Excel".`);
+            alert(`✅ Operación guardada en Base de Registro (${nuevoRegistro.regimen}: ${nuevoRegistro.principal}).`);
         }
 
         function renderizarTablaHistorial() {
@@ -1974,7 +2167,7 @@
                 tbody.innerHTML = `
                     <tr>
                         <td colspan="8" style="text-align: center; color: var(--text-muted); padding: 20px;">
-                            No hay simulaciones guardadas todavía. Ve al Simulador y haz clic en "Guardar en Base / Historial" o importa un archivo .xlsx.
+                            No hay simulaciones guardadas todavía. Ve al Simulador y haz clic en "Guardar en Base de Registro".
                         </td>
                     </tr>`;
                 return;
@@ -2013,18 +2206,14 @@
             }
         }
 
-        // =========================================================================
-        // CONEXIÓN REAL CON EXCEL (.XLSX) USANDO SHEETJS
-        // =========================================================================
         function exportarAExcelReal() {
-            if (historialRegistros.length === 0 && ultimoCronograma.length === 0) {
+            if (historialRegistros.length === 0 && ultimoCronogramaU2.length === 0) {
                 alert('⚠️ Primero realiza un cálculo o guarda al menos una operación en el Simulador.');
                 return;
             }
 
             const wb = XLSX.utils.book_new();
 
-            // Hoja 1: Historial de Simulaciones
             const datosHistorial = historialRegistros.map((reg, i) => ({
                 'N° Operación': i + 1,
                 'Fecha': reg.fecha || new Date().toLocaleDateString('es-EC'),
@@ -2038,21 +2227,20 @@
             }));
 
             const wsHistorial = XLSX.utils.json_to_sheet(datosHistorial.length > 0 ? datosHistorial : [{ Mensaje: 'Sin registros guardados en historial' }]);
-            XLSX.utils.book_append_sheet(wb, wsHistorial, 'Base_Simulaciones');
+            XLSX.utils.book_append_sheet(wb, wsHistorial, 'Base_Registro_Financiero');
 
-            // Hoja 2: Cronograma Periodo a Periodo del último cálculo
-            if (ultimoCronograma.length > 0) {
-                const datosCronograma = ultimoCronograma.map(fila => ({
+            if (ultimoCronogramaU2.length > 0) {
+                const datosCronograma = ultimoCronogramaU2.map(fila => ({
                     'Periodo (k)': fila.periodo,
                     'Cuota / Flujo ($)': Number(fila.flujo.toFixed(2)),
                     'Interés del Periodo ($)': Number(fila.interes.toFixed(2)),
-                    'Saldo Acumulado / Insoluto ($)': Number(fila.saldo.toFixed(2))
+                    'Saldo ($)': Number(fila.saldo.toFixed(2))
                 }));
                 const wsCronograma = XLSX.utils.json_to_sheet(datosCronograma);
-                XLSX.utils.book_append_sheet(wb, wsCronograma, 'Cronograma_Flujos');
+                XLSX.utils.book_append_sheet(wb, wsCronograma, 'Cronograma_Unidad2');
             }
 
-            XLSX.writeFile(wb, 'Base_Ingenieria_Economica_UAE_Grupo2.xlsx');
+            XLSX.writeFile(wb, 'Base_Registro_Financiero_UAE.xlsx');
         }
 
         function importarDesdeExcelReal(event) {
@@ -2077,7 +2265,7 @@
                             id: historialRegistros.length + 1,
                             fecha: fila['Fecha'] || new Date().toLocaleDateString('es-EC'),
                             unidad: fila['Unidad'] || 'Unidad 2',
-                            regimen: fila['Régimen Financiero'] || fila['Regimen'] || 'Importado Excel',
+                            regimen: fila['Régimen Financiero'] || fila['Regimen'] || 'Registro Importado',
                             baseMonto: parseFloat(fila['Capital / Renta ($)'] || fila['Renta'] || fila['Capital'] || 0),
                             tasa: fila['Tasa Nominal Anual'] || fila['Tasa'] || '0%',
                             plazo: fila['Plazo / Pagos'] || fila['Plazo'] || '-',
@@ -2088,20 +2276,22 @@
 
                     localStorage.setItem('uae_ing_econ_historial', JSON.stringify(historialRegistros));
                     renderizarTablaHistorial();
-                    alert(`✅ Se importaron ${filas.length} registros desde "${archivo.name}" a la tabla web.`);
+                    alert(`✅ Se importaron ${filas.length} registros desde "${archivo.name}".`);
                 } catch (err) {
-                    alert('❌ Error al leer el archivo Excel. Asegúrate de que sea un archivo .xlsx válido.');
+                    alert('❌ Error al leer el archivo Excel.');
                 }
                 event.target.value = '';
             };
             lector.readAsArrayBuffer(archivo);
         }
 
-        // MODAL CRONOGRAMA PERIODO A PERIODO
+        // =========================================================================
+        // MODALES (CRONOGRAMA, CUADRO COMPARATIVO Y TEORÍA)
+        // =========================================================================
         function abrirModalCronograma() {
-            ejecutarMotorCalculo();
+            ejecutarMotorU2();
             const cuerpo = document.getElementById('modal-cuerpo-dinamico');
-            const filasHTML = ultimoCronograma.map(f => `
+            const filasHTML = ultimoCronogramaU2.map(f => `
                 <tr>
                     <td><strong>Periodo ${f.periodo}</strong></td>
                     <td>$${f.flujo.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
@@ -2111,8 +2301,8 @@
             `).join('');
 
             cuerpo.innerHTML = `
-                <h3>Cronograma de Flujos y Amortización (${ultimoCalculo.regimen})</h3>
-                <p>Desglose periodo a periodo generado automáticamente. Puedes descargar esta tabla completa en Excel desde la pestaña <strong>Teoría & Excel</strong>.</p>
+                <h3>Cronograma de Flujos Periodo a Periodo (${ultimoCalculoU2.regimen})</h3>
+                <p>Desglose generado automáticamente. Puedes descargarlo en Excel desde la pestaña <strong>Teoría</strong>.</p>
                 <div class="tabla-amortizacion-container" style="max-height: 420px; overflow-y: auto;">
                     <table class="tabla-amortizacion">
                         <thead>
@@ -2130,12 +2320,11 @@
             document.getElementById('modal-general').classList.add('activo');
         }
 
-        // MODAL CUADRO COMPARATIVO DE ANUALIDADES (RÚBRICA DOCENTE)
         function abrirModalComparativo() {
             const cuerpo = document.getElementById('modal-cuerpo-dinamico');
             cuerpo.innerHTML = `
                 <h3>Cuadro Comparativo entre Tipos de Anualidades (Unidad 2)</h3>
-                <p>Síntesis metodológica para la identificación y clasificación de series de pagos periódicos en Ingeniería Económica:</p>
+                <p>Clasificación comparativa de series de pagos periódicos en Ingeniería Económica:</p>
                 <div class="tabla-amortizacion-container">
                     <table class="tabla-amortizacion">
                         <thead>
@@ -2160,7 +2349,7 @@
                                 <td>Arriendos, depósitos programados en cuentas de ahorro, primas de seguros.</td>
                             </tr>
                             <tr>
-                                <td><strong style="color: var(--green-money);">Eventual o Contingente (Grupo 2)</strong></td>
+                                <td><strong style="color: var(--green-money);">Eventual o Contingente</strong></td>
                                 <td>Vencido o anticipado</td>
                                 <td><strong>Incierto</strong> (se desconoce al menos una fecha extrema)</td>
                                 <td><strong>Pensión de jubilación del IESS</strong>, seguros de vida, indemnizaciones judiciales.</td>
@@ -2184,58 +2373,57 @@
             document.getElementById('modal-general').classList.add('activo');
         }
 
-        // MODALES TEÓRICOS
         function abrirModalTeoria(clave) {
             const cuerpo = document.getElementById('modal-cuerpo-dinamico');
             const contenidos = {
                 'ae': `
-                    <h3>Anualidades Eventuales o Contingentes (Tema Grupo 2)</h3>
-                    <p><strong>Definición:</strong> Es aquella anualidad en la cual <strong>no se conoce al menos una de las fechas extremas del plazo</strong> (ya sea la fecha de inicio o la fecha de término exacto), debido a que los pagos dependen de la ocurrencia de un evento aleatorio o fortuito.</p>
+                    <h3>Anualidades Eventuales o Contingentes</h3>
+                    <p><strong>¿Qué es una Anualidad Eventual?</strong> Es aquella en la cual <strong>no se conoce al menos una de las fechas extremas del plazo</strong> (inicio o término exacto).</p>
                     <h4>Base Teórica: Tratamiento Actuarial</h4>
-                    <p>Cuando la duración de los pagos depende de la vida humana (como en seguros de vida y pensiones), las anualidades eventuales se apoyan en <strong>probabilidades de supervivencia y tablas demográficas</strong> (matemática actuarial) para calcular el valor presente esperado.</p>
+                    <p>Se apoyan en <strong>probabilidades de supervivencia o tablas demográficas</strong> cuando dependen de la vida humana (seguros y pensiones).</p>
                     <h4>Aplicaciones en el Mundo Real</h4>
                     <div class="grid-aplicaciones-reales">
                         <div class="card-app-real">
                             <h5>1. Seguros de Vida y Rentas Vitalicias</h5>
-                            <p>Pagos periódicos condicionados a que el beneficiario o asegurado se encuentre con vida al momento de cada vencimiento.</p>
+                            <p>Pagos periódicos condicionados a que el beneficiario se encuentre con vida.</p>
                         </div>
                         <div class="card-app-real">
-                            <h5>2. Jubilaciones y Pensiones (Ej. IESS)</h5>
-                            <p>Asignaciones monetarias mensuales sin fecha de término fija preestablecida; los pagos se suspenden o modifican al fallecer el jubilado.</p>
+                            <h5>2. Jubilaciones y Pensiones</h5>
+                            <p>Asignaciones monetarias mensuales sin fecha de término fija preestablecida por contrato individual (ej. pensión mensual de jubilación del IESS).</p>
                         </div>
                         <div class="card-app-real">
                             <h5>3. Indemnizaciones por Daños</h5>
-                            <p>Compensaciones económicas sujetas a la resolución judicial de un litigio o al cumplimiento de condiciones resolutorias.</p>
+                            <p>Compensaciones sujetas a la resolución judicial de un litigio o cumplimiento de condiciones resolutorias.</p>
                         </div>
                     </div>
                 `,
                 'ao': `
                     <h3>Anualidades Ordinarias (Vencidas) y Anticipadas</h3>
-                    <p>Una <strong>anualidad</strong> es una serie uniforme de pagos o cobros periódicos iguales realizados a intervalos regulares de tiempo.</p>
+                    <p>Las anualidades son series uniformes de pagos o cobros periódicos que permiten planificar y evaluar proyectos financieros:</p>
                     <ul>
-                        <li><strong>Anualidad Ordinaria o Vencida:</strong> Los pagos (R) se realizan al <em>final</em> de cada periodo (ej. mensualidades de un préstamo).</li>
-                        <li><strong>Anualidad Anticipada:</strong> Los pagos (R) se realizan al <em>inicio</em> de cada periodo, generando un periodo adicional de capitalización mediante el factor <code>(1 + i/p)</code>.</li>
+                        <li><strong>Anualidad Ordinaria o Vencida:</strong> Los pagos periódicos se realizan al final de cada intervalo de pago.</li>
+                        <li><strong>Anualidad Anticipada:</strong> Los pagos periódicos se realizan al inicio de cada intervalo de pago.</li>
                     </ul>
                 `,
                 'ad': `
                     <h3>Anualidades Diferidas y Perpetuidades</h3>
                     <ul>
-                        <li><strong>Anualidad Diferida:</strong> Es aquella cuyo plazo comienza después de transcurrido un intervalo de gracia o diferimiento (k periodos), durante el cual el capital inicial devenga intereses compuestos.</li>
-                        <li><strong>Anualidad a Perpetuidad:</strong> Serie de pagos periódicos cuya duración es infinita (n → ∞), donde el valor presente se reduce a <code>C = R / (i/p)</code>.</li>
+                        <li><strong>Anualidad Diferida:</strong> El primer pago se efectúa después de transcurrido un cierto número de periodos de gracia.</li>
+                        <li><strong>Anualidad a Perpetuidad:</strong> Serie de pagos periódicos cuya duración es indefinida o infinita.</li>
                     </ul>
                 `,
                 'gr': `
-                    <h3>Gradientes Aritméticos y Geométricos (Subtemas 2.3 y 2.4)</h3>
-                    <p>Los gradientes modelan series de pagos periódicos que no son constantes, sino que aumentan o disminuyen de manera uniforme en cada periodo:</p>
+                    <h3>Gradientes Aritméticos y Geométricos</h3>
+                    <p>Series de pagos periódicos que implican incrementos o decrementos graduales en los flujos:</p>
                     <ul>
-                        <li><strong>Gradiente Aritmético:</strong> Cada flujo varía en una cantidad fija en dólares (<strong>$G</strong>) respecto al periodo anterior.</li>
-                        <li><strong>Gradiente Geométrico:</strong> Cada flujo varía en un porcentaje constante (<strong>%g</strong>) respecto al periodo anterior.</li>
+                        <li><strong>Gradiente Aritmético:</strong> Incremento o decremento constante en dólares ($G) en cada periodo.</li>
+                        <li><strong>Gradiente Geométrico:</strong> Incremento o decremento porcentual constante (%g) en cada periodo.</li>
                     </ul>
                 `,
-                'is': `<h3>Interés Simple y Compuesto (Unidad 1)</h3><p>El interés simple calcula el rendimiento únicamente sobre el capital inicial, mientras que el interés compuesto capitaliza los intereses devengados en cada periodo para generar nuevos intereses.</p>`,
-                'ds': `<h3>Descuento y Títulos Valores (Unidad 1)</h3><p>Operación financiera mediante la cual se anticipa el valor actual de un documento mercantil (letra de cambio o pagaré) antes de su fecha de vencimiento.</p>`,
-                'ev': `<h3>Ecuaciones de Valor (Unidad 1)</h3><p>Igualdad matemática entre dos conjuntos de obligaciones financieras trasladadas a una misma fecha de referencia llamada <strong>fecha focal</strong>.</p>`,
-                'dt': `<h3>Diagramas de Tiempo (Unidad 1)</h3><p>Herramienta gráfica que representa mediante una recta horizontal los periodos de tiempo y mediante flechas verticales los ingresos y egresos de efectivo.</p>`
+                'is': `<h3>Interés Simple y Compuesto</h3><p>Estudio detallado de la acumulación del dinero, tasas nominales y rendimiento financiero.</p>`,
+                'ds': `<h3>Descuento y Títulos Valores</h3><p>Análisis de letras de cambio, pagarés y descuento comercial bancario.</p>`,
+                'ev': `<h3>Ecuaciones de Valor</h3><p>Sustitución de obligaciones contractuales y acuerdos de tasa con fecha focal.</p>`,
+                'dt': `<h3>Diagramas de Tiempo</h3><p>Representación gráfica de flujos de efectivo y líneas de tiempo financieras.</p>`
             };
 
             cuerpo.innerHTML = contenidos[clave] || '<p>Contenido en desarrollo.</p>';
@@ -2246,7 +2434,9 @@
             document.getElementById('modal-general').classList.remove('activo');
         }
 
-        // FÓRMULAS Y FILTROS
+        // =========================================================================
+        // FÓRMULAS: IMÁGENES PARA UNIDAD 1 + ECUACIONES PARA UNIDAD 2
+        // =========================================================================
         function filtrarFormulas(categoria) {
             document.querySelectorAll('.filtros-formulas .btn-nav').forEach(b => b.classList.remove('activo'));
             document.getElementById(`filtro-${categoria}`).classList.add('activo');
@@ -2260,22 +2450,44 @@
             });
         }
 
-        function seleccionarFormula(ecuacion, titulo, concepto, regimenSimulador) {
-            document.getElementById('visor-ecuacion-seleccionada').textContent = ecuacion;
+        function cargarFormulaImagen(nombreImagen, titulo, concepto) {
+            const contenedor = document.getElementById('contenedor-visual-formula');
+            contenedor.innerHTML = `
+                <img src="${nombreImagen}" alt="${titulo}" class="imagen-formula-desplegada" onclick="abrirLightbox(this.src)" onerror="this.outerHTML='<div class=\\'formula-matematica-grande\\'>Imagen: ${nombreImagen}</div>'">
+            `;
             document.getElementById('titulo-formula-seleccionada').textContent = titulo;
             document.getElementById('concepto-formula-seleccionada').textContent = concepto;
-            formulaRegimenDestino = regimenSimulador;
+            document.getElementById('btn-probar-formula-u2').classList.add('oculto');
         }
 
-        function probarFormulaEnSimulador(regimen) {
-            const destino = regimen || formulaRegimenDestino;
-            navegarA('portada-simulador');
-            cambiarRegimen(destino);
+        function cargarFormulaEcuacion(ecuacion, titulo, concepto, regimenSimulador) {
+            const contenedor = document.getElementById('contenedor-visual-formula');
+            contenedor.innerHTML = `
+                <div class="formula-matematica-grande">${ecuacion}</div>
+                <span style="color: var(--text-muted); font-size: 11px; margin-top: 10px;">
+                    Notación estándar de Ingeniería Económica (R: Renta, i: Tasa anual, p: Frecuencia, np: Pagos)
+                </span>
+            `;
+            document.getElementById('titulo-formula-seleccionada').textContent = titulo;
+            document.getElementById('concepto-formula-seleccionada').textContent = concepto;
+            formulaDestinoU2 = regimenSimulador;
+            document.getElementById('btn-probar-formula-u2').classList.remove('oculto');
         }
 
-        // INICIALIZACIÓN AL CARGAR LA PÁGINA
+        function probarFormulaEnSimulador() {
+            irASeccionSimuladorU2();
+            cambiarRegimenU2(formulaDestinoU2);
+        }
+
+        function abrirLightbox(src) {
+            document.getElementById('lightbox-img').src = src;
+            document.getElementById('lightbox-modal').classList.add('activo');
+        }
+
+        // INICIALIZAR AMBOS MOTORES
         window.addEventListener('DOMContentLoaded', () => {
             ejecutarMotorCalculo();
+            ejecutarMotorU2();
             renderizarTablaHistorial();
         });
     </script>
