@@ -912,6 +912,33 @@
             line-height: 1.5;
         }
 
+        /* IMAGEN DENTRO DE MODALES DE TEORÍA */
+        .imagen-teoria-modal {
+            width: 100%;
+            max-width: 680px;
+            max-height: 360px;
+            object-fit: contain;
+            display: block;
+            margin: 18px auto;
+            border-radius: 10px;
+            border: 1px solid var(--gold-primary);
+            background: #020604;
+            padding: 8px;
+            cursor: zoom-in;
+        }
+
+        .caja-formula-teoria {
+            background: #020604;
+            border-left: 4px solid var(--green-money);
+            padding: 12px 16px;
+            border-radius: 6px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 15px;
+            color: var(--green-money);
+            font-weight: 700;
+            margin: 12px 0;
+        }
+
         /* MODALES */
         .modal-overlay {
             position: fixed;
@@ -1043,11 +1070,9 @@
             La Ingeniería Económica es la disciplina analítica encargada de formular, estimar y evaluar los resultados económicos cuando se dispone de alternativas limitadas para llevar a cabo un propósito determinado.
         </p>
         <div class="botones-portada-group">
-            <!-- BOTÓN 1: UNIDAD 1 (EXCLUSIVAMENTE PROCESO ORIGINAL) -->
             <button class="btn-ingresar" onclick="iniciarUnidad('u1')">
                 Unidad 1: Interés Simple →
             </button>
-            <!-- BOTÓN 2: UNIDAD 2 (EXCLUSIVAMENTE ANUALIDADES Y BASE DE REGISTRO EXCEL) -->
             <button class="btn-ingresar-u2" onclick="iniciarUnidad('u2')">
                 Unidad 2: Anualidades →
             </button>
@@ -1070,9 +1095,7 @@
             </div>
         </header>
 
-        <!-- =============================================================== -->
-        <!-- VISTA EXCLUSIVA UNIDAD 1 (ORIGINAL INTACTO)                     -->
-        <!-- =============================================================== -->
+        <!-- VISTA EXCLUSIVA UNIDAD 1 -->
         <div id="bloque-simulador-u1">
             <div class="workspace-grid">
                 <div class="panel-modulo">
@@ -1184,9 +1207,7 @@
             </div>
         </div>
 
-        <!-- =============================================================== -->
-        <!-- VISTA EXCLUSIVA UNIDAD 2 (ANUALIDADES Y BASE DE REGISTRO)       -->
-        <!-- =============================================================== -->
+        <!-- VISTA EXCLUSIVA UNIDAD 2 -->
         <div id="bloque-simulador-u2" class="oculto">
             <div class="workspace-grid">
                 <div class="panel-modulo">
@@ -1231,7 +1252,6 @@
                         </div>
                     </div>
 
-                    <!-- CAMPOS ADICIONALES PARA EVENTUAL / ACTUARIAL -->
                     <div class="inputs-dos-columnas oculto" id="u2-extra-eventual">
                         <div class="control-grupo">
                             <label for="u2-probabilidad">Probabilidad Supervivencia (% Px):</label>
@@ -1247,7 +1267,6 @@
                         </div>
                     </div>
 
-                    <!-- CAMPOS ADICIONALES PARA GRADIENTES -->
                     <div class="inputs-dos-columnas oculto" id="u2-extra-gradiente">
                         <div class="control-grupo">
                             <label for="u2-gradiente">Gradiente ($ G o % g):</label>
@@ -1375,44 +1394,42 @@
             </div>
         </header>
 
-        <!-- =============================================================== -->
-        <!-- BLOQUE TEORÍA + HISTORIAL ORIGINAL UNIDAD 1 (SIN EXCEL)         -->
-        <!-- =============================================================== -->
+        <!-- BLOQUE TEORÍA + HISTORIAL UNIDAD 1 -->
         <div id="bloque-teoria-u1">
             <div class="panel-modulo">
                 <h3>Módulos Temáticos: Interés y Valor del Dinero</h3>
                 <p style="color: var(--text-muted); font-size: 13px;">
-                    Selecciona cada módulo temático para estudiar los conceptos avanzados, fundamentos analíticos y sus propiedades:
+                    Selecciona cada módulo temático para estudiar los conceptos avanzados, fundamentos analíticos, imágenes de referencia y sus propiedades:
                 </p>
 
                 <div class="temas-grid">
                     <div class="tarjeta-tema" onclick="abrirModalTeoria('is')">
                         <div class="icono-tema">IS</div>
                         <h4>Interés Simple y Compuesto</h4>
-                        <p>Estudio detallado de la acumulación del dinero, tasas nominales y rendimiento financiero.</p>
+                        <p>Estudio detallado de la acumulación del dinero, tasas nominales, equivalencia temporal y rendimiento financiero.</p>
                     </div>
 
                     <div class="tarjeta-tema" onclick="abrirModalTeoria('ds')">
                         <div class="icono-tema">DS</div>
                         <h4>Descuento y Títulos Valores</h4>
-                        <p>Análisis de letras de cambio, pagarés y descuento comercial bancario.</p>
+                        <p>Análisis de letras de cambio, pagarés, descuento comercial bancario, descuento racional y valor efectivo.</p>
                     </div>
 
                     <div class="tarjeta-tema" onclick="abrirModalTeoria('ev')">
                         <div class="icono-tema">EV</div>
                         <h4>Ecuaciones de Valor</h4>
-                        <p>Sustitución de obligaciones contractuales y acuerdos de tasa con fecha focal.</p>
+                        <p>Sustitución o reestructuración de obligaciones contractuales, traslado de flujos y acuerdos de tasa con fecha focal.</p>
                     </div>
 
                     <div class="tarjeta-tema" onclick="abrirModalTeoria('dt')">
                         <div class="icono-tema">DT</div>
                         <h4>Diagramas de Tiempo</h4>
-                        <p>Representación gráfica de flujos de efectivo y líneas de tiempo financieras.</p>
+                        <p>Representación gráfica de flujos de efectivo (ingresos y egresos) y líneas de tiempo financieras.</p>
                     </div>
                 </div>
             </div>
 
-            <!-- TABLA ORIGINAL DE UNIDAD 1: SOLO HISTORIAL DE SIMULACIONES GUARDADAS -->
+            <!-- HISTORIAL DE SIMULACIONES GUARDADAS (UNIDAD 1) -->
             <div class="panel-modulo">
                 <h3>Historial de Simulaciones Guardadas</h3>
                 <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 15px;">
@@ -1444,9 +1461,7 @@
             </div>
         </div>
 
-        <!-- =============================================================== -->
-        <!-- BLOQUE TEORÍA + BASE DE REGISTRO EXCEL UNIDAD 2                 -->
-        <!-- =============================================================== -->
+        <!-- BLOQUE TEORÍA + BASE DE REGISTRO EXCEL UNIDAD 2 -->
         <div id="bloque-teoria-u2" class="oculto">
             <div class="panel-modulo">
                 <h3>Módulos Temáticos: Anualidades y Gradientes</h3>
@@ -1481,7 +1496,7 @@
                 </div>
             </div>
 
-            <!-- TABLA EXCLUSIVA DE UNIDAD 2: BASE DE REGISTRO FINANCIERO + EXCEL -->
+            <!-- BASE DE REGISTRO FINANCIERO + EXCEL (UNIDAD 2) -->
             <div class="panel-modulo">
                 <h3>Base de Registro Financiero</h3>
                 <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 15px;">
@@ -1550,18 +1565,14 @@
             </div>
         </header>
 
-        <!-- =============================================================== -->
-        <!-- FÓRMULAS EXCLUSIVAS UNIDAD 1 (27 IMÁGENES CONECTADAS A GITHUB)  -->
-        <!-- =============================================================== -->
+        <!-- FÓRMULAS EXCLUSIVAS UNIDAD 1 (27 IMÁGENES CONECTADAS A GITHUB) -->
         <div id="bloque-formulas-u1" class="panel-modulo">
             <h3>Seleccione una Fórmula para ver la Imagen y su Concepto (27 Opciones)</h3>
             <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 15px;">
                 Haz clic sobre cualquier tema para cargar simultáneamente la imagen original y su concepto corto explicativo (haz clic en la imagen para ampliarla):
             </p>
 
-            <div class="formulas-grid-scroll" id="grid-formulas-u1">
-                <!-- Se genera dinámicamente con las 27 imágenes conectadas a GitHub -->
-            </div>
+            <div class="formulas-grid-scroll" id="grid-formulas-u1"></div>
 
             <div class="contenedor-detalle-formula-duo">
                 <div class="caja-imagen-formula-lado" id="contenedor-visual-u1">
@@ -1577,9 +1588,7 @@
             </div>
         </div>
 
-        <!-- =============================================================== -->
-        <!-- FÓRMULAS EXCLUSIVAS UNIDAD 2 (ANUALIDADES Y GRADIENTES)         -->
-        <!-- =============================================================== -->
+        <!-- FÓRMULAS EXCLUSIVAS UNIDAD 2 -->
         <div id="bloque-formulas-u2" class="panel-modulo oculto">
             <h3>Seleccione una Fórmula de Anualidades o Gradientes</h3>
             <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 15px;">
@@ -1723,10 +1732,11 @@
     </footer>
 
     <script>
-        // RUTA BASE REAL DE GITHUB PARA LAS 27 IMÁGENES DE FÓRMULAS
-        const BASE_URL_IMAGENES = 'https://raw.githubusercontent.com/hellsing14cruet-commits/formulaimagenes/main/';
+        // RUTAS REALES DE REPOSITORIOS EN GITHUB
+        const BASE_URL_FORMULAS_U1 = 'https://raw.githubusercontent.com/hellsing14cruet-commits/formulaimagenes/main/';
+        const BASE_URL_TEORIA_U1 = 'https://raw.githubusercontent.com/hellsing14cruet-commits/Intrumetos-web/main/';
 
-        // CATÁLOGO COMPLETO DE LAS 27 IMÁGENES DEL REPOSITORIO
+        // CATÁLOGO COMPLETO DE LAS 27 IMÁGENES DE FÓRMULAS
         const CATALOGO_FORMULAS_U1 = [
             { archivo: 'pagina 61.PNG', titulo: 'Progresiones Aritméticas', sub: 'Página 61', desc: 'Sucesión numérica donde cada término se obtiene sumando una diferencia constante (d) al término anterior.' },
             { archivo: 'pagina 63.PNG', titulo: 'Suma de Términos (Progresión Aritmética)', sub: 'Página 63', desc: 'Cálculo de la sumatoria total de los n primeros términos de una progresión aritmética.' },
@@ -1764,15 +1774,10 @@
         let ultimoCalculoU2 = {};
         let ultimoCronogramaU2 = [];
 
-        // HISTORIAL INDEPENDIENTE UNIDAD 1 (ORIGINAL)
         let historialOriginalU1 = JSON.parse(localStorage.getItem('uae_historial_u1')) || [];
-
-        // BASE DE REGISTRO INDEPENDIENTE UNIDAD 2 (EXCEL)
         let baseRegistroU2 = JSON.parse(localStorage.getItem('uae_base_registro_u2')) || [];
-
         let formulaDestinoU2 = 'anualidad-ordinaria';
 
-        // RENDERIZAR LAS 27 TARJETAS DE FÓRMULAS DE UNIDAD 1
         function inicializarCatalogoFormulasU1() {
             const grid = document.getElementById('grid-formulas-u1');
             if (!grid) return;
@@ -1791,7 +1796,7 @@
             const item = CATALOGO_FORMULAS_U1[indice];
             if (!item) return;
 
-            const urlImagen = BASE_URL_IMAGENES + encodeURIComponent(item.archivo);
+            const urlImagen = BASE_URL_FORMULAS_U1 + encodeURIComponent(item.archivo);
             const contenedor = document.getElementById('contenedor-visual-u1');
             contenedor.innerHTML = `
                 <img src="${urlImagen}" alt="${item.titulo}" class="imagen-formula-desplegada" onclick="abrirLightbox(this.src)" onerror="this.outerHTML='<div class=\\'formula-matematica-grande\\'>${item.titulo} (${item.archivo})</div>'">
@@ -1800,7 +1805,6 @@
             document.getElementById('concepto-formula-u1').textContent = item.desc;
         }
 
-        // BOTONES DE INICIO: FILTRAN COMPLETAMENTE CADA UNIDAD
         function iniciarUnidad(unidad) {
             unidadActiva = unidad;
 
@@ -1855,9 +1859,7 @@
             }
         }
 
-        // =========================================================================
-        // MOTOR Y TABLA ORIGINAL DE UNIDAD 1
-        // =========================================================================
+        // MOTOR Y TABLA UNIDAD 1
         function ejecutarMotorCalculo() {
             const C = parseFloat(document.getElementById('val-capital').value) || 0;
             const i = (parseFloat(document.getElementById('val-tasa').value) || 0) / 100;
@@ -1945,9 +1947,7 @@
             renderizarTablaU1();
         }
 
-        // =========================================================================
-        // MOTOR Y BASE DE REGISTRO EXCEL EXCLUSIVOS DE UNIDAD 2
-        // =========================================================================
+        // MOTOR Y BASE DE REGISTRO EXCEL UNIDAD 2
         function cambiarRegimenU2(nuevoRegimen) {
             regimenU2Actual = nuevoRegimen;
 
@@ -2355,9 +2355,7 @@
             lector.readAsArrayBuffer(archivo);
         }
 
-        // =========================================================================
-        // MODALES (CRONOGRAMA, CUADRO COMPARATIVO Y TEORÍA)
-        // =========================================================================
+        // MODALES (CRONOGRAMA, CUADRO COMPARATIVO Y TEORÍA CON IMÁGENES)
         function abrirModalCronograma() {
             ejecutarMotorU2();
             const cuerpo = document.getElementById('modal-cuerpo-dinamico');
@@ -2445,7 +2443,62 @@
 
         function abrirModalTeoria(clave) {
             const cuerpo = document.getElementById('modal-cuerpo-dinamico');
+            const imgInteresSimple = BASE_URL_TEORIA_U1 + encodeURIComponent('Interes simple.PNG');
+            const imgDescuentoSimple = BASE_URL_TEORIA_U1 + encodeURIComponent('descuento simple.PNG');
+            const imgGraficaEv = BASE_URL_TEORIA_U1 + encodeURIComponent('Grafica.PNG');
+            const imgDiagramaTiempo = BASE_URL_TEORIA_U1 + encodeURIComponent('diagrama de tiempo.PNG');
+
             const contenidos = {
+                'is': `
+                    <h3>Interés Simple y Compuesto</h3>
+                    <p>El <strong>interés</strong> es el costo del dinero en función del tiempo o el rendimiento generado por un capital invertido. En el <strong>interés simple</strong>, los intereses se calculan exclusivamente sobre el capital inicial (C) y no se capitalizan; en el <strong>interés compuesto</strong>, los intereses generados en cada periodo se suman al capital para producir nuevos intereses.</p>
+                    <div class="caja-formula-teoria">Interés Simple: I = C · i · t   |   Monto: M = C(1 + i · t)</div>
+                    <h4>Conceptos Clave:</h4>
+                    <ul>
+                        <li><strong>Capital Principal (C o P):</strong> Monto inicial invertido o prestado al inicio del plazo.</li>
+                        <li><strong>Tasa de Interés (i):</strong> Porcentaje pactado por unidad de tiempo (generalmente nominal anual).</li>
+                        <li><strong>Tiempo / Plazo (t o n):</strong> Duración de la operación, normalizada a la misma base temporal de la tasa (años, meses o días comerciales de 360).</li>
+                        <li><strong>Monto (M o S):</strong> Valor futuro acumulado al término del plazo (Capital + Intereses).</li>
+                    </ul>
+                    <img src="${imgInteresSimple}" alt="Esquema de Interés Simple" class="imagen-teoria-modal" onclick="abrirLightbox(this.src)" onerror="this.style.display='none'">
+                `,
+                'ds': `
+                    <h3>Descuento y Títulos Valores</h3>
+                    <p>Un <strong>título valor</strong> (como letras de cambio o pagarés) representa una obligación de pago por un valor nominal o de vencimiento (M) en una fecha futura. El <strong>descuento</strong> es la operación financiera mediante la cual se obtiene liquidez anticipada antes de la fecha de vencimiento.</p>
+                    <div class="caja-formula-teoria">Descuento Comercial: D = M · d · t   |   Valor Líquido: P = M(1 - d · t)</div>
+                    <h4>Diferencias Principales:</h4>
+                    <ul>
+                        <li><strong>Descuento Comercial o Bancario (D):</strong> Se calcula directamente sobre el monto futuro o valor nominal (M) aplicando la tasa de descuento (d) y el tiempo faltante (t).</li>
+                        <li><strong>Descuento Racional o Matemático:</strong> Se calcula sobre el valor presente real del documento, tomando como base el interés simple devengado.</li>
+                        <li><strong>Valor Efectivo o Comercial:</strong> Es el importe neto que recibe el tenedor del documento tras descontar los cargos correspondientes.</li>
+                    </ul>
+                    <img src="${imgDescuentoSimple}" alt="Esquema de Descuento Simple" class="imagen-teoria-modal" onclick="abrirLightbox(this.src)" onerror="this.style.display='none'">
+                `,
+                'ev': `
+                    <h3>Ecuaciones de Valor</h3>
+                    <p>Una <strong>ecuación de valor</strong> es una igualdad financiera que permite consolidar, postergar, adelantar o reemplazar uno o varios compromisos de pago por otro conjunto equivalente, bajo una tasa pactada y una <strong>fecha focal</strong> común.</p>
+                    <div class="caja-formula-teoria">∑ Pagos Equivalentes en Fecha Focal = ∑ Deudas Equivalentes en Fecha Focal</div>
+                    <h4>Reglas Fundamentales:</h4>
+                    <ul>
+                        <li><strong>Fecha Focal:</strong> Momento de referencia elegido en la línea de tiempo donde se trasladan todos los capitales para sumarlos o compararlos.</li>
+                        <li><strong>Traslado al Futuro (Capitalización):</strong> Si una cantidad se ubica antes de la fecha focal, se multiplica por (1 + i · t).</li>
+                        <li><strong>Traslado al Presente (Actualización):</strong> Si una cantidad se ubica después de la fecha focal, se divide entre (1 + i · t).</li>
+                    </ul>
+                    <img src="${imgGraficaEv}" alt="Gráfica de Ecuaciones de Valor" class="imagen-teoria-modal" onclick="abrirLightbox(this.src)" onerror="this.style.display='none'">
+                `,
+                'dt': `
+                    <h3>Diagramas de Tiempo</h3>
+                    <p>El <strong>diagrama de tiempo</strong> (o diagrama de flujo de caja) es una representación gráfica en una recta horizontal dividida en periodos iguales que muestra la magnitud, dirección y momento exacto en que ocurren los ingresos y egresos de dinero.</p>
+                    <div class="caja-formula-teoria">Eje Horizontal: Periodos (0, 1, 2, ..., n)   |   Flechas: Ingresos / Egresos</div>
+                    <h4>Elementos del Diagrama:</h4>
+                    <ul>
+                        <li><strong>Escala Temporal:</strong> Segmentación uniforme en días, meses, trimestres o años según la operación.</li>
+                        <li><strong>Flujos Positivos (Entradas / Ingresos):</strong> Ingresos de efectivo o beneficios recibidos en un momento dado.</li>
+                        <li><strong>Flujos Negativos (Salidas / Egresos):</strong> Inversiones iniciales, desembolsos o pagos de cuotas.</li>
+                        <li><strong>Claridad Analítica:</strong> Evita errores al identificar plazos restantes, tasas equivalentes y fechas focales.</li>
+                    </ul>
+                    <img src="${imgDiagramaTiempo}" alt="Diagrama de Tiempo Financiero" class="imagen-teoria-modal" onclick="abrirLightbox(this.src)" onerror="this.style.display='none'">
+                `,
                 'ae': `
                     <h3>Anualidades Eventuales o Contingentes</h3>
                     <p><strong>¿Qué es una Anualidad Eventual?</strong> Es aquella en la cual <strong>no se conoce al menos una de las fechas extremas del plazo</strong> (inicio o término exacto).</p>
@@ -2489,11 +2542,7 @@
                         <li><strong>Gradiente Aritmético:</strong> Incremento o decremento constante en dólares ($G) en cada periodo.</li>
                         <li><strong>Gradiente Geométrico:</strong> Incremento o decremento porcentual constante (%g) en cada periodo.</li>
                     </ul>
-                `,
-                'is': `<h3>Interés Simple y Compuesto</h3><p>Estudio detallado de la acumulación del dinero, tasas nominales y rendimiento financiero.</p>`,
-                'ds': `<h3>Descuento y Títulos Valores</h3><p>Análisis de letras de cambio, pagarés y descuento comercial bancario.</p>`,
-                'ev': `<h3>Ecuaciones de Valor</h3><p>Sustitución de obligaciones contractuales y acuerdos de tasa con fecha focal.</p>`,
-                'dt': `<h3>Diagramas de Tiempo</h3><p>Representación gráfica de flujos de efectivo y líneas de tiempo financieras.</p>`
+                `
             };
 
             cuerpo.innerHTML = contenidos[clave] || '<p>Contenido en desarrollo.</p>';
