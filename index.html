@@ -460,10 +460,11 @@
             border-radius: 10px;
             text-align: center;
             font-family: 'Courier New', Courier, monospace;
-            font-size: 20px;
+            font-size: 18px;
             color: var(--green-money);
             font-weight: bold;
             margin: 15px 0;
+            word-break: break-word;
         }
 
         .badge-dolar-container {
@@ -834,7 +835,7 @@
 
         .formula-matematica-grande {
             font-family: 'Courier New', Courier, monospace;
-            font-size: 21px;
+            font-size: 20px;
             font-weight: 800;
             color: var(--green-money);
             background: rgba(46, 204, 113, 0.08);
@@ -842,6 +843,7 @@
             padding: 20px;
             border-radius: 10px;
             width: 100%;
+            word-break: break-word;
         }
 
         .caja-concepto-lado { padding: 10px; }
@@ -1095,7 +1097,7 @@
             </div>
         </header>
 
-        <!-- VISTA EXCLUSIVA UNIDAD 1 -->
+        <!-- VISTA EXCLUSIVA UNIDAD 1 (INTACTA) -->
         <div id="bloque-simulador-u1">
             <div class="workspace-grid">
                 <div class="panel-modulo">
@@ -1207,19 +1209,20 @@
             </div>
         </div>
 
-        <!-- VISTA EXCLUSIVA UNIDAD 2 -->
+        <!-- VISTA EXCLUSIVA UNIDAD 2 (MEJORADA PARA TIPOS DE ANUALIDADES Y GRADIENTES) -->
         <div id="bloque-simulador-u2" class="oculto">
             <div class="workspace-grid">
                 <div class="panel-modulo">
                     <h3>Consola de Variables • Anualidades y Gradientes</h3>
                     <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 14px;">
-                        Selecciona el modelo financiero para calcular los factores y resultados paso a paso:
+                        Selecciona el tipo de anualidad o gradiente para calcular factores y resultados paso a paso:
                     </p>
 
                     <div class="selector-regimen-bar">
-                        <button class="btn-regimen activo" id="reg-ordinaria" onclick="cambiarRegimenU2('anualidad-ordinaria')">Anualidad Ordinaria</button>
-                        <button class="btn-regimen" id="reg-anticipada" onclick="cambiarRegimenU2('anualidad-anticipada')">Anualidad Anticipada</button>
-                        <button class="btn-regimen" id="reg-eventual" onclick="cambiarRegimenU2('anualidad-eventual')">Anualidad Eventual</button>
+                        <button class="btn-regimen activo" id="reg-ordinaria" onclick="cambiarRegimenU2('anualidad-ordinaria')">Ordinaria / Vencida</button>
+                        <button class="btn-regimen" id="reg-anticipada" onclick="cambiarRegimenU2('anualidad-anticipada')">Anticipada</button>
+                        <button class="btn-regimen" id="reg-eventual" onclick="cambiarRegimenU2('anualidad-eventual')">Eventual</button>
+                        <button class="btn-regimen" id="reg-diferida" onclick="cambiarRegimenU2('diferida-perpetua')">Diferida / Perpetua</button>
                         <button class="btn-regimen" id="reg-gradiente" onclick="cambiarRegimenU2('gradiente')">Gradientes</button>
                     </div>
 
@@ -1252,6 +1255,7 @@
                         </div>
                     </div>
 
+                    <!-- CAMPOS ADICIONALES PARA EVENTUAL / ACTUARIAL -->
                     <div class="inputs-dos-columnas oculto" id="u2-extra-eventual">
                         <div class="control-grupo">
                             <label for="u2-probabilidad">Probabilidad Supervivencia (% Px):</label>
@@ -1267,16 +1271,34 @@
                         </div>
                     </div>
 
+                    <!-- CAMPOS ADICIONALES PARA DIFERIDA / PERPETUIDAD -->
+                    <div class="inputs-dos-columnas oculto" id="u2-extra-diferida">
+                        <div class="control-grupo">
+                            <label for="u2-gracia">Periodos de Gracia (k):</label>
+                            <input type="number" id="u2-gracia" value="3" min="0" step="1" oninput="ejecutarMotorU2()">
+                        </div>
+                        <div class="control-grupo">
+                            <label for="u2-modalidad-dp">Modalidad:</label>
+                            <select id="u2-modalidad-dp" onchange="ejecutarMotorU2()">
+                                <option value="diferida" selected>Anualidad Diferida (plazo np)</option>
+                                <option value="perpetua">Perpetuidad (horizonte infinito)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- CAMPOS ADICIONALES PARA GRADIENTES -->
                     <div class="inputs-dos-columnas oculto" id="u2-extra-gradiente">
                         <div class="control-grupo">
                             <label for="u2-gradiente">Gradiente ($ G o % g):</label>
                             <input type="number" id="u2-gradiente" value="100" step="any" oninput="ejecutarMotorU2()">
                         </div>
                         <div class="control-grupo">
-                            <label for="u2-tipo-gradiente">Tipo de Variación:</label>
+                            <label for="u2-tipo-gradiente">Tipo de Gradiente:</label>
                             <select id="u2-tipo-gradiente" onchange="ejecutarMotorU2()">
-                                <option value="aritmetico">Gradiente Aritmético Lineal ($ G)</option>
-                                <option value="geometrico">Gradiente Geométrico (% g)</option>
+                                <option value="aritmetico-creciente">Aritmético Creciente (+$G)</option>
+                                <option value="aritmetico-decreciente">Aritmético Decreciente (-$G)</option>
+                                <option value="geometrico-creciente">Geométrico Creciente (+%g)</option>
+                                <option value="geometrico-decreciente">Geométrico Decreciente (-%g)</option>
                             </select>
                         </div>
                     </div>
@@ -1394,7 +1416,7 @@
             </div>
         </header>
 
-        <!-- BLOQUE TEORÍA + HISTORIAL UNIDAD 1 -->
+        <!-- BLOQUE TEORÍA + HISTORIAL UNIDAD 1 (INTACTO) -->
         <div id="bloque-teoria-u1">
             <div class="panel-modulo">
                 <h3>Módulos Temáticos: Interés y Valor del Dinero</h3>
@@ -1429,7 +1451,6 @@
                 </div>
             </div>
 
-            <!-- HISTORIAL DE SIMULACIONES GUARDADAS (UNIDAD 1) -->
             <div class="panel-modulo">
                 <h3>Historial de Simulaciones Guardadas</h3>
                 <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 15px;">
@@ -1496,7 +1517,6 @@
                 </div>
             </div>
 
-            <!-- BASE DE REGISTRO FINANCIERO + EXCEL (UNIDAD 2) -->
             <div class="panel-modulo">
                 <h3>Base de Registro Financiero</h3>
                 <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 15px;">
@@ -1565,7 +1585,7 @@
             </div>
         </header>
 
-        <!-- FÓRMULAS EXCLUSIVAS UNIDAD 1 (27 IMÁGENES CONECTADAS A GITHUB) -->
+        <!-- FÓRMULAS EXCLUSIVAS UNIDAD 1 (27 IMÁGENES CONECTADAS A GITHUB - INTACTAS) -->
         <div id="bloque-formulas-u1" class="panel-modulo">
             <h3>Seleccione una Fórmula para ver la Imagen y su Concepto (27 Opciones)</h3>
             <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 15px;">
@@ -1616,14 +1636,14 @@
                     <span>Tratamiento Actuarial</span>
                 </div>
 
-                <div class="tarjeta-formula-item" onclick="cargarFormulaEcuacion('M = C × (1 + i/p)^(np)', 'Traslado de Capital / Interés Compuesto', 'Permite trasladar capitales o montos en el tiempo cuando se requiere evaluar anualidades diferidas o eventuales.', 'anualidad-ordinaria')">
-                    <h5>Traslado de Capital (M)</h5>
-                    <span>Capitalización Compuesta</span>
+                <div class="tarjeta-formula-item" onclick="cargarFormulaEcuacion('VP_dif = R × a_(n|i_p) × (1 + i_p)^(-k)  |  VP_inf = R / i_p', 'Anualidades Diferidas y Perpetuidades', 'Evalúa series con periodo de gracia inicial (k) o pagos periódicos a perpetuidad.', 'diferida-perpetua')">
+                    <h5>Diferidas y Perpetuidades</h5>
+                    <span>Gracia (k) / Horizonte Infinito</span>
                 </div>
 
-                <div class="tarjeta-formula-item" onclick="cargarFormulaEcuacion('VP_G = R·a_(n|i) + (G / i)·[a_(n|i) - n(1 + i)^(-n)]', 'Gradiente Aritmético Lineal (Valor Presente)', 'Evalúa series de pagos periódicos que aumentan o disminuyen en una cantidad monetaria constante (G) cada periodo.', 'gradiente')">
-                    <h5>Gradiente Aritmético Lineal</h5>
-                    <span>Variación Constante</span>
+                <div class="tarjeta-formula-item" onclick="cargarFormulaEcuacion('VP_G = R·a_(n|i) ± (G / i)·[a_(n|i) - n(1 + i)^(-n)]', 'Gradientes Aritméticos y Geométricos', 'Evalúa series de pagos que aumentan o disminuyen de forma lineal ($G) o porcentual (%g) cada periodo.', 'gradiente')">
+                    <h5>Gradientes Aritméticos y Geométricos</h5>
+                    <span>Crecientes y Decrecientes</span>
                 </div>
             </div>
 
@@ -1732,7 +1752,7 @@
     </footer>
 
     <script>
-        // RUTAS REALES DE REPOSITORIOS EN GITHUB
+        // RUTAS REALES DE REPOSITORIOS EN GITHUB (UNIDAD 1 INTACTA)
         const BASE_URL_FORMULAS_U1 = 'https://raw.githubusercontent.com/hellsing14cruet-commits/formulaimagenes/main/';
         const BASE_URL_TEORIA_U1 = 'https://raw.githubusercontent.com/hellsing14cruet-commits/Intrumetos-web/main/';
 
@@ -1859,7 +1879,7 @@
             }
         }
 
-        // MOTOR Y TABLA UNIDAD 1
+        // MOTOR Y TABLA UNIDAD 1 (INTACTOS)
         function ejecutarMotorCalculo() {
             const C = parseFloat(document.getElementById('val-capital').value) || 0;
             const i = (parseFloat(document.getElementById('val-tasa').value) || 0) / 100;
@@ -1956,16 +1976,20 @@
                 'anualidad-ordinaria': 'reg-ordinaria',
                 'anualidad-anticipada': 'reg-anticipada',
                 'anualidad-eventual': 'reg-eventual',
+                'diferida-perpetua': 'reg-diferida',
                 'gradiente': 'reg-gradiente'
             };
             const btn = document.getElementById(mapa[nuevoRegimen]);
             if (btn) btn.classList.add('activo');
 
             document.getElementById('u2-extra-eventual').classList.add('oculto');
+            document.getElementById('u2-extra-diferida').classList.add('oculto');
             document.getElementById('u2-extra-gradiente').classList.add('oculto');
 
             if (nuevoRegimen === 'anualidad-eventual') {
                 document.getElementById('u2-extra-eventual').classList.remove('oculto');
+            } else if (nuevoRegimen === 'diferida-perpetua') {
+                document.getElementById('u2-extra-diferida').classList.remove('oculto');
             } else if (nuevoRegimen === 'gradiente') {
                 document.getElementById('u2-extra-gradiente').classList.remove('oculto');
             }
@@ -2145,46 +2169,174 @@
                     principal: 'VA Act: $' + vpActuarial.toFixed(2)
                 };
 
+            } else if (regimenU2Actual === 'diferida-perpetua') {
+                const kGracia = parseFloat(document.getElementById('u2-gracia').value) || 0;
+                const modDP = document.getElementById('u2-modalidad-dp').value;
+
+                if (modDP === 'diferida') {
+                    const factorBase = i_p > 0 ? (1 - Math.pow(1 + i_p, -np)) / i_p : np;
+                    const factorGracia = Math.pow(1 + i_p, -kGracia);
+                    const vpDif = R * factorBase * factorGracia;
+                    const totalPagado = np * R;
+                    const interesesTotales = totalPagado - vpDif;
+
+                    desc.textContent = 'Valor Presente de Anualidad Diferida con periodo de gracia (k):';
+                    visor.textContent = 'VP_dif = R × [1 - (1 + i/p)^(-np)] / (i/p) × (1 + i/p)^(-k)';
+
+                    p1Lbl.textContent = '1. Tasa por periodo (i / p):';
+                    p1Val.textContent = (i_p * 100).toFixed(4) + '%';
+                    p2Lbl.textContent = '2. Factor Anualidad (np):';
+                    p2Val.textContent = factorBase.toFixed(6);
+                    p3Lbl.textContent = `3. Factor Gracia (1 + i/p)^(-${kGracia}):`;
+                    p3Val.textContent = factorGracia.toFixed(6);
+                    p4Lbl.textContent = '4. Factor Diferido Total:';
+                    p4Val.textContent = (factorBase * factorGracia).toFixed(6);
+
+                    lblTotalBase.textContent = 'Total Pagado (np × R):';
+                    lblIntereses.textContent = 'Intereses Totales:';
+                    lblPrincipal.textContent = 'Valor Presente Diferido (VP):';
+
+                    outTotalBase.textContent = '$' + totalPagado.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+                    outIntereses.textContent = '$' + interesesTotales.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+                    outPrincipal.textContent = '$' + vpDif.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+                    titBase.textContent = `Anualidad Diferida (${kGracia} periodos de gracia):`;
+                    txtBase.textContent = 'El primer pago se realiza tras un periodo de gracia inicial; los flujos se actualizan primero al inicio de la serie y luego al momento 0.';
+
+                    let saldo = vpDif;
+                    const totalPeriodos = Math.min(kGracia + np, 240);
+                    for (let t = 1; t <= totalPeriodos; t++) {
+                        const intT = saldo * i_p;
+                        const flujoT = t > kGracia ? R : 0;
+                        saldo = Math.max(0, saldo + intT - flujoT);
+                        ultimoCronogramaU2.push({ periodo: t, flujo: flujoT, interes: intT, saldo: saldo });
+                    }
+
+                    ultimoCalculoU2 = {
+                        regimen: `Diferida (k=${kGracia})`,
+                        renta: R,
+                        tasa: (i_anual * 100).toFixed(2) + '%',
+                        plazo: `${np} pagos, k=${kGracia}`,
+                        secundario: 'Int: $' + interesesTotales.toFixed(2),
+                        principal: 'VP = $' + vpDif.toFixed(2)
+                    };
+                } else {
+                    const vpPerp = i_p > 0 ? R / i_p : 0;
+
+                    desc.textContent = 'Valor Presente de Perpetuidad (serie indefinida / n → ∞):';
+                    visor.textContent = 'VP_inf = R / (i / p)';
+
+                    p1Lbl.textContent = '1. Tasa por periodo (i / p):';
+                    p1Val.textContent = (i_p * 100).toFixed(4) + '%';
+                    p2Lbl.textContent = '2. Renta Periódica (R):';
+                    p2Val.textContent = '$' + R.toFixed(2);
+                    p3Lbl.textContent = '3. Horizonte Temporal:';
+                    p3Val.textContent = 'Indefinido (∞)';
+                    p4Lbl.textContent = '4. Factor Perpetuidad (1 / i_p):';
+                    p4Val.textContent = i_p > 0 ? (1 / i_p).toFixed(4) : '0.0000';
+
+                    lblTotalBase.textContent = 'Renta Constante por Periodo:';
+                    lblIntereses.textContent = 'Tasa Efectiva del Periodo:';
+                    lblPrincipal.textContent = 'Valor Presente a Perpetuidad (VP):';
+
+                    outTotalBase.textContent = '$' + R.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+                    outIntereses.textContent = (i_p * 100).toFixed(4) + '%';
+                    outPrincipal.textContent = '$' + vpPerp.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+                    titBase.textContent = 'Perpetuidad Financiera:';
+                    txtBase.textContent = 'Renta periódica constante proyectada indefinidamente; su valor presente equivale al capital que genera esa renta como interés en cada periodo.';
+
+                    for (let t = 1; t <= 24; t++) {
+                        ultimoCronogramaU2.push({ periodo: t, flujo: R, interes: vpPerp * i_p, saldo: vpPerp });
+                    }
+
+                    ultimoCalculoU2 = {
+                        regimen: 'Perpetuidad (∞)',
+                        renta: R,
+                        tasa: (i_anual * 100).toFixed(2) + '%',
+                        plazo: `Infinito (p=${p})`,
+                        secundario: 'i_p: ' + (i_p * 100).toFixed(2) + '%',
+                        principal: 'VP = $' + vpPerp.toFixed(2)
+                    };
+                }
+
             } else if (regimenU2Actual === 'gradiente') {
-                const G = parseFloat(document.getElementById('u2-gradiente').value) || 0;
+                const magG = parseFloat(document.getElementById('u2-gradiente').value) || 0;
                 const tipoG = document.getElementById('u2-tipo-gradiente').value;
+
                 let vpTotal = 0;
                 let montoTotal = 0;
+                let factorGradiente = 0;
 
-                if (tipoG === 'aritmetico') {
-                    visor.textContent = 'VP = R·a_(n|i) + (G/i)·[a_(n|i) - n(1+i)^(-n)]';
-                    for (let k = 1; k <= np; k++) {
+                if (tipoG === 'aritmetico-creciente' || tipoG === 'aritmetico-decreciente') {
+                    const signo = tipoG === 'aritmetico-creciente' ? 1 : -1;
+                    const G = signo * Math.abs(magG);
+                    const a_ni = i_p > 0 ? (1 - Math.pow(1 + i_p, -np)) / i_p : np;
+                    const potNeg = Math.pow(1 + i_p, -np);
+                    factorGradiente = i_p > 0 ? (a_ni - np * potNeg) / i_p : 0;
+
+                    vpTotal = R * a_ni + G * factorGradiente;
+                    montoTotal = vpTotal * Math.pow(1 + i_p, np);
+
+                    desc.textContent = signo > 0
+                        ? 'Gradiente Aritmético Creciente (+$G por periodo):'
+                        : 'Gradiente Aritmético Decreciente (-$G por periodo):';
+                    visor.textContent = signo > 0
+                        ? 'VP = R·a_(n|i) + (G/i)·[a_(n|i) - n(1+i)^(-n)]'
+                        : 'VP = R·a_(n|i) - (G/i)·[a_(n|i) - n(1+i)^(-n)]';
+
+                    p1Lbl.textContent = '1. Factor Anualidad a_(n|i):';
+                    p1Val.textContent = a_ni.toFixed(6);
+                    p2Lbl.textContent = '2. Factor Gradiente Aritmético:';
+                    p2Val.textContent = factorGradiente.toFixed(6);
+                    p3Lbl.textContent = '3. Cuota Periodo 1 (R1):';
+                    p3Val.textContent = '$' + R.toFixed(2);
+                    p4Lbl.textContent = `4. Cuota Periodo ${np} (Rn):`;
+                    p4Val.textContent = '$' + (R + (np - 1) * G).toFixed(2);
+
+                    for (let k = 1; k <= Math.min(np, 240); k++) {
                         const cuotaK = R + (k - 1) * G;
-                        vpTotal += cuotaK / Math.pow(1 + i_p, k);
-                        montoTotal += cuotaK * Math.pow(1 + i_p, np - k);
-                        if (k <= 240) {
-                            ultimoCronogramaU2.push({ periodo: k, flujo: cuotaK, interes: cuotaK * i_p, saldo: montoTotal });
-                        }
+                        const vpK = cuotaK / Math.pow(1 + i_p, k);
+                        const mfK = cuotaK * Math.pow(1 + i_p, np - k);
+                        ultimoCronogramaU2.push({ periodo: k, flujo: cuotaK, interes: cuotaK - vpK, saldo: mfK });
                     }
                 } else {
-                    const gPorc = G / 100;
+                    const signo = tipoG === 'geometrico-creciente' ? 1 : -1;
+                    const g = signo * (Math.abs(magG) / 100);
+
+                    if (Math.abs(i_p - g) > 1e-9) {
+                        const razon = (1 + g) / (1 + i_p);
+                        factorGradiente = (1 - Math.pow(razon, np)) / (i_p - g);
+                        vpTotal = R * factorGradiente;
+                    } else {
+                        factorGradiente = np / (1 + i_p);
+                        vpTotal = R * factorGradiente;
+                    }
+                    montoTotal = vpTotal * Math.pow(1 + i_p, np);
+
+                    desc.textContent = signo > 0
+                        ? 'Gradiente Geométrico Creciente (+%g por periodo):'
+                        : 'Gradiente Geométrico Decreciente (-%g por periodo):';
                     visor.textContent = 'VP = R × [1 - ((1 + g)/(1 + i))^n] / (i - g)';
-                    for (let k = 1; k <= np; k++) {
-                        const cuotaK = R * Math.pow(1 + gPorc, k - 1);
-                        vpTotal += cuotaK / Math.pow(1 + i_p, k);
-                        montoTotal += cuotaK * Math.pow(1 + i_p, np - k);
-                        if (k <= 240) {
-                            ultimoCronogramaU2.push({ periodo: k, flujo: cuotaK, interes: cuotaK * i_p, saldo: montoTotal });
-                        }
+
+                    p1Lbl.textContent = '1. Tasa por periodo (i / p):';
+                    p1Val.textContent = (i_p * 100).toFixed(4) + '%';
+                    p2Lbl.textContent = '2. Variación geométrica (g):';
+                    p2Val.textContent = (g * 100).toFixed(2) + '%';
+                    p3Lbl.textContent = '3. Factor Gradiente Geométrico:';
+                    p3Val.textContent = factorGradiente.toFixed(6);
+                    p4Lbl.textContent = `4. Cuota Periodo ${np} (Rn):`;
+                    p4Val.textContent = '$' + (R * Math.pow(1 + g, Math.max(0, np - 1))).toFixed(2);
+
+                    for (let k = 1; k <= Math.min(np, 240); k++) {
+                        const cuotaK = R * Math.pow(1 + g, k - 1);
+                        const vpK = cuotaK / Math.pow(1 + i_p, k);
+                        const mfK = cuotaK * Math.pow(1 + i_p, np - k);
+                        ultimoCronogramaU2.push({ periodo: k, flujo: cuotaK, interes: cuotaK - vpK, saldo: mfK });
                     }
                 }
 
                 const ultimaCuota = ultimoCronogramaU2.length > 0 ? ultimoCronogramaU2[ultimoCronogramaU2.length - 1].flujo : R;
-
-                desc.textContent = 'Evaluación de Series de Pagos con Gradiente:';
-                p1Lbl.textContent = '1. Tasa por periodo (i / p):';
-                p1Val.textContent = (i_p * 100).toFixed(4) + '%';
-                p2Lbl.textContent = '2. Primera Cuota Base (R1):';
-                p2Val.textContent = '$' + R.toFixed(2);
-                p3Lbl.textContent = '3. Última Cuota Proyectada (Rn):';
-                p3Val.textContent = '$' + ultimaCuota.toFixed(2);
-                p4Lbl.textContent = '4. Factor Equivalente (VP / R1):';
-                p4Val.textContent = R > 0 ? (vpTotal / R).toFixed(6) : '0.000000';
 
                 lblTotalBase.textContent = 'Última Cuota Proyectada (Rn):';
                 lblIntereses.textContent = 'Monto Futuro Acumulado (M):';
@@ -2195,7 +2347,7 @@
                 outPrincipal.textContent = '$' + vpTotal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
                 titBase.textContent = 'Gradientes Periódicos:';
-                txtBase.textContent = 'Permite modelar series de pagos que aumentan o disminuyen uniformemente cada periodo en proyectos de inversión y financiamiento.';
+                txtBase.textContent = 'Modela series de flujos que crecen o decrecen en cada periodo de forma lineal ($G) o porcentual (%g).';
 
                 ultimoCalculoU2 = {
                     regimen: `Gradiente (${tipoG})`,
@@ -2304,8 +2456,8 @@
                 const datosCronograma = ultimoCronogramaU2.map(fila => ({
                     'Periodo (k)': fila.periodo,
                     'Cuota / Flujo ($)': Number(fila.flujo.toFixed(2)),
-                    'Interés del Periodo ($)': Number(fila.interes.toFixed(2)),
-                    'Saldo ($)': Number(fila.saldo.toFixed(2))
+                    'Interés / Descuento ($)': Number(fila.interes.toFixed(2)),
+                    'Saldo / Acumulado ($)': Number(fila.saldo.toFixed(2))
                 }));
                 const wsCronograma = XLSX.utils.json_to_sheet(datosCronograma);
                 XLSX.utils.book_append_sheet(wb, wsCronograma, 'Cronograma_Flujos');
@@ -2377,8 +2529,8 @@
                             <tr>
                                 <th>Periodo</th>
                                 <th>Cuota / Flujo ($)</th>
-                                <th>Interés Periodo ($)</th>
-                                <th>Saldo ($)</th>
+                                <th>Interés / Ajuste ($)</th>
+                                <th>Saldo / Acumulado ($)</th>
                             </tr>
                         </thead>
                         <tbody>${filasHTML}</tbody>
@@ -2391,15 +2543,15 @@
         function abrirModalComparativo() {
             const cuerpo = document.getElementById('modal-cuerpo-dinamico');
             cuerpo.innerHTML = `
-                <h3>Cuadro Comparativo entre Tipos de Anualidades</h3>
+                <h3>Cuadro Comparativo entre Tipos de Anualidades y Gradientes</h3>
                 <p>Clasificación comparativa de series de pagos periódicos en Ingeniería Económica:</p>
                 <div class="tabla-amortizacion-container">
                     <table class="tabla-amortizacion">
                         <thead>
                             <tr>
-                                <th>Tipo de Anualidad</th>
-                                <th>Momento del Pago</th>
-                                <th>Conocimiento del Plazo</th>
+                                <th>Tipo de Serie</th>
+                                <th>Momento / Variación</th>
+                                <th>Plazo / Condición</th>
                                 <th>Ejemplo de Aplicación Real</th>
                             </tr>
                         </thead>
@@ -2433,6 +2585,12 @@
                                 <td>Periódico indefinido</td>
                                 <td>Infinito (n → ∞)</td>
                                 <td>Becas universitarias permanentes, mantenimiento de obras públicas.</td>
+                            </tr>
+                            <tr>
+                                <td><strong style="color: var(--green-money);">Gradiente Aritmético / Geométrico</strong></td>
+                                <td>Variación ±$G o ±%g por periodo</td>
+                                <td>Cierto o proyectado</td>
+                                <td>Cuotas escalonadas o flujos de operación con ajuste periódico.</td>
                             </tr>
                         </tbody>
                     </table>
@@ -2539,8 +2697,8 @@
                     <h3>Gradientes Aritméticos y Geométricos</h3>
                     <p>Series de pagos periódicos que implican incrementos o decrementos graduales en los flujos:</p>
                     <ul>
-                        <li><strong>Gradiente Aritmético:</strong> Incremento o decremento constante en dólares ($G) en cada periodo.</li>
-                        <li><strong>Gradiente Geométrico:</strong> Incremento o decremento porcentual constante (%g) en cada periodo.</li>
+                        <li><strong>Gradiente Aritmético (Creciente o Decreciente):</strong> Incremento o decremento constante en dólares ($G) en cada periodo.</li>
+                        <li><strong>Gradiente Geométrico (Creciente o Decreciente):</strong> Incremento o decremento porcentual constante (%g) en cada periodo.</li>
                     </ul>
                 `
             };
