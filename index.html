@@ -192,6 +192,13 @@
             display: inline-block;
         }
 
+        .botones-portada-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+        }
+
         .botones-portada-group {
             display: flex;
             gap: 18px;
@@ -240,6 +247,29 @@
             transform: translateY(-4px) scale(1.02);
             background: linear-gradient(135deg, var(--gold-primary) 0%, #a68420 100%);
             color: #040907;
+        }
+
+        .btn-integrantes-inicio {
+            background: rgba(15, 32, 24, 0.9);
+            color: var(--gold-light);
+            font-size: 14px;
+            font-weight: 800;
+            padding: 13px 34px;
+            border: 1px solid var(--gold-primary);
+            border-radius: 50px;
+            cursor: pointer;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.45);
+            transition: all 0.3s ease;
+        }
+
+        .btn-integrantes-inicio:hover {
+            transform: translateY(-3px);
+            background: rgba(214, 175, 55, 0.22);
+            border-color: var(--green-money);
+            color: #ffffff;
+            box-shadow: 0 10px 25px var(--green-glow);
         }
 
         /* GRID Y PANELES */
@@ -1071,12 +1101,17 @@
         <p class="subtitulo-bienvenida">
             La Ingeniería Económica es la disciplina analítica encargada de formular, estimar y evaluar los resultados económicos cuando se dispone de alternativas limitadas para llevar a cabo un propósito determinado.
         </p>
-        <div class="botones-portada-group">
-            <button class="btn-ingresar" onclick="iniciarUnidad('u1')">
-                Unidad 1: Interés Simple →
-            </button>
-            <button class="btn-ingresar-u2" onclick="iniciarUnidad('u2')">
-                Unidad 2: Anualidades →
+        <div class="botones-portada-wrapper">
+            <div class="botones-portada-group">
+                <button class="btn-ingresar" onclick="iniciarUnidad('u1')">
+                    Unidad 1: Interés Simple →
+                </button>
+                <button class="btn-ingresar-u2" onclick="iniciarUnidad('u2')">
+                    Unidad 2: Anualidades →
+                </button>
+            </div>
+            <button class="btn-integrantes-inicio" onclick="navegarA('portada-integrantes')">
+                👥 Integrantes
             </button>
         </div>
     </section>
@@ -1093,7 +1128,6 @@
                 <button class="btn-nav activo" onclick="navegarA('portada-simulador')">Simulador</button>
                 <button class="btn-nav" onclick="navegarA('portada-teoria')">Teoría</button>
                 <button class="btn-nav" onclick="navegarA('portada-formulas')">Fórmulas</button>
-                <button class="btn-nav" onclick="navegarA('portada-integrantes')">Integrantes</button>
             </div>
         </header>
 
@@ -1209,7 +1243,7 @@
             </div>
         </div>
 
-        <!-- VISTA EXCLUSIVA UNIDAD 2 (MEJORADA PARA TIPOS DE ANUALIDADES Y GRADIENTES) -->
+        <!-- VISTA EXCLUSIVA UNIDAD 2 -->
         <div id="bloque-simulador-u2" class="oculto">
             <div class="workspace-grid">
                 <div class="panel-modulo">
@@ -1259,7 +1293,7 @@
                     <div class="inputs-dos-columnas oculto" id="u2-extra-eventual">
                         <div class="control-grupo">
                             <label for="u2-probabilidad">Probabilidad Supervivencia (% Px):</label>
-                            <input type="number" id="u2-probabilidad" value="88" min="1" max="100" step="0.5" oninput="ejecutarMotorU2()">
+                            <input type="number" id="u2-probabilidad" value="88" min="0" max="100" step="0.5" oninput="ejecutarMotorU2()">
                         </div>
                         <div class="control-grupo">
                             <label for="u2-sector-eventual">Aplicación Contingente:</label>
@@ -1412,7 +1446,6 @@
                 <button class="btn-nav" onclick="navegarA('portada-simulador')">Simulador</button>
                 <button class="btn-nav activo" onclick="navegarA('portada-teoria')">Teoría</button>
                 <button class="btn-nav" onclick="navegarA('portada-formulas')">Fórmulas</button>
-                <button class="btn-nav" onclick="navegarA('portada-integrantes')">Integrantes</button>
             </div>
         </header>
 
@@ -1581,7 +1614,6 @@
                 <button class="btn-nav" onclick="navegarA('portada-simulador')">Simulador</button>
                 <button class="btn-nav" onclick="navegarA('portada-teoria')">Teoría</button>
                 <button class="btn-nav activo" onclick="navegarA('portada-formulas')">Fórmulas</button>
-                <button class="btn-nav" onclick="navegarA('portada-integrantes')">Integrantes</button>
             </div>
         </header>
 
@@ -1678,11 +1710,7 @@
                 <p>Universidad Agraria del Ecuador • Carrera de Computación en Línea - 6S</p>
             </div>
             <div class="nav-links">
-                <button class="btn-nav" onclick="navegarA('portada-bienvenida')">Inicio</button>
-                <button class="btn-nav" onclick="navegarA('portada-simulador')">Simulador</button>
-                <button class="btn-nav" onclick="navegarA('portada-teoria')">Teoría</button>
-                <button class="btn-nav" onclick="navegarA('portada-formulas')">Fórmulas</button>
-                <button class="btn-nav activo" onclick="navegarA('portada-integrantes')">Integrantes</button>
+                <button class="btn-nav" onclick="navegarA('portada-bienvenida')">← Volver al Inicio</button>
             </div>
         </header>
 
@@ -2121,7 +2149,7 @@
                 };
 
             } else if (regimenU2Actual === 'anualidad-eventual') {
-                const px = (parseFloat(document.getElementById('u2-probabilidad').value) || 88) / 100;
+                const px = (parseFloat(document.getElementById('u2-probabilidad').value) || 0) / 100;
                 const sector = document.getElementById('u2-sector-eventual').value;
                 const potenciaNeg = Math.pow(1 + i_p, -np);
                 const factorVP = i_p > 0 ? (1 - potenciaNeg) / i_p : np;
@@ -2373,6 +2401,16 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
+        function resetearSimuladorU2ACero() {
+            document.getElementById('u2-renta').value = 0;
+            document.getElementById('u2-tasa').value = 0;
+            document.getElementById('u2-pagos').value = 0;
+            document.getElementById('u2-probabilidad').value = 0;
+            document.getElementById('u2-gracia').value = 0;
+            document.getElementById('u2-gradiente').value = 0;
+            ejecutarMotorU2();
+        }
+
         function guardarBaseRegistroU2() {
             ejecutarMotorU2();
             const nuevoRegistro = {
@@ -2383,7 +2421,8 @@
             baseRegistroU2.push(nuevoRegistro);
             localStorage.setItem('uae_base_registro_u2', JSON.stringify(baseRegistroU2));
             renderizarTablaU2();
-            alert(`✅ Operación guardada en Base de Registro Financiero (${nuevoRegistro.regimen}: ${nuevoRegistro.principal}).`);
+            resetearSimuladorU2ACero();
+            alert(`✅ Operación guardada en Base de Registro Financiero (${nuevoRegistro.regimen}: ${nuevoRegistro.principal}). El simulador se reinició en 0.`);
         }
 
         function renderizarTablaU2() {
